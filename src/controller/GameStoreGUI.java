@@ -5,7 +5,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
-import model.GameStore;
+import model.*;
 
 public class GameStoreGUI {
     @FXML

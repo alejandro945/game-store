@@ -1,6 +1,7 @@
 package routes;
 
 public enum Route {
+
     MAINPANE("screens/mainPane.fxml");
     
     private String route;
