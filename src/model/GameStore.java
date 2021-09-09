@@ -1,6 +1,7 @@
 package model;
 
 public class GameStore {
+
     private static GameStore instance;
 
     private GameStore() {

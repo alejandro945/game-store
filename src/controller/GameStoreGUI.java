@@ -9,8 +9,9 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
-import model.GameStore;
-import routes.Route;
+
+import model.*;
+import routes.*;
 
 public class GameStoreGUI {
     @FXML

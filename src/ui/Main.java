@@ -1,6 +1,6 @@
 package ui;
 
-import controller.GameStoreGUI;
+import controller.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,8 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import model.GameStore;
-import routes.Route;
+import model.*;
+import routes.*;
 
 public class Main extends Application {
 
@@ -34,6 +34,6 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.show();
-        gameStoreGUI.renderScreen(Route.LOGIN);
+        //gameStoreGUI.renderScreen(Route.LOGIN);
     }
 }
