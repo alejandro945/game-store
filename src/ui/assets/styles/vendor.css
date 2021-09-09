@@ -6,3 +6,23 @@
     -fx-background-color: linear-gradient(to left,#c4e2ff ,#1307a0);
     -fx-background-radius: 20 0 0 20;
 }
+.right-pane{
+    -fx-background-color: linear-gradient(to left,rgb(17, 0, 255) ,#a1b8f8);
+    -fx-background-radius: 0 20 20 0;
+}
+.btn-flash{
+    -fx-background-color : #fff ;
+    -fx-background-radius: 5;
+    -fx-font-family: "Courier";
+    -fx-effect: dropshadow( gaussian, rgba(235, 235, 235, 0.4), 20, 0.8, 0.0, 0.0 );
+    -fx-font-style: italic;
+    -fx-font-size: 14px;
+}
+.btn-login{
+    -fx-background-color : rgb(45, 0, 207) ;
+    -fx-background-radius: 5;
+    -fx-font-family: "Courier";
+    -fx-effect: dropshadow( gaussian, rgba(235, 235, 235, 0.4), 20, 0.8, 0.0, 0.0 );
+    -fx-font-style: italic;
+    -fx-font-size: 20px;
+}
