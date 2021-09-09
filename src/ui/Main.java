@@ -12,12 +12,12 @@ import model.*;
 import routes.*;
 
 public class Main extends Application {
-    private GameStore gameStore;
+
     private GameStoreGUI gameStoreGUI;
 
     public Main() {
-        gameStore = new GameStore();
-        gameStoreGUI = new GameStoreGUI(gameStore);
+        gameStoreGUI = GameStoreGUI.getInstance();
+        gameStoreGUI.setGameStore(GameStore.getInstance());
     }
 
     public static void main(String[] args) {
@@ -34,5 +34,6 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.show();
+        gameStoreGUI.renderScreen(Route.LOGIN);
     }
 }

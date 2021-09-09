@@ -2,3 +2,7 @@
     -fx-background-color: white;
     -fx-background-radius: 20 20 20 20;
 }
+.left-pane{
+    -fx-background-color: linear-gradient(to left,#c4e2ff ,#1307a0);
+    -fx-background-radius: 20 0 0 20;
+}
