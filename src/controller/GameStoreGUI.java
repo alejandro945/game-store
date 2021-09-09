@@ -1,11 +1,16 @@
 package controller;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
 import model.GameStore;
+import routes.Route;
 
 public class GameStoreGUI {
     @FXML
@@ -17,9 +22,24 @@ public class GameStoreGUI {
     @FXML
     private Circle btnMinimize;
 
+    private static GameStoreGUI instance;
     private GameStore gameStore;
 
-    public GameStoreGUI(GameStore gameStore) {
+    private GameStoreGUI() {
+    }
+
+    public static GameStoreGUI getInstance() {
+        if (instance == null) {
+            instance = new GameStoreGUI();
+        }
+        return instance;
+    }
+
+    public GameStore getGameStore(){
+        return gameStore;
+    }
+
+    public void setGameStore(GameStore gameStore){
         this.gameStore = gameStore;
     }
 
@@ -34,6 +54,13 @@ public class GameStoreGUI {
 
     public Stage getWindow() {
         return (Stage) mainPane.getScene().getWindow();
+    }
+
+    public void renderScreen(Route route) throws IOException, InterruptedException {
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource(route.getRoute()));
+     //   fxmlloader.setController(setController(route));
+        Parent root = fxmlloader.load();
+        mainPane.getChildren().setAll(root);
     }
 
 }
