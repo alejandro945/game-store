@@ -34,6 +34,6 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.show();
-        gameStoreGUI.renderScreen(Route.LOGIN);
+        //gameStoreGUI.renderScreen(Route.LOGIN);
     }
 }
