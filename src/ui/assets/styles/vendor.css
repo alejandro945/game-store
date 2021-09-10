@@ -36,7 +36,7 @@
     -fx-font-size: 20px;
 }
 .btn-create{
-    -fx-background-color : rgb(41, 207, 0) ;
+    -fx-background-color : rgba(41, 207, 0, 0.555) ;
     -fx-background-radius: 5;
     -fx-font-family: "Courier";
     -fx-effect: dropshadow( gaussian, rgba(235, 235, 235, 0.4), 20, 0.8, 0.0, 0.0 );

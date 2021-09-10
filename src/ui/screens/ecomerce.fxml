@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" styleClass="main-pane" stylesheets="@../assets/styles/vendor.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="700.0" prefWidth="900.0">
@@ -36,17 +35,17 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Label layoutX="391.0" layoutY="14.0" text="E - COMERCE" textFill="#2a35eb">
+            <Label layoutX="334.0" layoutY="14.0" text="E - COMERCE" textFill="#2a35eb">
                <font>
-                  <Font name="System Italic" size="31.0" />
+                  <Font name="Courier New Bold" size="35.0" />
                </font>
             </Label>
-            <Label layoutX="343.0" layoutY="50.0" text="The best games at your disposal" textFill="#2a35eb">
+            <Label layoutX="310.0" layoutY="52.0" text="The best games at your disposal" textFill="#2a35eb">
                <font>
                   <Font name="Courier New" size="15.0" />
                </font>
             </Label>
-            <JFXButton layoutX="564.0" layoutY="93.0" styleClass="btn-login" stylesheets="@../assets/styles/vendor.css" text="Start wish list" textFill="WHITE" />
+            <JFXButton buttonType="RAISED" layoutX="557.0" layoutY="98.0" prefHeight="62.0" prefWidth="144.0" styleClass="btn-login" stylesheets="@../assets/styles/vendor.css" text="Start wish list" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
             <Pane layoutX="564.0" layoutY="181.0" prefHeight="484.0" prefWidth="281.0" stylesheets="@../assets/styles/vendor.css">
                <styleClass>
                   <String fx:value="main-pane" />
@@ -55,26 +54,44 @@
                <children>
                   <JFXButton layoutX="95.0" layoutY="398.0" ripplerFill="#3c3c3c" style="-fx-background-color: #2a35eb;" text="Add Game" textFill="WHITE">
                      <font>
-                        <Font name="System Italic" size="15.0" />
+                        <Font name="Courier New Bold Italic" size="15.0" />
                      </font>
                   </JFXButton>
                   <JFXButton layoutX="82.0" layoutY="439.0" style="-fx-background-color: #2a35eb;" text="Remove Game" textFill="WHITE">
                      <font>
-                        <Font name="System Italic" size="15.0" />
+                        <Font name="Courier New Bold Italic" size="15.0" />
                      </font>
                   </JFXButton>
                   <JFXButton layoutX="46.0" layoutY="348.0" styleClass="btn-flash" stylesheets="@../assets/styles/vendor.css" text="Amount" />
-                  <JFXTextField focusColor="#de55e1" layoutX="56.0" layoutY="46.0" promptText="Code" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
-                  <Label layoutX="80.0" layoutY="14.0" text="Game Information" textFill="#2a35eb" />
-                  <JFXTextField focusColor="#de55e1" layoutX="56.0" layoutY="87.0" promptText="Game" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
-                  <JFXTextField focusColor="#de55e1" layoutX="56.0" layoutY="130.0" promptText="Point" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
-                  <JFXTextField focusColor="#de55e1" layoutX="55.0" layoutY="174.0" promptText="Price" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+                  <JFXTextField alignment="CENTER" focusColor="#de55e1" layoutX="56.0" layoutY="46.0" prefHeight="24.0" prefWidth="168.0" promptText="Code" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee">
+                     <font>
+                        <Font name="Courier" size="13.0" />
+                     </font></JFXTextField>
+                  <Label layoutX="51.0" layoutY="14.0" text="Game Information" textFill="#2a35eb">
+                     <font>
+                        <Font name="Courier New Italic" size="16.0" />
+                     </font></Label>
+                  <JFXTextField alignment="CENTER" focusColor="#de55e1" layoutX="56.0" layoutY="87.0" prefHeight="24.0" prefWidth="160.0" promptText="Game" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee">
+                     <font>
+                        <Font name="Courier" size="13.0" />
+                     </font></JFXTextField>
+                  <JFXTextField alignment="CENTER" focusColor="#de55e1" layoutX="56.0" layoutY="130.0" prefHeight="24.0" prefWidth="168.0" promptText="Point" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee">
+                     <font>
+                        <Font name="Courier" size="13.0" />
+                     </font></JFXTextField>
+                  <JFXTextField alignment="CENTER" focusColor="#de55e1" layoutX="55.0" layoutY="174.0" prefHeight="24.0" prefWidth="160.0" promptText="Price" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee">
+                     <font>
+                        <Font name="Courier" size="13.0" />
+                     </font></JFXTextField>
                   <JFXTextField focusColor="#de55e1" layoutX="124.0" layoutY="348.0" prefHeight="31.0" prefWidth="100.0" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
-                  <Label layoutX="116.0" layoutY="221.0" text="Review" textFill="#2a35eb" />
+                  <Label layoutX="104.0" layoutY="224.0" text="Review" textFill="#2a35eb">
+                     <font>
+                        <Font name="Courier" size="17.0" />
+                     </font></Label>
                   <Label layoutX="54.0" layoutY="242.0" prefHeight="12.0" prefWidth="168.0" />
                </children>
             </Pane>
-            <JFXButton layoutX="721.0" layoutY="93.0" styleClass="btn-login" stylesheets="@../assets/styles/vendor.css" text="End wish list" textFill="WHITE" />
+            <JFXButton buttonType="RAISED" layoutX="723.0" layoutY="98.0" prefHeight="62.0" prefWidth="144.0" styleClass="btn-login" stylesheets="@../assets/styles/vendor.css" text="End wish list" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
          </children>
       </Pane>
    </children>

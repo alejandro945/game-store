@@ -11,10 +11,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -104,6 +107,18 @@ public class GameStoreGUI {
     @FXML
     public void toLogin(ActionEvent event) {
         renderScreen(Route.LOGIN);
+    }
+
+    public Stage loadModal(Route route, Object controller) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(route.getRoute()));
+        fxmlLoader.setController(controller);
+        Parent modal = fxmlLoader.load();
+        Scene scene = new Scene(modal);
+        scene.setFill(Color.TRANSPARENT);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.TRANSPARENT);
+        return stage;
     }
 
     public void createAlert(String message, Route alertType) {
