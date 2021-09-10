@@ -15,7 +15,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" styleClass="main-pane" stylesheets="@../assets/styles/vendor.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView layoutX="40.0" layoutY="309.0" prefHeight="365.0" prefWidth="409.0" stylesheets="@../assets/styles/table.css">
+      <TableView fx:id="tbGames" layoutX="40.0" layoutY="309.0" prefHeight="365.0" prefWidth="409.0" stylesheets="@../assets/styles/table.css">
         <columns>
           <TableColumn prefWidth="69.0" text="Id" />
           <TableColumn prefWidth="133.0" text="Name" />
@@ -62,7 +62,7 @@
             <Font name="Courier Bold" size="22.0" />
          </font>
       </Label>
-      <TableView layoutX="509.0" layoutY="127.0" prefHeight="246.0" prefWidth="360.0" stylesheets="@../assets/styles/table.css">
+      <TableView fx:id="tbShelves" layoutX="509.0" layoutY="127.0" prefHeight="246.0" prefWidth="360.0" stylesheets="@../assets/styles/table.css">
          <columns>
             <TableColumn prefWidth="60.0" text="Id" />
             <TableColumn prefWidth="202.0" text="Games" />
@@ -89,7 +89,7 @@
             <Font name="Courier Bold" size="22.0" />
          </font>
       </Label>
-      <TableView layoutX="509.0" layoutY="428.0" prefHeight="246.0" prefWidth="360.0" stylesheets="@../assets/styles/table.css">
+      <TableView fx:id="tbCostumers" layoutX="509.0" layoutY="428.0" prefHeight="246.0" prefWidth="360.0" stylesheets="@../assets/styles/table.css">
          <columns>
             <TableColumn prefWidth="60.0" text="Id" />
             <TableColumn prefWidth="202.0" text="Games" />
