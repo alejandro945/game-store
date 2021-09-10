@@ -13,10 +13,9 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" styleClass="main-pane" stylesheets="@../assets/styles/vendor.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView layoutX="40.0" layoutY="280.0" prefHeight="394.0" prefWidth="409.0" stylesheets="@../assets/styles/table.css">
+      <TableView layoutX="40.0" layoutY="309.0" prefHeight="365.0" prefWidth="409.0" stylesheets="@../assets/styles/table.css">
         <columns>
           <TableColumn prefWidth="69.0" text="Id" />
           <TableColumn prefWidth="133.0" text="Name" />
@@ -25,27 +24,27 @@
             <TableColumn prefWidth="139.0" text="Actions" />
         </columns>
       </TableView>
-      <ImageView fitHeight="89.0" fitWidth="186.0" layoutX="451.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="61.0" fitWidth="137.0" layoutX="176.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/images/Hire_re.png" />
          </image>
       </ImageView>
-      <Label layoutX="282.0" layoutY="26.0" text="Application State">
+      <Label layoutX="282.0" layoutY="23.0" text="Application State">
          <font>
             <Font name="Courier Bold Oblique" size="33.0" />
          </font>
       </Label>
-      <Label layoutX="201.0" layoutY="239.0" text="Games">
+      <Label layoutX="99.0" layoutY="272.0" text="Games">
          <font>
             <Font name="Courier Bold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="96.0" layoutY="111.0" text="Cashiers">
+      <Label layoutX="102.0" layoutY="165.0" text="Cashiers">
          <font>
             <Font name="Courier Bold" size="22.0" />
          </font>
       </Label>
-      <JFXTextField layoutX="96.0" layoutY="150.0" prefHeight="27.0" prefWidth="186.0" promptText="Write the # of cashiers">
+      <JFXTextField fx:id="txtCashier" layoutX="102.0" layoutY="216.0" prefHeight="27.0" prefWidth="177.0" promptText="Write the # of cashiers">
          <unFocusColor>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -58,12 +57,12 @@
             <Font name="Courier" size="11.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="627.0" layoutY="239.0" text="Shelves">
+      <Label layoutX="526.0" layoutY="86.0" text="Shelves">
          <font>
             <Font name="Courier Bold" size="22.0" />
          </font>
       </Label>
-      <TableView layoutX="493.0" layoutY="280.0" prefHeight="394.0" prefWidth="360.0" stylesheets="@../assets/styles/table.css">
+      <TableView layoutX="509.0" layoutY="127.0" prefHeight="246.0" prefWidth="360.0" stylesheets="@../assets/styles/table.css">
          <columns>
             <TableColumn prefWidth="60.0" text="Id" />
             <TableColumn prefWidth="202.0" text="Games" />
@@ -71,8 +70,8 @@
             <TableColumn prefWidth="170.0" text="Actions" />
          </columns>
       </TableView>
-      <Button fx:id="edit" layoutX="302.0" layoutY="148.0" mnemonicParsing="false" stylesheets="@../assets/styles/table.css" text="Edit" textFill="WHITE" />
-      <JFXTextField disable="true" editable="false" focusColor="#0400ff" layoutX="674.0" layoutY="136.0" prefHeight="27.0" prefWidth="162.0">
+      <Button fx:id="edit" layoutX="305.0" layoutY="214.0" mnemonicParsing="false" onAction="#editCashier" stylesheets="@../assets/styles/table.css" text="Edit" textFill="WHITE" />
+      <JFXTextField fx:id="lblCashier" disable="true" editable="false" focusColor="#0400ff" layoutX="232.0" layoutY="164.0" prefHeight="27.0" prefWidth="137.0">
          <unFocusColor>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -81,6 +80,33 @@
                </stops>
             </RadialGradient>
          </unFocusColor>
+         <font>
+            <Font name="Courier" size="14.0" />
+         </font>
       </JFXTextField>
+      <Label layoutX="630.0" layoutY="388.0" text="Costumers">
+         <font>
+            <Font name="Courier Bold" size="22.0" />
+         </font>
+      </Label>
+      <TableView layoutX="509.0" layoutY="428.0" prefHeight="246.0" prefWidth="360.0" stylesheets="@../assets/styles/table.css">
+         <columns>
+            <TableColumn prefWidth="60.0" text="Id" />
+            <TableColumn prefWidth="202.0" text="Games" />
+            <TableColumn prefWidth="92.0" text="Amount" />
+            <TableColumn prefWidth="170.0" text="Actions" />
+         </columns>
+      </TableView>
+      <Button layoutX="40.0" layoutY="23.0" mnemonicParsing="false" onAction="#goBack" styleClass="btn-flash">
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/images/Left.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="763.0" layoutY="84.0" mnemonicParsing="false" onAction="#createShelve" styleClass="btn-create" stylesheets="@../assets/styles/table.css" text="Create" textFill="WHITE" />
+      <Button layoutX="313.0" layoutY="270.0" mnemonicParsing="false" onAction="#createGame" styleClass="btn-create" stylesheets="@../assets/styles/table.css" text="Create" textFill="WHITE" />
    </children>
 </AnchorPane>
