@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" styleClass="main-pane" stylesheets="@../assets/styles/vendor.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="328.0" prefWidth="900.0" styleClass="top-pane" stylesheets="@../assets/styles/vendor.css">
+         <children>
+            <ImageView fitHeight="221.0" fitWidth="327.0" layoutX="287.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/images/select_player.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="278.0" layoutY="6.0" text="Game Store App" textFill="WHITE">
+               <font>
+                  <Font name="Courier Bold Oblique" size="41.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane layoutX="45.0" layoutY="405.0" prefHeight="230.0" prefWidth="230.0" styleClass="box">
+         <children>
+            <ImageView fitHeight="124.0" fitWidth="164.0" layoutX="34.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/images/Add_to_cart.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="41.0" layoutY="174.0" onAction="#toCommerce" styleClass="btn-welcome" text="E-Commerce">
+               <font>
+                  <Font name="Courier Bold" size="20.0" />
+               </font>
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#b500a3" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Pane layoutX="336.0" layoutY="405.0" prefHeight="230.0" prefWidth="230.0" styleClass="box">
+         <children>
+            <ImageView fitHeight="135.0" fitWidth="166.0" layoutX="44.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/images/Access_account.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="48.0" layoutY="173.0" onAction="#toLogin" prefHeight="36.0" prefWidth="135.0" styleClass="btn-welcome" text="Login">
+               <font>
+                  <Font name="Courier Bold" size="20.0" />
+               </font>
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#b500a3" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Pane layoutX="627.0" layoutY="405.0" prefHeight="230.0" prefWidth="230.0" styleClass="box">
+         <children>
+            <ImageView fitHeight="135.0" fitWidth="166.0" layoutX="32.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/images/Press_play.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="48.0" layoutY="170.0" onAction="#init" prefHeight="36.0" prefWidth="135.0" styleClass="btn-welcome" text="Start">
+               <font>
+                  <Font name="Courier Bold" size="20.0" />
+               </font>
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#b500a3" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+            </JFXButton>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

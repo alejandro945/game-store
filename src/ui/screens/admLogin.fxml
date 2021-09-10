@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" styleClass="main-pane" stylesheets="@../assets/styles/vendor.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -16,5 +22,80 @@
             </ImageView>
          </children>
       </Pane>
+      <Label layoutX="494.0" layoutY="108.0" prefHeight="90.0" prefWidth="354.0" text="Welcolme to your favorite Game Store" wrapText="true">
+         <font>
+            <Font name="Courier New Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="497.0" layoutY="198.0" text="Login with Jwt" textFill="#b2b2b2">
+         <font>
+            <Font name="Courier Oblique" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="494.0" layoutY="33.0" text="Do not have an account yet?" textFill="#b2b2b2">
+         <font>
+            <Font name="Courier Oblique" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="769.0" layoutY="27.0" ripplerFill="#9903d0" styleClass="btn-flash" text="Sign up" />
+      <Label layoutX="494.0" layoutY="270.0" text="Name or Username">
+         <font>
+            <Font name="Courier Bold" size="19.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="userName" layoutX="494.0" layoutY="303.0" prefHeight="40.0" prefWidth="354.0">
+         <unFocusColor>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#0800a1" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </unFocusColor>
+         <font>
+            <Font name="Courier" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton layoutX="691.0" layoutY="515.0" onAction="#signIn" prefHeight="40.0" prefWidth="157.0" styleClass="btn-login" text="Sign in" textFill="WHITE">
+         <ripplerFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#0800a1" />
+                  <Stop color="WHITE" offset="0.007518796992481203" />
+                  <Stop color="#781eff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </ripplerFill>
+      </JFXButton>
+      <Label layoutX="497.0" layoutY="381.0" text="Password or Token">
+         <font>
+            <Font name="Courier Bold" size="19.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="password" layoutX="494.0" layoutY="412.0" prefHeight="40.0" prefWidth="354.0">
+         <unFocusColor>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#0800a1" />
+                  <Stop color="WHITE" offset="0.007518796992481203" />
+                  <Stop color="#44069c" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </unFocusColor>
+         <font>
+            <Font name="Courier" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton layoutX="497.0" layoutY="515.0" onAction="#goBack" prefHeight="40.0" prefWidth="157.0" styleClass="btn-login" text="&lt;- Back" textFill="WHITE">
+         <ripplerFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#0800a1" />
+                  <Stop color="WHITE" offset="0.007518796992481203" />
+                  <Stop color="#781eff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </ripplerFill>
+      </JFXButton>
    </children>
 </AnchorPane>
