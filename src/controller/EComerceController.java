@@ -44,7 +44,7 @@ public class EComerceController {
 
     public void onTableGames(){
         createGameTest(); //Quitar una vez implementado correctamente
-        List<Game> games = gameM; // Llamar a la lista verdadera de la clase gameStore o entra por parametro
+        List<Game> games = gameM; // Llamar a la lista verdadera de la clase gameStore o entra por parametro, Nuevo test
         ObservableList<Game> newGameM;
         newGameM = FXCollections.observableList(games);
 
