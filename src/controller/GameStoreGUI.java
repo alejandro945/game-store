@@ -36,9 +36,11 @@ public class GameStoreGUI {
     private static GameStoreGUI instance;
     private GameStore gameStore;
     private AdminController aController;
+    private EComerceController eController;
 
     private GameStoreGUI() {
         aController = new AdminController();
+        eController = new EComerceController();
     }
 
     public static GameStoreGUI getInstance() {
@@ -84,6 +86,8 @@ public class GameStoreGUI {
         switch (route) {
             case WELCOME:
                 return this;
+            case ECOMERCE:;
+                return eController;
             case LOGIN:
             return aController;
             default:
@@ -98,7 +102,8 @@ public class GameStoreGUI {
 
     @FXML
     public void toCommerce(ActionEvent event) {
-
+        renderScreen(Route.ECOMERCE);
+        eController.onTableGames();
     }
 
     @FXML

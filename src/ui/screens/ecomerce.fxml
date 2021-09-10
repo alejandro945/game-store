@@ -18,16 +18,16 @@
    <children>
       <Pane prefHeight="700.0" prefWidth="900.0">
          <children>
-            <TableView layoutX="46.0" layoutY="93.0" prefHeight="572.0" prefWidth="460.0" stylesheets="@../assets/styles/table.css">
+            <TableView fx:id="tblGameWish" layoutX="46.0" layoutY="93.0" prefHeight="572.0" prefWidth="460.0" stylesheets="@../assets/styles/table.css">
               <columns>
-                <TableColumn prefWidth="92.0" text="Code" />
-                <TableColumn prefWidth="92.0" text="Game" />
-                  <TableColumn prefWidth="92.0" text="Point" />
-                  <TableColumn prefWidth="92.0" text="Review" />
-                  <TableColumn prefWidth="92.0" text="Price" />
+                <TableColumn fx:id="tblCodeGame" prefWidth="92.0" text="Code" />
+                <TableColumn fx:id="tblNameGame" prefWidth="92.0" text="Game" />
+                  <TableColumn fx:id="tblPointGame" prefWidth="92.0" text="Point" />
+                  <TableColumn fx:id="tblReviewGame" prefWidth="92.0" text="Review" />
+                  <TableColumn fx:id="tblPriceGame" prefWidth="92.0" text="Price" />
               </columns>
             </TableView>
-            <Button layoutX="46.0" layoutY="24.0" mnemonicParsing="false" styleClass="btn-flash">
+            <Button layoutX="46.0" layoutY="35.0" mnemonicParsing="false" onAction="#goBack" styleClass="btn-flash">
                <graphic>
                   <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -41,12 +41,12 @@
                   <Font name="System Italic" size="31.0" />
                </font>
             </Label>
-            <Label layoutX="343.0" layoutY="50.0" text="The best games at your disposal" textFill="#2a35eb">
+            <Label layoutX="379.0" layoutY="49.0" text="The best games at your disposal" textFill="#2a35eb">
                <font>
-                  <Font name="Courier New" size="15.0" />
+                  <Font name="System Italic" size="15.0" />
                </font>
             </Label>
-            <JFXButton layoutX="564.0" layoutY="93.0" styleClass="btn-login" stylesheets="@../assets/styles/vendor.css" text="Start wish list" textFill="WHITE" />
+            <JFXButton layoutX="564.0" layoutY="93.0" ripplerFill="BLACK" styleClass="btn-login" stylesheets="@../assets/styles/vendor.css" text="Start wish list" textFill="WHITE" />
             <Pane layoutX="564.0" layoutY="181.0" prefHeight="484.0" prefWidth="281.0" stylesheets="@../assets/styles/vendor.css">
                <styleClass>
                   <String fx:value="main-pane" />
