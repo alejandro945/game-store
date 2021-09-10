@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" styleClass="main-pane" stylesheets="@../assets/styles/vendor.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="700.0" prefWidth="900.0">
+         <children>
+            <TableView layoutX="46.0" layoutY="93.0" prefHeight="572.0" prefWidth="460.0" stylesheets="@../assets/styles/table.css">
+              <columns>
+                <TableColumn prefWidth="92.0" text="Code" />
+                <TableColumn prefWidth="92.0" text="Game" />
+                  <TableColumn prefWidth="92.0" text="Point" />
+                  <TableColumn prefWidth="92.0" text="Review" />
+                  <TableColumn prefWidth="92.0" text="Price" />
+              </columns>
+            </TableView>
+            <Button layoutX="46.0" layoutY="24.0" mnemonicParsing="false" styleClass="btn-flash">
+               <graphic>
+                  <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/images/Left.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label layoutX="391.0" layoutY="14.0" text="E - COMERCE" textFill="#2a35eb">
+               <font>
+                  <Font name="System Italic" size="31.0" />
+               </font>
+            </Label>
+            <Label layoutX="343.0" layoutY="50.0" text="The best games at your disposal" textFill="#2a35eb">
+               <font>
+                  <Font name="Courier New" size="15.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="564.0" layoutY="93.0" styleClass="btn-login" stylesheets="@../assets/styles/vendor.css" text="Start wish list" textFill="WHITE" />
+            <Pane layoutX="564.0" layoutY="181.0" prefHeight="484.0" prefWidth="281.0" stylesheets="@../assets/styles/vendor.css">
+               <styleClass>
+                  <String fx:value="main-pane" />
+                  <String fx:value="box" />
+               </styleClass>
+               <children>
+                  <JFXButton layoutX="95.0" layoutY="398.0" ripplerFill="#3c3c3c" style="-fx-background-color: #2a35eb;" text="Add Game" textFill="WHITE">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="82.0" layoutY="439.0" style="-fx-background-color: #2a35eb;" text="Remove Game" textFill="WHITE">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="46.0" layoutY="348.0" styleClass="btn-flash" stylesheets="@../assets/styles/vendor.css" text="Amount" />
+                  <JFXTextField focusColor="#de55e1" layoutX="56.0" layoutY="46.0" promptText="Code" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+                  <Label layoutX="80.0" layoutY="14.0" text="Game Information" textFill="#2a35eb" />
+                  <JFXTextField focusColor="#de55e1" layoutX="56.0" layoutY="87.0" promptText="Game" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+                  <JFXTextField focusColor="#de55e1" layoutX="56.0" layoutY="130.0" promptText="Point" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+                  <JFXTextField focusColor="#de55e1" layoutX="55.0" layoutY="174.0" promptText="Price" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+                  <JFXTextField focusColor="#de55e1" layoutX="124.0" layoutY="348.0" prefHeight="31.0" prefWidth="100.0" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+                  <Label layoutX="116.0" layoutY="221.0" text="Review" textFill="#2a35eb" />
+                  <Label layoutX="54.0" layoutY="242.0" prefHeight="12.0" prefWidth="168.0" />
+               </children>
+            </Pane>
+            <JFXButton layoutX="721.0" layoutY="93.0" styleClass="btn-login" stylesheets="@../assets/styles/vendor.css" text="End wish list" textFill="WHITE" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
