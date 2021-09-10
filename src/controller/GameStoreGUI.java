@@ -89,7 +89,7 @@ public class GameStoreGUI {
             case ECOMERCE:;
                 return eController;
             case LOGIN:
-            return aController;
+            return aController; 
             default:
                 return null;
         }
