@@ -38,6 +38,8 @@ public class GameStoreGUI {
     private AdminController aController;
     private EComerceController eController;
 
+
+
     private GameStoreGUI() {
         aController = new AdminController();
         eController = new EComerceController();
@@ -103,7 +105,7 @@ public class GameStoreGUI {
     @FXML
     public void toCommerce(ActionEvent event) {
         renderScreen(Route.ECOMERCE);
-        eController.onTableGames();
+        eController.intializeEComerce();
     }
 
     @FXML
@@ -137,5 +139,4 @@ public class GameStoreGUI {
         newAlert.setContent(layout);
         newAlert.showAndWait();
     }
-
 }

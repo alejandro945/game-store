@@ -13,12 +13,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" styleClass="main-pane" stylesheets="@../assets/styles/vendor.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="700.0" prefWidth="900.0">
          <children>
-            <TableView fx:id="tblGameWish" layoutX="46.0" layoutY="93.0" prefHeight="572.0" prefWidth="460.0" stylesheets="@../assets/styles/table.css">
+            <TableView fx:id="tblGameWish" layoutX="46.0" layoutY="93.0" onMouseClicked="#onSelectGame" prefHeight="572.0" prefWidth="460.0" stylesheets="@../assets/styles/table.css">
               <columns>
                 <TableColumn fx:id="tblCodeGame" prefWidth="92.0" text="Code" />
                 <TableColumn fx:id="tblNameGame" prefWidth="92.0" text="Game" />
@@ -46,35 +45,35 @@
                   <Font name="System Italic" size="15.0" />
                </font>
             </Label>
-            <JFXButton layoutX="564.0" layoutY="93.0" ripplerFill="BLACK" styleClass="btn-login" stylesheets="@../assets/styles/vendor.css" text="Start wish list" textFill="WHITE" />
-            <Pane layoutX="564.0" layoutY="181.0" prefHeight="484.0" prefWidth="281.0" stylesheets="@../assets/styles/vendor.css">
+            <JFXButton fx:id="btnStartListWish" layoutX="564.0" layoutY="93.0" onAction="#onStartListWish" ripplerFill="BLACK" styleClass="btn-login" stylesheets="@../assets/styles/vendor.css" text="Start wish list" textFill="WHITE" />
+            <Pane fx:id="paneInformatión" layoutX="564.0" layoutY="181.0" prefHeight="484.0" prefWidth="281.0" stylesheets="@../assets/styles/vendor.css">
                <styleClass>
                   <String fx:value="main-pane" />
                   <String fx:value="box" />
                </styleClass>
                <children>
-                  <JFXButton layoutX="95.0" layoutY="398.0" ripplerFill="#3c3c3c" style="-fx-background-color: #2a35eb;" text="Add Game" textFill="WHITE">
+                  <JFXButton fx:id="btnAddGameWish" layoutX="95.0" layoutY="398.0" onAction="#onAddGameListWish" ripplerFill="#3c3c3c" style="-fx-background-color: #2a35eb;" text="Add Game" textFill="WHITE">
                      <font>
                         <Font name="System Italic" size="15.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton layoutX="82.0" layoutY="439.0" style="-fx-background-color: #2a35eb;" text="Remove Game" textFill="WHITE">
+                  <JFXButton fx:id="btnRemoveGameWish" layoutX="82.0" layoutY="439.0" onAction="#onRemoveGameListWish" style="-fx-background-color: #2a35eb;" text="Remove Game" textFill="WHITE">
                      <font>
                         <Font name="System Italic" size="15.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton layoutX="46.0" layoutY="348.0" styleClass="btn-flash" stylesheets="@../assets/styles/vendor.css" text="Amount" />
-                  <JFXTextField focusColor="#de55e1" layoutX="56.0" layoutY="46.0" promptText="Code" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+                  <JFXButton layoutX="46.0" layoutY="348.0" onAction="#btnAddAmount" styleClass="btn-flash" stylesheets="@../assets/styles/vendor.css" text="Amount" />
+                  <JFXTextField fx:id="txtCodeGame" focusColor="#de55e1" layoutX="56.0" layoutY="46.0" promptText="Code" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
                   <Label layoutX="80.0" layoutY="14.0" text="Game Information" textFill="#2a35eb" />
-                  <JFXTextField focusColor="#de55e1" layoutX="56.0" layoutY="87.0" promptText="Game" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
-                  <JFXTextField focusColor="#de55e1" layoutX="56.0" layoutY="130.0" promptText="Point" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
-                  <JFXTextField focusColor="#de55e1" layoutX="55.0" layoutY="174.0" promptText="Price" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
-                  <JFXTextField focusColor="#de55e1" layoutX="124.0" layoutY="348.0" prefHeight="31.0" prefWidth="100.0" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+                  <JFXTextField fx:id="txtnameGame" focusColor="#de55e1" layoutX="56.0" layoutY="87.0" promptText="Game" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+                  <JFXTextField fx:id="txtpointGame" focusColor="#de55e1" layoutX="56.0" layoutY="130.0" promptText="Point" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+                  <JFXTextField fx:id="txtpriceGame" focusColor="#de55e1" layoutX="55.0" layoutY="174.0" promptText="Price" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+                  <JFXTextField fx:id="txtamountGame" editable="false" focusColor="#de55e1" layoutX="124.0" layoutY="348.0" prefHeight="31.0" prefWidth="100.0" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
                   <Label layoutX="116.0" layoutY="221.0" text="Review" textFill="#2a35eb" />
-                  <Label layoutX="54.0" layoutY="242.0" prefHeight="12.0" prefWidth="168.0" />
+                  <Label fx:id="lblreviewGame" layoutX="54.0" layoutY="242.0" prefHeight="12.0" prefWidth="168.0" textAlignment="CENTER" />
                </children>
             </Pane>
-            <JFXButton layoutX="721.0" layoutY="93.0" styleClass="btn-login" stylesheets="@../assets/styles/vendor.css" text="End wish list" textFill="WHITE" />
+            <JFXButton fx:id="btnEndWishList" layoutX="721.0" layoutY="93.0" styleClass="btn-login" stylesheets="@../assets/styles/vendor.css" text="End wish list" textFill="WHITE" />
          </children>
       </Pane>
    </children>
