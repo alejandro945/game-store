@@ -34,13 +34,13 @@
       </Label>
       <Label layoutX="494.0" layoutY="33.0" text="Do not have an account yet?" textFill="#b2b2b2">
          <font>
-            <Font name="Courier Oblique" size="14.0" />
+            <Font name="Courier New" size="14.0" />
          </font>
       </Label>
       <JFXButton layoutX="769.0" layoutY="27.0" ripplerFill="#9903d0" styleClass="btn-flash" text="Sign up" />
       <Label layoutX="494.0" layoutY="270.0" text="Name or Username">
          <font>
-            <Font name="Courier Bold" size="19.0" />
+            <Font name="Courier New" size="19.0" />
          </font>
       </Label>
       <JFXTextField fx:id="userName" layoutX="494.0" layoutY="303.0" prefHeight="40.0" prefWidth="354.0">
@@ -69,7 +69,7 @@
       </JFXButton>
       <Label layoutX="497.0" layoutY="381.0" text="Password or Token">
          <font>
-            <Font name="Courier Bold" size="19.0" />
+            <Font name="Courier New" size="19.0" />
          </font>
       </Label>
       <JFXTextField fx:id="password" layoutX="494.0" layoutY="412.0" prefHeight="40.0" prefWidth="354.0">
@@ -86,7 +86,7 @@
             <Font name="Courier" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXButton layoutX="497.0" layoutY="515.0" onAction="#goBack" prefHeight="40.0" prefWidth="157.0" styleClass="btn-login" text="&lt;- Back" textFill="WHITE">
+      <JFXButton layoutX="497.0" layoutY="515.0" onAction="#goBack" prefHeight="40.0" prefWidth="157.0" styleClass="btn-login" text="Back" textFill="WHITE">
          <ripplerFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>

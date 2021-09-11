@@ -1,12 +1,10 @@
 package controller;
 
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextArea;
-import com.jfoenix.controls.JFXTextField;
-
-import javafx.event.ActionEvent;
+import com.jfoenix.controls.*;
+import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
 
 import routes.Route;
@@ -18,9 +16,6 @@ public class AdminController {
 
     @FXML
     private JFXTextField password;
-
-    @FXML
-    private TableView<?> tbGames;
 
     @FXML
     private JFXTextField txtCashier;
@@ -52,6 +47,39 @@ public class AdminController {
     private Stage modal;
 
     @FXML
+    private TableView<?> tbGames;
+
+    @FXML
+    private TableColumn<?, ?> tblIdGames;
+
+    @FXML
+    private TableColumn<?, ?> tblNameGames;
+
+    @FXML
+    private TableColumn<?, ?> tblAmountGames;
+
+    @FXML
+    private TableColumn<?, ?> tblPriceGames;
+
+    @FXML
+    private TableColumn<?, ?> tblIdShelves;
+
+    @FXML
+    private TableColumn<?, ?> tblGamesShelves;
+
+    @FXML
+    private TableColumn<?, ?> tblAmountShelves;
+
+    @FXML
+    private TableColumn<?, ?> tblIdCostumer;
+
+    @FXML
+    private TableColumn<?, ?> tblGamesCostumers;
+
+    @FXML
+    private TableColumn<?, ?> tblAmountCostumers;
+
+    @FXML
     public void createGame(ActionEvent event) {
         if (modal == null) {
             modal = GameStoreGUI.getInstance().loadModal(Route.GAMEMODAL, this);
@@ -65,14 +93,18 @@ public class AdminController {
     }
 
     @FXML
-    void cancelModal(ActionEvent event) {
+    public void cancelModal(ActionEvent event) {
         modal.close();
         modal = null;
     }
 
     @FXML
     public void createShelve(ActionEvent event) {
-
+        if (modal == null) {
+            modal = GameStoreGUI.getInstance().loadModal(Route.SHELVEMODAL, this);
+            initializePrueba();
+            modal.show();
+        }
     }
 
     @FXML
@@ -99,17 +131,26 @@ public class AdminController {
     private JFXComboBox<Game> chooseGame;
 
     @FXML
+    private JFXChipView<String> txtChip;
+
+    @FXML
     public void chooseGame(ActionEvent event) {
 
     }
 
     @FXML
     public void cancelModalShelve(ActionEvent event) {
-
+        modal.close();
+        modal = null;
     }
 
     @FXML
     public void saveGameShelve(ActionEvent event) {
+
+    }
+
+    public void initializePrueba() {
+        txtChip.getChips().addAll("HOLA", "COMO", "VARELAMK", "SUAREZMK", "MURCIAMK");
 
     }
 }

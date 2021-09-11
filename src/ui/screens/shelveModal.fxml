@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXChipView?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
@@ -10,17 +11,18 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" styleClass="box" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="306.0" styleClass="box" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="97.0" fitWidth="178.0" layoutX="62.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="97.0" fitWidth="178.0" layoutX="82.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/images/undraw_video_game_night_8h8m.png" />
          </image>
       </ImageView>
-      <Label layoutX="87.0" layoutY="14.0" stylesheets="@../assets/styles/alert.css" text="Create a Game" />
-      <Button fx:id="edit" layoutX="163.0" layoutY="358.0" mnemonicParsing="false" onAction="#saveGameShelve" prefHeight="30.0" prefWidth="80.0" stylesheets="@../assets/styles/table.css" text="Save" textFill="WHITE" />
-      <Button fx:id="delete" layoutX="54.0" layoutY="358.0" mnemonicParsing="false" onAction="#cancelModalShelve" stylesheets="@../assets/styles/table.css" text="Cancel" textFill="WHITE" />
+      <Label layoutX="87.0" layoutY="14.0" stylesheets="@../assets/styles/alert.css" text="Create a Shelve" />
+      <Button fx:id="edit" layoutX="164.0" layoutY="401.0" mnemonicParsing="false" onAction="#saveGameShelve" prefHeight="30.0" prefWidth="80.0" stylesheets="@../assets/styles/table.css" text="Save" textFill="WHITE" />
+      <Button fx:id="delete" layoutX="62.0" layoutY="401.0" mnemonicParsing="false" onAction="#cancelModalShelve" stylesheets="@../assets/styles/table.css" text="Cancel" textFill="WHITE" />
       <Label layoutX="14.0" layoutY="191.0" text="Shelve Name" />
       <JFXComboBox fx:id="chooseGame" layoutX="144.0" layoutY="228.0" onAction="#chooseGame" prefHeight="25.0" prefWidth="135.0">
          <unFocusColor>
@@ -33,7 +35,12 @@
          </unFocusColor>
       </JFXComboBox>
       <Label layoutX="9.0" layoutY="240.0" prefHeight="19.0" prefWidth="125.0" text="Choose Games" />
-      <JFXTextField fx:id="shelveName" focusColor="#a84097" layoutX="145.0" layoutY="188.0" unFocusColor="#9207b5" />
+      <JFXTextField fx:id="shelveName" focusColor="#a84097" layoutX="145.0" layoutY="188.0" prefHeight="23.0" prefWidth="135.0" unFocusColor="#9207b5">
+         <font>
+            <Font name="Courier New" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXChipView fx:id="txtChip" layoutX="103.0" layoutY="277.0" prefWidth="135.0" />
    </children>
    <stylesheets>
       <URL value="@../assets/styles/vendor.css" />

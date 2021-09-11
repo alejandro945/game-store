@@ -17,10 +17,10 @@
    <children>
       <TableView fx:id="tbGames" layoutX="40.0" layoutY="309.0" prefHeight="365.0" prefWidth="409.0" stylesheets="@../assets/styles/table.css">
         <columns>
-          <TableColumn prefWidth="69.0" text="Id" />
-          <TableColumn prefWidth="133.0" text="Name" />
-            <TableColumn prefWidth="78.0" text="Amount" />
-            <TableColumn prefWidth="129.0" text="Price $" />
+          <TableColumn fx:id="tblIdGames" prefWidth="69.0" text="Id" />
+          <TableColumn fx:id="tblNameGames" prefWidth="133.0" text="Name" />
+            <TableColumn fx:id="tblAmountGames" prefWidth="78.0" text="Amount" />
+            <TableColumn fx:id="tblPriceGames" prefWidth="129.0" text="Price $" />
             <TableColumn prefWidth="139.0" text="Actions" />
         </columns>
       </TableView>
@@ -44,7 +44,7 @@
             <Font name="Courier New Bold" size="21.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtCashier" layoutX="102.0" layoutY="216.0" prefHeight="27.0" prefWidth="177.0" promptText="Write the # of cashiers">
+      <JFXTextField fx:id="txtCashier" layoutX="102.0" layoutY="216.0" prefHeight="27.0" prefWidth="177.0" promptText="Write the number of cashiers">
          <unFocusColor>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -64,9 +64,9 @@
       </Label>
       <TableView fx:id="tbShelves" layoutX="509.0" layoutY="127.0" prefHeight="246.0" prefWidth="360.0" stylesheets="@../assets/styles/table.css">
          <columns>
-            <TableColumn prefWidth="60.0" text="Id" />
-            <TableColumn prefWidth="202.0" text="Games" />
-            <TableColumn prefWidth="92.0" text="Amount" />
+            <TableColumn fx:id="tblIdShelves" prefWidth="60.0" text="Id" />
+            <TableColumn fx:id="tblGamesShelves" prefWidth="202.0" text="Games" />
+            <TableColumn fx:id="tblAmountShelves" prefWidth="92.0" text="Amount" />
             <TableColumn prefWidth="170.0" text="Actions" />
          </columns>
       </TableView>
@@ -91,9 +91,9 @@
       </Label>
       <TableView fx:id="tbCostumers" layoutX="509.0" layoutY="428.0" prefHeight="246.0" prefWidth="360.0" stylesheets="@../assets/styles/table.css">
          <columns>
-            <TableColumn prefWidth="60.0" text="Id" />
-            <TableColumn prefWidth="202.0" text="Games" />
-            <TableColumn prefWidth="92.0" text="Amount" />
+            <TableColumn fx:id="tblIdCostumer" prefWidth="60.0" text="Id" />
+            <TableColumn fx:id="tblGamesCostumers" prefWidth="202.0" text="Games" />
+            <TableColumn fx:id="tblAmountCostumers" prefWidth="92.0" text="Amount" />
             <TableColumn prefWidth="170.0" text="Actions" />
          </columns>
       </TableView>
