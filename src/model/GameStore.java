@@ -1,17 +1,24 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GameStore {
 
-    private ArrayList<Costumer> costumers;
+    private List<Costumer> costumers;
+    private List<Game> games;
 
     public GameStore() {
         costumers = new ArrayList<>();
+        games = new ArrayList<>();
     }
 
-    public ArrayList<Costumer> getCostumers(){
+    public List<Costumer> getCostumers(){
         return costumers;
+    }
+
+    public List<Game> getGames(){
+        return games;
     }
 
     public void addClient(String code, String name, ArrayList<Game> games){
