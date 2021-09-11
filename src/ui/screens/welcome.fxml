@@ -21,7 +21,7 @@
             </ImageView>
             <Label layoutX="278.0" layoutY="6.0" text="Game Store App" textFill="WHITE">
                <font>
-                  <Font name="Courier Bold Oblique" size="41.0" />
+                  <Font name="Courier New" size="41.0" />
                </font>
             </Label>
          </children></Pane>

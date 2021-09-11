@@ -166,13 +166,11 @@ public class AdminController implements Initializable {
         ObservableList<Game> newGame = FXCollections
                 .observableArrayList(GameStoreGUI.getInstance().getGameStore().getGames());
 
-        tblIdGames.setCellValueFactory(new PropertyValueFactory<>("code"));
         tblNameGames.setCellValueFactory(new PropertyValueFactory<>("gameName"));
         tblReviewGames.setCellValueFactory(new PropertyValueFactory<>("review"));
-        tblAmountGames.setCellValueFactory(new PropertyValueFactory<>("amount"));
         tblPriceGames.setCellValueFactory(new PropertyValueFactory<>("price"));
+        tblAmountGames.setCellValueFactory(new PropertyValueFactory<>("amount"));
         tbGames.setItems(newGame);
-
     }
 
     // ---------------------------------------CREATE-SHELVE----------------------------------------------
@@ -251,7 +249,6 @@ public class AdminController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        renderActions();
         initializeGamesTable();
     }
 

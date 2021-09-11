@@ -83,7 +83,9 @@ public class GameStoreGUI {
             Parent root = fxmlloader.load();
             mainPane.getChildren().setAll(root);
         } catch (IOException e) {
-            createAlert("Sorry we could not find your route or controller not specified", Route.ERROR);
+            // createAlert("Sorry we could not find your route or controller not specified",
+            // Route.ERROR);
+            e.printStackTrace();
         }
     }
 
