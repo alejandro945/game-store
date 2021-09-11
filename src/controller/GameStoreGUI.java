@@ -91,7 +91,7 @@ public class GameStoreGUI {
         switch (route) {
             case WELCOME:
                 return this;
-            case ECOMERCE:
+            case ECOMMERCE:
                 return eController;
             case ADDCOSTUMER:
                 return eController;
@@ -111,12 +111,8 @@ public class GameStoreGUI {
 
     @FXML
     public void toCommerce(ActionEvent event) {
-        renderScreen(Route.ECOMERCE);
+        renderScreen(Route.ECOMMERCE);
         eController.intializeEComerce();
-    }
-
-    public void toAddClientWithListWish() {
-        renderScreen(Route.ADDCOSTUMER);
     }
 
     @FXML

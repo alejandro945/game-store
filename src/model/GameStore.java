@@ -4,26 +4,18 @@ import java.util.ArrayList;
 
 public class GameStore {
 
-    private static GameStore instance;
+    private ArrayList<Costumer> costumers;
 
-    private ArrayList<Costumer<String>> costumers;
-
-    private GameStore() {
+    public GameStore() {
         costumers = new ArrayList<>();
     }
 
-    public ArrayList<Costumer<String>> getCostumers(){
+    public ArrayList<Costumer> getCostumers(){
         return costumers;
     }
 
-    public static GameStore getInstance() {
-        if (instance == null) {
-            instance = new GameStore();
-        }
-        return instance;
-    }
-
-    public void addClient(String code, String name, String lastName, Long id, ArrayList<Game> games){
-        Costumer<String> newClient = new Costumer<>(code, name, lastName, id, games);
+    public void addClient(String code, String name, ArrayList<Game> games){
+        Costumer newClient = new Costumer(code, name, games);
+        costumers.add(newClient);
     }
 }

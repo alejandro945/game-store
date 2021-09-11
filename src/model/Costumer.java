@@ -1,51 +1,40 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
-public class Costumer<T extends Comparable<T>> {
-    private T code;
+public class Costumer {
+    private String code;
     private String name;
-    private String  lastName;
-    private long id;
-    HashMap<String,Float> gameList = new HashMap<String,Float>();
+    private ArrayList<Game> wishList;
 
-    public Costumer(T code, String name, String lastName, Long id, ArrayList<Game> listWish){
+    public Costumer(String code, String name, ArrayList<Game> listWish) {
         this.code = code;
         this.name = name;
-        this.lastName = lastName;
-        this.id = id;
+        wishList = listWish;
     }
 
-    public T getCode(){
-        return code;
+    public String getCode() {
+        return this.code;
     }
 
-    public void setCode(T code){
+    public void setCode(String code) {
         this.code = code;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public ArrayList<Game> getWishList() {
+        return this.wishList;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setWishList(ArrayList<Game> wishList) {
+        this.wishList = wishList;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 }

@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import routes.Route;
 import model.*;
@@ -29,9 +30,6 @@ public class ECommerceController {
     private TableColumn<Game, String> tblNameGame;
 
     @FXML
-    private TableColumn<Game, Double> tblPointGame;
-
-    @FXML
     private TableColumn<Game, String> tblReviewGame;
 
     @FXML
@@ -45,9 +43,6 @@ public class ECommerceController {
 
     @FXML
     private TableColumn<Game, String> tblNameGameClient;
-
-    @FXML
-    private TableColumn<Game, Double> tblPointGameClient;
 
     @FXML
     private TableColumn<Game, String> tblReviewGameClient;
@@ -71,9 +66,6 @@ public class ECommerceController {
     private JFXTextField txtnameGame;
 
     @FXML
-    private JFXTextField txtpointGame;
-
-    @FXML
     private JFXTextField txtpriceGame;
 
     @FXML
@@ -94,25 +86,17 @@ public class ECommerceController {
     @FXML
     private JFXTextField txtnameClient;
 
-    @FXML
-    private JFXTextField txtLastNameClient;
-
-    @FXML
-    private JFXTextField txtIdClient;
-
-    private GameStoreGUI gameS;
-
-    ArrayList<Game> gameM = new ArrayList<>();
+    ArrayList<Game> gameM = new ArrayList<>(); // Testing
     ArrayList<Game> listWish = new ArrayList<>();
 
-    private int selectGameCodeListWish;
     private int seqClient = 1;
 
-    public ECommerceController (){
+    public ECommerceController() {
     }
 
-    public void intializeEComerce (){
+    public void intializeEComerce() {
         onTableGames();
+        listWish.clear();
         btnEndWishList.setDisable(true);
         paneInformatión.setDisable(true);
     }
@@ -120,12 +104,13 @@ public class ECommerceController {
     @FXML
     public void goBack(ActionEvent event) {
         GameStoreGUI.getInstance().renderScreen(Route.WELCOME);
-        listWish = new ArrayList<>();
+        listWish.clear();
     }
 
-    public void onTableGames(){
+    public void onTableGames() {
         createGameTest();
-        List<Game> games = gameM; // Llamar a la lista verdadera de la clase gameStore o entra por parametro, Nuevo test
+        List<Game> games = gameM; // Llamar a la lista verdadera de la clase gameStore o entra por parametro,
+                                  // Nuevo test
         ObservableList<Game> newGameM;
         newGameM = FXCollections.observableList(games);
 
@@ -133,12 +118,12 @@ public class ECommerceController {
         tblCodeGame.setCellValueFactory(new PropertyValueFactory<>("code"));
         tblNameGame.setCellValueFactory(new PropertyValueFactory<>("gameName"));
         tblReviewGame.setCellValueFactory(new PropertyValueFactory<>("review"));
-        tblPointGame.setCellValueFactory(new PropertyValueFactory<>("point"));
         tblPriceGame.setCellValueFactory(new PropertyValueFactory<>("price"));
 
     }
 
-    private void createGameTest(){
+    // Test
+    private void createGameTest() {
         Game g1 = new Game(1, "g1", "saoa", 2000, 2);
         Game g2 = new Game(2, "g2", "saoa", 2100, 1);
         Game g3 = new Game(3, "g3", "saoa", 1800, 6);
@@ -151,52 +136,62 @@ public class ECommerceController {
         gameM.add(g5);
     }
 
-    public void disableBtnAddorRemove(int code){
+    @FXML
+    public void onStartListWish(ActionEvent event) {
+        paneInformatión.setDisable(false);
+        btnStartListWish.setDisable(true);
+        btnEndWishList.setDisable(false);
+    }
+
+    public void disableBtnAddorRemove(int code) {
         boolean out = false;
-            if(!listWish.isEmpty()){
-                for (int i = 0; i<listWish.size() && !out; i++){ //Cuando este la lista definitiva solo la llamaremos
-                    if(listWish.get(i).getCode() == code){
-                        btnAddGameWish.setDisable(true);
-                        btnRemoveGameWish.setDisable(false);
-                        out = true;
-                    } else {
-                        btnAddGameWish.setDisable(false);
-                        btnRemoveGameWish.setDisable(true);
-                    }
-                }
-                if(listWish.isEmpty()){
+        if (!listWish.isEmpty()) {
+            for (int i = 0; i < listWish.size() && !out; i++) { // Cuando este la lista definitiva solo la llamaremos
+                if (listWish.get(i).getCode() == code) {
+                    btnAddGameWish.setDisable(true);
+                    btnRemoveGameWish.setDisable(false);
+                    out = true;
+                } else {
+                    btnAddGameWish.setDisable(false);
                     btnRemoveGameWish.setDisable(true);
                 }
             }
+            if (listWish.isEmpty()) {
+                btnRemoveGameWish.setDisable(true);
+            }
+        }
     }
 
     @FXML
     public void onAddGameListWish(ActionEvent event) {
         int countadd = 0;
-        for (int i = 0; i<gameM.size(); i++){
-            if(gameM.get(i).getCode() == Integer.parseInt(txtCodeGame.getText())){
+        for (int i = 0; i < gameM.size(); i++) {
+            if (gameM.get(i).getCode() == Integer.parseInt(txtCodeGame.getText())) {
                 try {
-                    if(txtamountGame.getText().equals("") || Integer.parseInt(txtamountGame.getText()) == 1){
-                        countadd = 1;
-                    } else {
-                        countadd = Integer.parseInt(txtamountGame.getText());
-                    }
-                    for(int j = 0; j<countadd; j++){
+                    countadd = getAmount();
+                    for (int j = 0; j < countadd; j++) {
                         listWish.add(gameM.get(i));
                     }
                     btnAddGameWish.setDisable(true);
                     btnRemoveGameWish.setDisable(false);
-                    txtamountGame.setEditable(false);
-                    txtamountGame.setText("");
-                    System.out.println("Agregado"); //Cambiar cuando las alertas funcionen
+                    trigger();
+                    GameStoreGUI.getInstance().createAlert("Game added succesfully", Route.SUCCESS);
                 } catch (NumberFormatException e) {
-                    System.out.println("No puedes ingresar letas en la cantidad"); //Cambiar cuandos las alertas funcionen
+                    GameStoreGUI.getInstance().createAlert("You can not enter letters", Route.ERROR);
                     txtamountGame.setText("");
-                    txtamountGame.setEditable(false);
                 }
-
             }
         }
+    }
+
+    private int getAmount() throws NumberFormatException {
+        int render = 0;
+        if (txtamountGame.getText().equals("")) {
+            render = 1;
+        } else {
+            render = Integer.parseInt(txtamountGame.getText());
+        }
+        return render;
     }
 
     @FXML
@@ -204,106 +199,105 @@ public class ECommerceController {
         int toEliminate = 0;
         int total = 0;
         try {
-            if (txtamountGame.getText().equals("")){
-                toEliminate = 1;
-            } else {
-                toEliminate = Integer.parseInt(txtamountGame.getText());
-            }
-            for (int i = 0; i<listWish.size(); i++) {
+            toEliminate = getAmount();
+            for (int i = 0; i < listWish.size(); i++) {
                 if (listWish.get(i).getCode() == Integer.parseInt(txtCodeGame.getText())) {
-                total++;
+                    total++;
                 }
             }
-            if(toEliminate <= total){
-                int count2 = 0;
+            if (toEliminate <= total) {
+                int count = 0;
                 int repet = listWish.size();
-                for (int i = 0; i<repet && toEliminate != count2; i++){
-                    if(listWish.get(i).getCode() == Integer.parseInt(txtCodeGame.getText())){
+                for (int i = 0; i < repet && toEliminate != count; i++) {
+                    if (listWish.get(i).getCode() == Integer.parseInt(txtCodeGame.getText())) {
                         listWish.remove(i);
-                        count2++;
+                        count++;
                         i--;
                     }
                 }
                 GameStoreGUI.getInstance().createAlert("Deletion succesfully", Route.SUCCESS);
+                btnRemoveGameWish.setDisable(true);
+                btnAddGameWish.setDisable(false);
                 trigger();
             } else {
                 GameStoreGUI.getInstance().createAlert("Trying to delete a bigger amount", Route.ERROR);
             }
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             GameStoreGUI.getInstance().createAlert("You can not enter letters", Route.WARNING);
         }
     }
 
-    private void trigger(){
-        btnRemoveGameWish.setDisable(true);
-        btnAddGameWish.setDisable(false);
+    private void trigger() {
         txtCodeGame.setText("");
         txtnameGame.setText("");
-        txtpointGame.setText("");
         txtpriceGame.setText("");
         lblreviewGame.setText("");
-        txtamountGame.setEditable(false);
         txtamountGame.setText("");
     }
 
     @FXML
-    public void btnAddAmount(ActionEvent event) {
-        txtamountGame.setEditable(true);
+    public void onSelectGame(MouseEvent event) {
+        Game gameSelected;
+        if (event.getClickCount() == 2) {
+            gameSelected = tblGameWish.getSelectionModel().getSelectedItem();
+            if (gameSelected != null) {
+                disableBtnAddorRemove(gameSelected.getCode());
+                GameStoreGUI.getInstance().createAlert("Selected", Route.SUCCESS);
+                txtCodeGame.setText(gameSelected.getCode() + "");
+                txtnameGame.setText(gameSelected.getGameName());
+                txtpriceGame.setText(gameSelected.getPrice() + "");
+                lblreviewGame.setText(gameSelected.getReview());
+                txtamountGame.setText("");
+            }
+        }
     }
 
     @FXML
     public void onEndWishList(ActionEvent event) {
-        if(!listWish.isEmpty()){
-            gameS.toAddClientWithListWish();
+        if (!listWish.isEmpty()) {
+            GameStoreGUI.getInstance().renderScreen(Route.ADDCOSTUMER);
             onTableListWishClient();
             txtCodeClient.setText(generateCodeClient());
         } else {
-            System.out.println("Debes de seleccionar juegos");
+            GameStoreGUI.getInstance().createAlert("We need at least one game in your list", Route.WARNING);
         }
     }
 
-    public void onTableListWishClient(){
-     List<Game> gamesWC = listWish;
-     ObservableList<Game> newGamesWC;
-     newGamesWC = FXCollections.observableList(gamesWC);
+    public void onTableListWishClient() {
+        List<Game> gamesWC = listWish;
+        ObservableList<Game> newGamesWC;
+        newGamesWC = FXCollections.observableList(gamesWC);
 
-     tblGameWishClient.setItems(newGamesWC);
-     tblCodeGameClient.setCellValueFactory(new PropertyValueFactory<>("code"));
-     tblNameGameClient.setCellValueFactory(new PropertyValueFactory<>("gameName"));
-     tblReviewGameClient.setCellValueFactory(new PropertyValueFactory<>("review"));
-     tblPointGameClient.setCellValueFactory(new PropertyValueFactory<>("point"));
-     tblPriceGameClient.setCellValueFactory(new PropertyValueFactory<>("price"));
+        tblGameWishClient.setItems(newGamesWC);
+        tblCodeGameClient.setCellValueFactory(new PropertyValueFactory<>("code"));
+        tblNameGameClient.setCellValueFactory(new PropertyValueFactory<>("gameName"));
+        tblReviewGameClient.setCellValueFactory(new PropertyValueFactory<>("review"));
+        tblPriceGameClient.setCellValueFactory(new PropertyValueFactory<>("price"));
     }
 
-    public String generateCodeClient(){
-        String code = seqClient+" ";
-        for(int i = 0; i<listWish.size(); i++){
-            code += listWish.get(i).getCode()+" ";
+    public String generateCodeClient() {
+        String code = seqClient + " ";
+        for (int i = 0; i < listWish.size(); i++) {
+            code += listWish.get(i).getCode() + " ";
         }
         return code;
     }
 
     @FXML
     public void onAddClient(ActionEvent event) {
-        try{
-            if(!txtnameClient.getText().equals("") && !txtLastNameClient.getText().equals("")
-            && !txtIdClient.getText().equals("")){
-                gameS.getGameStore().addClient(txtCodeClient.getText(), txtnameClient.getText(), txtLastNameClient.getText(),
-                        Long.parseLong(txtIdClient.getText()), listWish);
-                seqClient++;
-                System.out.println("CreateClient");
-                onBackToListWish(event);
-                listWish = new ArrayList<>();
-            } else {
-                System.out.println("ingresa todos los campos");
-            }
-        } catch (NumberFormatException e){
-            System.out.println("No puedes ingresar letras en la id");
+        if (!txtnameClient.getText().equals("")) {
+            GameStoreGUI.getInstance().getGameStore().addClient(txtCodeClient.getText(), txtnameClient.getText(),
+                    listWish);
+            seqClient++;
+            GameStoreGUI.getInstance().createAlert("Costumer added Succesfully", Route.SUCCESS);
+            onBackToListWish(event);
+        } else {
+            GameStoreGUI.getInstance().createAlert("Complete all Fields", Route.WARNING);
         }
     }
 
     @FXML
     public void onBackToListWish(ActionEvent event) {
-        gameS.toCommerce(event);
+        GameStoreGUI.getInstance().toCommerce(event);
     }
 }
