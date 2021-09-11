@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 
+import com.jfoenix.animation.alert.JFXAlertAnimation;
 import com.jfoenix.controls.JFXAlert;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialogLayout;
@@ -9,8 +10,9 @@ import com.jfoenix.controls.JFXDialogLayout;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.HBox;
+import javafx.geometry.Pos;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Modality;
@@ -39,11 +41,11 @@ public class GameStoreGUI {
     private static GameStoreGUI instance;
     private GameStore gameStore;
     private AdminController aController;
-    private EComerceController eController;
+    private ECommerceController eController;
 
     private GameStoreGUI() {
         aController = new AdminController();
-        eController = new EComerceController();
+        eController = new ECommerceController();
     }
 
     public static GameStoreGUI getInstance() {
@@ -81,7 +83,7 @@ public class GameStoreGUI {
             Parent root = fxmlloader.load();
             mainPane.getChildren().setAll(root);
         } catch (IOException e) {
-            createAlert("Sorry we could not find your route", Route.ERROR);
+            createAlert("Sorry we could not find your route or controller not specified", Route.ERROR);
         }
     }
 
@@ -89,10 +91,12 @@ public class GameStoreGUI {
         switch (route) {
             case WELCOME:
                 return this;
-            case ECOMERCE:;
+            case ECOMERCE:
                 return eController;
             case LOGIN:
-            return aController; 
+                return aController;
+            case ADMDASH:
+                return aController;
             default:
                 return null;
         }
@@ -114,14 +118,18 @@ public class GameStoreGUI {
         renderScreen(Route.LOGIN);
     }
 
-    public Stage loadModal(Route route, Object controller) throws IOException {
+    public Stage loadModal(Route route, Object controller) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(route.getRoute()));
         fxmlLoader.setController(controller);
-        Parent modal = fxmlLoader.load();
-        Scene scene = new Scene(modal);
-        scene.setFill(Color.TRANSPARENT);
         Stage stage = new Stage();
-        stage.setScene(scene);
+        try {
+            Parent modal = fxmlLoader.load();
+            Scene scene = new Scene(modal);
+            scene.setFill(Color.TRANSPARENT);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            createAlert("Rendering fail", Route.WARNING);
+        }
         stage.initStyle(StageStyle.TRANSPARENT);
         return stage;
     }
@@ -133,22 +141,25 @@ public class GameStoreGUI {
         // GIF RENDERING
         ImageView gif = new ImageView(new Image(alertType.getRoute()));
         gif.setFitHeight(80);
-        gif.setFitWidth(80);
+        gif.setFitWidth(100);
         // ALERT-CONTENT
         JFXDialogLayout layout = new JFXDialogLayout();
-        layout.getStylesheets().add(Route.STYLES.getRoute());
+        layout.getStylesheets().add(Route.ALERT.getRoute());
         layout.setHeading(new Label("Game Store Alerts"));
-        layout.setBody(new HBox(8, new Label(message), gif));
+        VBox v = new VBox(10, new Label(message), gif);
+        v.setAlignment(Pos.CENTER);
+        layout.setBody(v);
         // ACTIONS
         JFXButton cancelButton = new JFXButton("OK");
         cancelButton.setButtonType(JFXButton.ButtonType.RAISED);
         cancelButton.setCancelButton(true);
-        cancelButton.setStyle(Route.STYLES.getRoute());
+        cancelButton.setStyle(Route.ALERT.getRoute());
         cancelButton.setOnAction(closeEvent -> newAlert.hideWithAnimation());
         layout.setActions(cancelButton);
         // STANGING
         Stage stage = (Stage) newAlert.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image("file:" + Route.ICON.getRoute()));
+        newAlert.setAnimation(JFXAlertAnimation.CENTER_ANIMATION);
         newAlert.setContent(layout);
         newAlert.showAndWait();
     }

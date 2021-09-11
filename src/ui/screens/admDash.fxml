@@ -31,17 +31,17 @@
       </ImageView>
       <Label layoutX="282.0" layoutY="23.0" text="Application State">
          <font>
-            <Font name="Courier Bold Oblique" size="33.0" />
+            <Font name="Courier New Italic" size="34.0" />
          </font>
       </Label>
       <Label layoutX="99.0" layoutY="272.0" text="Games">
          <font>
-            <Font name="Courier Bold" size="22.0" />
+            <Font name="Courier New Bold" size="21.0" />
          </font>
       </Label>
       <Label layoutX="102.0" layoutY="165.0" text="Cashiers">
          <font>
-            <Font name="Courier Bold" size="22.0" />
+            <Font name="Courier New Bold" size="21.0" />
          </font>
       </Label>
       <JFXTextField fx:id="txtCashier" layoutX="102.0" layoutY="216.0" prefHeight="27.0" prefWidth="177.0" promptText="Write the # of cashiers">
@@ -54,12 +54,12 @@
             </LinearGradient>
          </unFocusColor>
          <font>
-            <Font name="Courier" size="11.0" />
+            <Font name="Courier New" size="10.0" />
          </font>
       </JFXTextField>
       <Label layoutX="526.0" layoutY="86.0" text="Shelves">
          <font>
-            <Font name="Courier Bold" size="22.0" />
+            <Font name="Courier New Bold" size="21.0" />
          </font>
       </Label>
       <TableView fx:id="tbShelves" layoutX="509.0" layoutY="127.0" prefHeight="246.0" prefWidth="360.0" stylesheets="@../assets/styles/table.css">
@@ -81,12 +81,12 @@
             </RadialGradient>
          </unFocusColor>
          <font>
-            <Font name="Courier" size="14.0" />
+            <Font name="Courier New" size="13.0" />
          </font>
       </JFXTextField>
       <Label layoutX="630.0" layoutY="388.0" text="Costumers">
          <font>
-            <Font name="Courier Bold" size="22.0" />
+            <Font name="Courier New Bold" size="21.0" />
          </font>
       </Label>
       <TableView fx:id="tbCostumers" layoutX="509.0" layoutY="428.0" prefHeight="246.0" prefWidth="360.0" stylesheets="@../assets/styles/table.css">
@@ -97,11 +97,11 @@
             <TableColumn prefWidth="170.0" text="Actions" />
          </columns>
       </TableView>
-      <Button layoutX="40.0" layoutY="23.0" mnemonicParsing="false" onAction="#goBack" styleClass="btn-flash">
+      <Button layoutX="117.0" layoutY="19.0" mnemonicParsing="false" onAction="#goBack" styleClass="btn-flash">
          <graphic>
             <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/images/Left.png" />
+                  <Image url="@../assets/images/Back.png" />
                </image>
             </ImageView>
          </graphic>

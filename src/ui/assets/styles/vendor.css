@@ -22,7 +22,7 @@
 .btn-flash{
     -fx-background-color : #fff ;
     -fx-background-radius: 5;
-    -fx-font-family: "Courier";
+    -fx-font-family: "Courier new";
     -fx-effect: dropshadow( gaussian, rgba(235, 235, 235, 0.4), 20, 0.8, 0.0, 0.0 );
     -fx-font-style: italic;
     -fx-font-size: 14px;
@@ -30,15 +30,15 @@
 .btn-login{
     -fx-background-color : rgb(45, 0, 207) ;
     -fx-background-radius: 5;
-    -fx-font-family: "Courier";
+    -fx-font-family: "Courier new";
     -fx-effect: dropshadow( gaussian, rgba(235, 235, 235, 0.4), 20, 0.8, 0.0, 0.0 );
     -fx-font-style: italic;
     -fx-font-size: 20px;
 }
 .btn-create{
-    -fx-background-color : rgba(41, 207, 0, 0.555) ;
+    -fx-background-color : rgba(41, 207, 0, 0.425) ;
     -fx-background-radius: 5;
-    -fx-font-family: "Courier";
+    -fx-font-family: "Courier new";
     -fx-effect: dropshadow( gaussian, rgba(235, 235, 235, 0.4), 20, 0.8, 0.0, 0.0 );
     -fx-font-style: italic;
     -fx-font-size: 16px;
@@ -46,7 +46,7 @@
 .btn-welcome{
     -fx-background-color : rgba(207, 0, 179, 0.116) ;
     -fx-background-radius: 2;
-    -fx-font-family: "Courier";
+    -fx-font-family: "Courier new";
     -fx-effect: dropshadow( gaussian, rgba(235, 235, 235, 0.4), 20, 0.8, 0.0, 0.0 );
     -fx-font-style: italic;
     -fx-font-size: 20px;

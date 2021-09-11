@@ -26,34 +26,26 @@
                   <TableColumn fx:id="tblPriceGame" prefWidth="92.0" text="Price" />
               </columns>
             </TableView>
-            <Button layoutX="46.0" layoutY="35.0" mnemonicParsing="false" onAction="#goBack" styleClass="btn-flash">
+            <Button layoutX="98.0" layoutY="19.0" mnemonicParsing="false" onAction="#goBack" styleClass="btn-flash">
                <graphic>
                   <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assets/images/Left.png" />
+                        <Image url="@../assets/images/Back.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Label layoutX="334.0" layoutY="14.0" text="E - COMERCE" textFill="#2a35eb">
+            <Label layoutX="334.0" layoutY="14.0" text="E - COMERCE" textFill="#616161">
                <font>
                   <Font name="Courier New Bold" size="35.0" />
                </font>
             </Label>
-<<<<<<< HEAD
-            <Label layoutX="310.0" layoutY="52.0" text="The best games at your disposal" textFill="#2a35eb">
-=======
-            <Label layoutX="379.0" layoutY="49.0" text="The best games at your disposal" textFill="#2a35eb">
->>>>>>> 9764b093138447932e7a259b11ef48ce5c9fc0b4
+            <Label layoutX="310.0" layoutY="54.0" text="The best games at your disposal" textFill="#393939">
                <font>
-                  <Font name="System Italic" size="15.0" />
+                  <Font name="Courier New Italic" size="15.0" />
                </font>
             </Label>
-<<<<<<< HEAD
             <JFXButton buttonType="RAISED" layoutX="557.0" layoutY="98.0" prefHeight="62.0" prefWidth="144.0" styleClass="btn-login" stylesheets="@../assets/styles/vendor.css" text="Start wish list" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
-=======
-            <JFXButton layoutX="564.0" layoutY="93.0" ripplerFill="BLACK" styleClass="btn-login" stylesheets="@../assets/styles/vendor.css" text="Start wish list" textFill="WHITE" />
->>>>>>> 9764b093138447932e7a259b11ef48ce5c9fc0b4
             <Pane layoutX="564.0" layoutY="181.0" prefHeight="484.0" prefWidth="281.0" stylesheets="@../assets/styles/vendor.css">
                <styleClass>
                   <String fx:value="main-pane" />

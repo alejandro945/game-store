@@ -5,15 +5,13 @@ public class Game {
     private int code;
     private String gameName;
     private String review;
-    private double point;
     private int price;
     private int amount;
 
-    public Game(int code, String gameName, String review, double point, int price, int amount) {
+    public Game(int code, String gameName, String review, int price, int amount) {
         this.code = code;
         this.gameName = gameName;
         this.review = review;
-        this.point = point;
         this.price = price;
         this.amount = amount;
     }
@@ -40,14 +38,6 @@ public class Game {
 
     public void setReview(String review) {
         this.review = review;
-    }
-
-    public double getPoint() {
-        return point;
-    }
-
-    public void setPoint(double point) {
-        this.point = point;
     }
 
     public int getPrice() {

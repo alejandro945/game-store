@@ -1,11 +1,12 @@
 package controller;
 
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
 import routes.Route;
 
 public class AdminController {
@@ -25,17 +26,45 @@ public class AdminController {
     private TableView<?> tbShelves;
 
     @FXML
-    private Button edit;
-
-    @FXML
     private JFXTextField lblCashier;
 
     @FXML
     private TableView<?> tbCostumers;
 
     @FXML
-    public void createGame(ActionEvent event) {
+    private JFXTextField title;
 
+    @FXML
+    private JFXTextField code;
+
+    @FXML
+    private JFXTextField price;
+
+    @FXML
+    private JFXTextField amount;
+
+    @FXML
+    private JFXTextArea review;
+
+    private Stage modal;
+
+    @FXML
+    public void createGame(ActionEvent event) {
+        if (modal == null) {
+            modal = GameStoreGUI.getInstance().loadModal(Route.GAMEMODAL, this);
+            modal.show();
+        }
+    }
+
+    @FXML
+    public void saveGame(ActionEvent event) {
+
+    }
+
+    @FXML
+    void cancelModal(ActionEvent event) {
+        modal.close();
+        modal = null;
     }
 
     @FXML
@@ -55,6 +84,6 @@ public class AdminController {
 
     @FXML
     public void signIn(ActionEvent event) {
-
+        GameStoreGUI.getInstance().renderScreen(Route.ADMDASH);
     }
 }

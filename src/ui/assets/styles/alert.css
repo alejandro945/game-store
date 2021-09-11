@@ -1,12 +1,13 @@
 .label{
-    -fx-font-family: "Century Gothic" ;
+    -fx-font-family: "Courier new" ;
     -fx-font-style: italic;
     -fx-font-size: 16px;
 }
 .button{
-    -fx-background-color: linear-gradient(to right,#8b9cff ,#2969e0);
-    -fx-background-radius: 10;
-    -fx-font-family: "Century Gothic" ;
+    -fx-background-color: linear-gradient(to right,#c78bff ,#2b00c9);
+    -fx-background-radius: 8;
+    -fx-font-family: "Courier new" ;
+    -fx-text-fill: white;
     -fx-font-style: italic;
     -fx-font-size: 18px;
 }

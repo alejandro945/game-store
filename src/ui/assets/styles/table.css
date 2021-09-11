@@ -9,22 +9,22 @@
     -fx-background-radius:12 12 0 0;
 }
 .table-view .column-header-background{
-    -fx-background-color: #0021db;
-    -fx-background-radius:12 12 0 0;   
+    -fx-background-color: #3400c2;
+    -fx-background-radius:10 10 0 0;   
     -fx-background-insets:0 0 10 0;
 }
 .table-view .column-header .label{
     -fx-alignment: CENTER;
 }
 .table-cell{
-    -fx-font: 16px "Courier";
+    -fx-font: 16px "Courier New";
     -fx-alignment: CENTER;
 }
 .table-row-cell:empty .table-cell {
     -fx-border-width: 0px;
 }
 .table-row-cell:odd {
-    -fx-background-color: rgb(190, 213, 255);
+    -fx-background-color: rgb(207, 190, 255);
 }
 .table-row-cell:empty, .table-cell:empty:hover {
     -fx-background-color: whitesmoke;
@@ -39,14 +39,14 @@
     #delete{
         -fx-background-color: linear-gradient(to left,#ff8b8b ,#e02929);
         -fx-background-radius: 10;
-        -fx-font-family: "Courier" ;
+        -fx-font-family: "Courier New" ;
         -fx-font-style: italic;
         -fx-font-size: 16px;
     }
     #edit{
         -fx-background-color: linear-gradient(to right,#8bc1ff ,#1500ff);
         -fx-background-radius: 10;
-        -fx-font-family: "Courier" ;
+        -fx-font-family: "Courier New" ;
         -fx-font-style: italic;
         -fx-font-size: 16px;
     }

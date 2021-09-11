@@ -12,9 +12,8 @@ import model.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 
-public class EComerceController {
+public class ECommerceController {
 
     @FXML
     private TableView<Game> tblGameWish;
@@ -58,11 +57,11 @@ public class EComerceController {
     }
 
     private void createGameTest(){
-        Game g1 = new Game(1, "g1", "saoa", 4.5, 2000, 2);
-        Game g2 = new Game(2, "g2", "saoa", 4.2, 2100, 1);
-        Game g3 = new Game(3, "g3", "saoa", 4.3, 1800, 6);
-        Game g4 = new Game(4, "g4", "saoa", 4.1, 5000, 5);
-        Game g5 = new Game(5, "g5", "saoa", 4, 204, 9);
+        Game g1 = new Game(1, "g1", "saoa", 2000, 2);
+        Game g2 = new Game(2, "g2", "saoa", 2100, 1);
+        Game g3 = new Game(3, "g3", "saoa", 1800, 6);
+        Game g4 = new Game(4, "g4", "saoa", 5000, 5);
+        Game g5 = new Game(5, "g5", "saoa", 204, 9);
         gameM.add(g1);
         gameM.add(g2);
         gameM.add(g3);
