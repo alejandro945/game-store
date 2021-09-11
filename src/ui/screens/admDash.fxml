@@ -22,7 +22,7 @@
             <TableColumn fx:id="tblReviewGames" prefWidth="100.0" text="Review" />
             <TableColumn fx:id="tblAmountGames" prefWidth="87.0" text="Amount" />
             <TableColumn fx:id="tblPriceGames" prefWidth="79.0" text="Price $" />
-            <TableColumn fx:id="tblNameGames1" prefWidth="269.0" text="Name" />
+            <TableColumn fx:id="colActions" prefWidth="269.0" text="Actions" />
         </columns>
       </TableView>
       <ImageView fitHeight="61.0" fitWidth="137.0" layoutX="176.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
@@ -68,7 +68,7 @@
             <TableColumn fx:id="tblIdShelves" prefWidth="60.0" text="Id" />
             <TableColumn fx:id="tblGamesShelves" prefWidth="202.0" text="Games" />
             <TableColumn fx:id="tblAmountShelves" prefWidth="92.0" text="Amount" />
-            <TableColumn prefWidth="170.0" text="Actions" />
+            <TableColumn fx:id="colActionsShelves" prefWidth="170.0" text="Actions" />
          </columns>
       </TableView>
       <Button fx:id="edit" layoutX="305.0" layoutY="214.0" mnemonicParsing="false" onAction="#editCashier" stylesheets="@../assets/styles/table.css" text="Edit" textFill="WHITE" />
@@ -95,7 +95,6 @@
             <TableColumn fx:id="tblIdCostumer" prefWidth="60.0" text="Id" />
             <TableColumn fx:id="tblGamesCostumers" prefWidth="202.0" text="Games" />
             <TableColumn fx:id="tblAmountCostumers" prefWidth="92.0" text="Amount" />
-            <TableColumn prefWidth="170.0" text="Actions" />
          </columns>
       </TableView>
       <Button layoutX="117.0" layoutY="19.0" mnemonicParsing="false" onAction="#goBack" styleClass="btn-flash">

@@ -268,11 +268,11 @@ public class ECommerceController {
         ObservableList<Game> newGamesWC;
         newGamesWC = FXCollections.observableList(gamesWC);
 
-        tblGameWishClient.setItems(newGamesWC);
         tblCodeGameClient.setCellValueFactory(new PropertyValueFactory<>("code"));
         tblNameGameClient.setCellValueFactory(new PropertyValueFactory<>("gameName"));
         tblReviewGameClient.setCellValueFactory(new PropertyValueFactory<>("review"));
         tblPriceGameClient.setCellValueFactory(new PropertyValueFactory<>("price"));
+        tblGameWishClient.setItems(newGamesWC);
     }
 
     public String generateCodeClient() {

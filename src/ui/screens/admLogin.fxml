@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -29,7 +30,7 @@
       </Label>
       <Label layoutX="497.0" layoutY="198.0" text="Login with Jwt" textFill="#b2b2b2">
          <font>
-            <Font name="Courier Oblique" size="15.0" />
+            <Font name="Courier New" size="15.0" />
          </font>
       </Label>
       <Label layoutX="494.0" layoutY="33.0" text="Do not have an account yet?" textFill="#b2b2b2">
@@ -72,20 +73,6 @@
             <Font name="Courier New" size="19.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="password" layoutX="494.0" layoutY="412.0" prefHeight="40.0" prefWidth="354.0">
-         <unFocusColor>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="#0800a1" />
-                  <Stop color="WHITE" offset="0.007518796992481203" />
-                  <Stop color="#44069c" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </unFocusColor>
-         <font>
-            <Font name="Courier" size="14.0" />
-         </font>
-      </JFXTextField>
       <JFXButton layoutX="497.0" layoutY="515.0" onAction="#goBack" prefHeight="40.0" prefWidth="157.0" styleClass="btn-login" text="Back" textFill="WHITE">
          <ripplerFill>
             <LinearGradient endX="1.0" endY="1.0">
@@ -97,5 +84,6 @@
             </LinearGradient>
          </ripplerFill>
       </JFXButton>
+      <JFXPasswordField fx:id="password" layoutX="497.0" layoutY="433.0" prefHeight="40.0" prefWidth="286.0" />
    </children>
 </AnchorPane>
