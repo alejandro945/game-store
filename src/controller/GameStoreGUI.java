@@ -45,7 +45,7 @@ public class GameStoreGUI {
 
     private GameStoreGUI() {
         aController = new AdminController();
-        eController = new EComerceController();
+        eController = new EComerceController(this);
     }
 
     public static GameStoreGUI getInstance() {
@@ -94,7 +94,9 @@ public class GameStoreGUI {
             case ECOMERCE:;
                 return eController;
             case LOGIN:
-            return aController; 
+                return aController;
+            case ADDCOSTUMER:
+                return eController;
             default:
                 return null;
         }
@@ -114,6 +116,10 @@ public class GameStoreGUI {
     @FXML
     public void toLogin(ActionEvent event) {
         renderScreen(Route.LOGIN);
+    }
+
+    public void toAddClientWithListWish(){
+        renderScreen(Route.ADDCOSTUMER);
     }
 
     public Stage loadModal(Route route, Object controller) throws IOException {

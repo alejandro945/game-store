@@ -14,11 +14,11 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="819.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane layoutY="-1.0" prefHeight="573.0" prefWidth="819.0" styleClass="main-pane" stylesheets="@../assets/styles/vendor.css">
+      <Pane layoutY="-1.0" prefHeight="700.0" prefWidth="900.0" styleClass="main-pane" stylesheets="@../assets/styles/vendor.css">
          <children>
-            <Button layoutX="39.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" styleClass="btn-flash">
+            <Button layoutX="45.0" layoutY="30.0" mnemonicParsing="false" onAction="#onBackToListWish" styleClass="btn-flash">
                <graphic>
                   <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -27,36 +27,36 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Pane fx:id="paneInformatión" layoutX="509.0" layoutY="81.0" prefHeight="472.0" prefWidth="281.0" stylesheets="@../assets/styles/vendor.css">
+            <Pane fx:id="paneInformatión" layoutX="557.0" layoutY="95.0" prefHeight="472.0" prefWidth="281.0" stylesheets="@../assets/styles/vendor.css">
                <styleClass>
                   <String fx:value="main-pane" />
                   <String fx:value="box" />
                </styleClass>
                <children>
-                  <JFXButton fx:id="btnRemoveGameWish" layoutX="95.0" layoutY="288.0" onAction="#onRemoveGameListWish" style="-fx-background-color: #2a35eb;" text="Add Client" textFill="WHITE">
+                  <JFXButton layoutX="95.0" layoutY="288.0" onAction="#onAddClient" style="-fx-background-color: #2a35eb;" text="Add Client" textFill="WHITE">
                      <font>
                         <Font name="System Italic" size="15.0" />
                      </font>
                   </JFXButton>
-                  <JFXTextField fx:id="txtCodeGame" focusColor="#de55e1" layoutX="56.0" layoutY="46.0" promptText="Code" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+                  <JFXTextField fx:id="txtCodeClient" editable="false" focusColor="#de55e1" layoutX="56.0" layoutY="46.0" promptText="Code" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
                   <Label layoutX="106.0" layoutY="14.0" text="Add Client" textFill="#2a35eb" />
-                  <JFXTextField fx:id="txtnameGame" focusColor="#de55e1" layoutX="56.0" layoutY="87.0" promptText="Name" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
-                  <JFXTextField fx:id="txtpointGame" focusColor="#de55e1" layoutX="56.0" layoutY="130.0" promptText="LastName" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
-                  <JFXTextField fx:id="txtpriceGame" focusColor="#de55e1" layoutX="55.0" layoutY="174.0" promptText="Identification" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+                  <JFXTextField fx:id="txtnameClient" focusColor="#de55e1" layoutX="56.0" layoutY="87.0" promptText="Name" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+                  <JFXTextField fx:id="txtLastNameClient" focusColor="#de55e1" layoutX="56.0" layoutY="130.0" promptText="LastName" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+                  <JFXTextField fx:id="txtIdClient" focusColor="#de55e1" layoutX="55.0" layoutY="174.0" promptText="Identification" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
                </children>
             </Pane>
-            <Label layoutX="228.0" layoutY="14.0" text="Do you want to confirm your list wish?" textFill="#2a35eb">
+            <Label layoutX="268.0" layoutY="30.0" text="Do you want to confirm your list wish?" textFill="#2a35eb">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <TableView fx:id="tblGameWish" layoutX="31.0" layoutY="80.0" onMouseClicked="#onSelectGame" prefHeight="472.0" prefWidth="460.0" stylesheets="@../assets/styles/table.css">
+            <TableView fx:id="tblGameWishClient" layoutX="38.0" layoutY="95.0" onMouseClicked="#onSelectGame" prefHeight="547.0" prefWidth="460.0" stylesheets="@../assets/styles/table.css">
                <columns>
-                  <TableColumn fx:id="tblCodeGame" prefWidth="92.0" text="Code" />
-                  <TableColumn fx:id="tblNameGame" prefWidth="92.0" text="Game" />
-                  <TableColumn fx:id="tblPointGame" prefWidth="92.0" text="Point" />
-                  <TableColumn fx:id="tblReviewGame" prefWidth="92.0" text="Review" />
-                  <TableColumn fx:id="tblPriceGame" prefWidth="92.0" text="Price" />
+                  <TableColumn fx:id="tblCodeGameClient" prefWidth="92.0" text="Code" />
+                  <TableColumn fx:id="tblNameGameClient" prefWidth="92.0" text="Game" />
+                  <TableColumn fx:id="tblPointGameClient" prefWidth="92.0" text="Point" />
+                  <TableColumn fx:id="tblReviewGameClient" prefWidth="92.0" text="Review" />
+                  <TableColumn fx:id="tblPriceGameClient" prefWidth="92.0" text="Price" />
                </columns>
             </TableView>
          </children>

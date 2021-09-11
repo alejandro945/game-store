@@ -7,19 +7,13 @@ public class GameStore {
     private static GameStore instance;
 
     private ArrayList<Costumer<String>> costumers;
-    private ArrayList<Game> listWish;
 
     private GameStore() {
         costumers = new ArrayList<>();
-        listWish = new ArrayList<>();
     }
 
-    public void initListWish(){
-        listWish = new ArrayList<>();
-    }
-
-    public ArrayList<Game> getListWish(){
-        return listWish;
+    public ArrayList<Costumer<String>> getCostumers(){
+        return costumers;
     }
 
     public static GameStore getInstance() {
@@ -27,5 +21,9 @@ public class GameStore {
             instance = new GameStore();
         }
         return instance;
+    }
+
+    public void addClient(String code, String name, String lastName, Long id, ArrayList<Game> games){
+        Costumer<String> newClient = new Costumer<>(code, name, lastName, id, games);
     }
 }
