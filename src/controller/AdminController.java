@@ -1,5 +1,6 @@
 package controller;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
@@ -7,7 +8,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+
 import routes.Route;
+import model.Game;
 
 public class AdminController {
     @FXML
@@ -85,5 +88,28 @@ public class AdminController {
     @FXML
     public void signIn(ActionEvent event) {
         GameStoreGUI.getInstance().renderScreen(Route.ADMDASH);
+    }
+
+    // ---------------------------------------CREATE-SHELVE----------------------------------------------
+
+    @FXML
+    private JFXTextField shelveName;
+
+    @FXML
+    private JFXComboBox<Game> chooseGame;
+
+    @FXML
+    public void chooseGame(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void cancelModalShelve(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void saveGameShelve(ActionEvent event) {
+
     }
 }
