@@ -5,7 +5,8 @@ public enum Route {
     ICON("/ui/assets/images/Controller.png"), SUCCESS("/ui/assets/images/Success.png"),
     ERROR("/ui/assets/images/Error.png"), WARNING("/ui/assets/images/Warning.png"),
     ALERT("/ui/assets/styles/alert.css"), ECOMERCE("/ui/screens/ecommerce.fxml"),
-    GAMEMODAL("/ui/screens/gameModal.fxml"),ADMDASH("/ui/screens/admDash.fxml");
+    GAMEMODAL("/ui/screens/gameModal.fxml"), ADMDASH("/ui/screens/admDash.fxml"),
+    ADDCOSTUMER("/ui/screens/admCostumer.fxml");
 
     private String route;
 

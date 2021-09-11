@@ -93,6 +93,8 @@ public class GameStoreGUI {
                 return this;
             case ECOMERCE:
                 return eController;
+            case ADDCOSTUMER:
+                return eController;
             case LOGIN:
                 return aController;
             case ADMDASH:
@@ -110,7 +112,11 @@ public class GameStoreGUI {
     @FXML
     public void toCommerce(ActionEvent event) {
         renderScreen(Route.ECOMERCE);
-        eController.onTableGames();
+        eController.intializeEComerce();
+    }
+
+    public void toAddClientWithListWish() {
+        renderScreen(Route.ADDCOSTUMER);
     }
 
     @FXML
@@ -163,5 +169,4 @@ public class GameStoreGUI {
         newAlert.setContent(layout);
         newAlert.showAndWait();
     }
-
 }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutY="-1.0" prefHeight="700.0" prefWidth="900.0" styleClass="main-pane" stylesheets="@../assets/styles/vendor.css">
+         <children>
+            <Button layoutX="45.0" layoutY="30.0" mnemonicParsing="false" onAction="#onBackToListWish" styleClass="btn-flash">
+               <graphic>
+                  <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/images/Left.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Pane fx:id="paneInformatión" layoutX="557.0" layoutY="95.0" prefHeight="472.0" prefWidth="281.0" stylesheets="@../assets/styles/vendor.css">
+               <styleClass>
+                  <String fx:value="main-pane" />
+                  <String fx:value="box" />
+               </styleClass>
+               <children>
+                  <JFXButton layoutX="95.0" layoutY="288.0" onAction="#onAddClient" style="-fx-background-color: #2a35eb;" text="Add Client" textFill="WHITE">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXTextField fx:id="txtCodeClient" editable="false" focusColor="#de55e1" layoutX="56.0" layoutY="46.0" promptText="Code" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+                  <Label layoutX="106.0" layoutY="14.0" text="Add Client" textFill="#2a35eb" />
+                  <JFXTextField fx:id="txtnameClient" focusColor="#de55e1" layoutX="56.0" layoutY="87.0" promptText="Name" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+                  <JFXTextField fx:id="txtLastNameClient" focusColor="#de55e1" layoutX="56.0" layoutY="130.0" promptText="LastName" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+                  <JFXTextField fx:id="txtIdClient" focusColor="#de55e1" layoutX="55.0" layoutY="174.0" promptText="Identification" stylesheets="@../assets/styles/vendor.css" unFocusColor="#4352ee" />
+               </children>
+            </Pane>
+            <Label layoutX="268.0" layoutY="30.0" text="Do you want to confirm your list wish?" textFill="#2a35eb">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tblGameWishClient" layoutX="38.0" layoutY="95.0" onMouseClicked="#onSelectGame" prefHeight="547.0" prefWidth="460.0" stylesheets="@../assets/styles/table.css">
+               <columns>
+                  <TableColumn fx:id="tblCodeGameClient" prefWidth="92.0" text="Code" />
+                  <TableColumn fx:id="tblNameGameClient" prefWidth="92.0" text="Game" />
+                  <TableColumn fx:id="tblPointGameClient" prefWidth="92.0" text="Point" />
+                  <TableColumn fx:id="tblReviewGameClient" prefWidth="92.0" text="Review" />
+                  <TableColumn fx:id="tblPriceGameClient" prefWidth="92.0" text="Price" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
