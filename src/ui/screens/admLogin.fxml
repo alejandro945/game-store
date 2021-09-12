@@ -84,6 +84,15 @@
             </LinearGradient>
          </ripplerFill>
       </JFXButton>
-      <JFXPasswordField fx:id="password" layoutX="497.0" layoutY="433.0" prefHeight="40.0" prefWidth="286.0" />
+      <JFXPasswordField fx:id="password" layoutX="503.0" layoutY="422.0" prefHeight="40.0" prefWidth="354.0">
+         <unFocusColor>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#d000ff" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </unFocusColor>
+      </JFXPasswordField>
    </children>
 </AnchorPane>

@@ -45,7 +45,7 @@
             <Font name="Courier New Bold" size="21.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtCashier" layoutX="102.0" layoutY="216.0" prefHeight="27.0" prefWidth="177.0" promptText="Write the number of cashiers">
+      <JFXTextField fx:id="txtCashier" alignment="CENTER" layoutX="102.0" layoutY="216.0" prefHeight="27.0" prefWidth="177.0" promptText="Write the number of cashiers">
          <unFocusColor>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -72,7 +72,7 @@
          </columns>
       </TableView>
       <Button fx:id="edit" layoutX="305.0" layoutY="214.0" mnemonicParsing="false" onAction="#editCashier" stylesheets="@../assets/styles/table.css" text="Edit" textFill="WHITE" />
-      <JFXTextField fx:id="lblCashier" disable="true" editable="false" focusColor="#0400ff" layoutX="232.0" layoutY="164.0" prefHeight="27.0" prefWidth="137.0">
+      <JFXTextField fx:id="lblCashier" alignment="CENTER" disable="true" editable="false" focusColor="#0400ff" layoutX="232.0" layoutY="164.0" prefHeight="27.0" prefWidth="137.0">
          <unFocusColor>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -82,7 +82,7 @@
             </RadialGradient>
          </unFocusColor>
          <font>
-            <Font name="Courier New" size="13.0" />
+            <Font name="Courier New" size="17.0" />
          </font>
       </JFXTextField>
       <Label layoutX="630.0" layoutY="388.0" text="Costumers">
@@ -90,11 +90,11 @@
             <Font name="Courier New Bold" size="21.0" />
          </font>
       </Label>
-      <TableView fx:id="tbCostumers" layoutX="509.0" layoutY="428.0" prefHeight="246.0" prefWidth="360.0" stylesheets="@../assets/styles/table.css">
+      <TableView fx:id="tbCostumers" layoutX="507.0" layoutY="428.0" prefHeight="246.0" prefWidth="360.0" stylesheets="@../assets/styles/table.css">
          <columns>
             <TableColumn fx:id="tblIdCostumer" prefWidth="60.0" text="Id" />
+            <TableColumn fx:id="tblNameCostumers" prefWidth="92.0" text="Name" />
             <TableColumn fx:id="tblGamesCostumers" prefWidth="202.0" text="Games" />
-            <TableColumn fx:id="tblAmountCostumers" prefWidth="92.0" text="Amount" />
          </columns>
       </TableView>
       <Button layoutX="117.0" layoutY="19.0" mnemonicParsing="false" onAction="#goBack" styleClass="btn-flash">

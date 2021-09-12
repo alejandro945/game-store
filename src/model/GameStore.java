@@ -7,10 +7,12 @@ public class GameStore {
 
     private List<Costumer> costumers;
     private List<Game> games;
+    private int cashiers;
 
     public GameStore() {
         costumers = new ArrayList<>();
         games = new ArrayList<>();
+        cashiers = 0;
     }
 
     public List<Costumer> getCostumers() {
@@ -19,6 +21,14 @@ public class GameStore {
 
     public List<Game> getGames() {
         return games;
+    }
+
+    public int getCashiers() {
+        return cashiers;
+    }
+
+    public void setCashiers(int cashiers){
+        this.cashiers = cashiers;
     }
 
     public void addClient(String code, String name, ArrayList<Game> games) {

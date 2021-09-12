@@ -1,16 +1,16 @@
 package controller;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-import com.jfoenix.controls.*;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXComboBox;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.*;
@@ -19,19 +19,17 @@ import javafx.stage.Stage;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.geometry.Insets;
-
+import model.Costumer;
 import model.Game;
-
+import model.Shelve;
 import routes.Route;
 
-public class AdminController implements Initializable {
+public class AdminController {
 
-    public Game selected;
+    private Game selectedG;
+    private Shelve selectedS;
 
     // -----------------------------------------------ADMIN-DASH-----------------------------
-
-    @FXML
-    private Label modalGameName;
 
     private Stage modal;
 
@@ -50,7 +48,6 @@ public class AdminController implements Initializable {
     public void createShelve(ActionEvent event) {
         if (modal == null) {
             modal = GameStoreGUI.getInstance().loadModal(Route.SHELVEMODAL, this);
-            initializePrueba();
             modal.show();
         }
     }
@@ -68,6 +65,24 @@ public class AdminController implements Initializable {
         GameStoreGUI.getInstance().renderScreen(Route.WELCOME);
     }
 
+    private void getData() {
+        // Init Game Table
+        ObservableList<Game> gameList = FXCollections
+                .observableArrayList(GameStoreGUI.getInstance().getGameStore().getGames());
+        tblNameGames.setCellValueFactory(new PropertyValueFactory<>("gameName"));
+        tblReviewGames.setCellValueFactory(new PropertyValueFactory<>("review"));
+        tblPriceGames.setCellValueFactory(new PropertyValueFactory<>("price"));
+        tblAmountGames.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        tbGames.setItems(gameList);
+        // Init Costumers Table
+        ObservableList<Costumer> costumerList = FXCollections
+                .observableArrayList(GameStoreGUI.getInstance().getGameStore().getCostumers());
+        tblIdCostumer.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tblNameCostumers.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tblGamesCostumers.setCellValueFactory(new PropertyValueFactory<>("wishList"));
+        tbCostumers.setItems(costumerList);
+    }
+
     // ---------------------------------------SING-IN------------------------------------------
     @FXML
     private JFXTextField userName;
@@ -77,8 +92,9 @@ public class AdminController implements Initializable {
 
     @FXML
     public void signIn(ActionEvent event) {
-        if (userName.getText().equalsIgnoreCase("root") && password.getText().equalsIgnoreCase("root")) {
+        if (userName.getText().equalsIgnoreCase("root") && userName.getText().equalsIgnoreCase("root")) {
             GameStoreGUI.getInstance().renderScreen(Route.ADMDASH);
+            getData();
         } else {
             GameStoreGUI.getInstance().createAlert("You aren't admin", Route.ERROR);
         }
@@ -106,6 +122,9 @@ public class AdminController implements Initializable {
 
     @FXML
     private TableColumn<Game, String> colActions;
+
+    @FXML
+    private Label modalGameName;
 
     @FXML
     private JFXTextField title;
@@ -163,14 +182,7 @@ public class AdminController implements Initializable {
     }
 
     public void initializeGamesTable() {
-        ObservableList<Game> newGame = FXCollections
-                .observableArrayList(GameStoreGUI.getInstance().getGameStore().getGames());
 
-        tblNameGames.setCellValueFactory(new PropertyValueFactory<>("gameName"));
-        tblReviewGames.setCellValueFactory(new PropertyValueFactory<>("review"));
-        tblPriceGames.setCellValueFactory(new PropertyValueFactory<>("price"));
-        tblAmountGames.setCellValueFactory(new PropertyValueFactory<>("amount"));
-        tbGames.setItems(newGame);
     }
 
     // ---------------------------------------CREATE-SHELVE----------------------------------------------
@@ -188,19 +200,27 @@ public class AdminController implements Initializable {
     private TableColumn<?, ?> tblAmountShelves;
 
     @FXML
+    private TableColumn<?, ?> colActionsShelves;
+
+    @FXML
+    private Label lblShelve;
+
+    @FXML
     private JFXTextField shelveName;
 
     @FXML
     private JFXComboBox<?> chooseGame;
 
     @FXML
-    private TableColumn<?, ?> colActionsShelves;
-
-    @FXML
-    private JFXChipView<String> txtChip;
+    private JFXTextArea txtAreaGames;
 
     @FXML
     public void chooseGame(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void clear(ActionEvent event) {
 
     }
 
@@ -211,19 +231,19 @@ public class AdminController implements Initializable {
     }
 
     @FXML
-    public void saveGameShelve(ActionEvent event) {
+    public void saveShelve(ActionEvent event) {
 
     }
 
-    public void initializePrueba() {
-        txtChip.getChips().addAll("HOLA", "COMO", "VARELAMK", "SUAREZMK", "MURCIAMK");
+    @FXML
+    public void editShelve(ActionEvent event) {
 
     }
 
     // ----------------------------------VIEW-COSTUMERS----------------------------------------
 
     @FXML
-    private TableView<?> tbCostumers;
+    private TableView<Costumer> tbCostumers;
 
     @FXML
     private TableColumn<?, ?> tblIdCostumer;
@@ -232,7 +252,7 @@ public class AdminController implements Initializable {
     private TableColumn<?, ?> tblGamesCostumers;
 
     @FXML
-    private TableColumn<?, ?> tblAmountCostumers;
+    private TableColumn<?, ?> tblNameCostumers;
 
     // ----------------------------------------CASHIERS----------------------------------------------
 
@@ -244,12 +264,10 @@ public class AdminController implements Initializable {
 
     @FXML
     public void editCashier(ActionEvent event) {
-
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        initializeGamesTable();
+        GameStoreGUI.getInstance().getGameStore().setCashiers(Integer.parseInt(txtCashier.getText()));
+        GameStoreGUI.getInstance().createAlert("Journal Cashiers edited ✅", Route.SUCCESS);
+        txtCashier.setText("");
+        lblCashier.setText(String.valueOf(GameStoreGUI.getInstance().getGameStore().getCashiers()));
     }
 
     // ----------------------------------------GENERICS------------------------------------------
@@ -272,21 +290,21 @@ public class AdminController implements Initializable {
                         delete.getStylesheets().add(Route.TABLE.getRoute());
                         edit.getStylesheets().add(Route.TABLE.getRoute());
                         delete.setOnAction((ActionEvent event) -> {
-                            selected = (Game) getTableRow().getItem();
-                            GameStoreGUI.getInstance().getGameStore().getGames().remove(selected);
+                            selectedG = (Game) getTableRow().getItem();
+                            GameStoreGUI.getInstance().getGameStore().getGames().remove(selectedG);
                             GameStoreGUI.getInstance().createAlert("The game was removed succesfully!", Route.SUCCESS);
                             initializeGamesTable();
                         });
                         edit.setOnAction((ActionEvent event) -> {
                             if (modal == null) {
-                                selected = (Game) getTableRow().getItem();
+                                selectedG = (Game) getTableRow().getItem();
                                 try {
                                     showModal();
                                 } catch (IOException e) {
-                                    e.printStackTrace();
+                                    GameStoreGUI.getInstance().createAlert("Edition Priblems", Route.ERROR);
                                 }
-                                modalGameName.setText("Edit User");
-                                prepareEdition(selected);
+                                modalGameName.setText("Edit Game");
+                                prepareGameEdition(selectedG);
                             }
                         });
                         HBox managebtn = new HBox(edit, delete);
@@ -303,7 +321,7 @@ public class AdminController implements Initializable {
         colActions.setCellFactory(cellFact);
     }
 
-    public void prepareEdition(Game selected) {
+    public void prepareGameEdition(Game selected) {
         tblIdGames.setText(String.valueOf(selected.getCode()));
         tblNameGames.setText(selected.getGameName());
         tblPriceGames.setText(String.valueOf(selected.getPrice()));
