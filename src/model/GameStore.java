@@ -36,7 +36,7 @@ public class GameStore {
         costumers.add(newClient);
     }
 
-    public void addGames(String name, String review, int price, int amount) {
+    public void addGame(String name, String review, int price, int amount) {
         Game newGame = new Game(games.size() + 1, name, review, price, amount);
         games.add(newGame);
     }

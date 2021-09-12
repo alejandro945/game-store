@@ -56,6 +56,9 @@ public class AdminController {
     public void createGame(ActionEvent event) {
         if (modal == null) {
             modal = GameStoreGUI.getInstance().loadModal(Route.GAMEMODAL, this);
+            code.setText(String.valueOf(GameStoreGUI.getInstance().getGameStore().getGames().size()+1));
+            edit.setVisible(false);
+            save.setVisible(true);
             modal.show();
         }
     }
@@ -69,6 +72,7 @@ public class AdminController {
         // Init Game Table
         ObservableList<Game> gameList = FXCollections
                 .observableArrayList(GameStoreGUI.getInstance().getGameStore().getGames());
+        tblIdGames.setCellValueFactory(new PropertyValueFactory<>("code"));
         tblNameGames.setCellValueFactory(new PropertyValueFactory<>("gameName"));
         tblReviewGames.setCellValueFactory(new PropertyValueFactory<>("review"));
         tblPriceGames.setCellValueFactory(new PropertyValueFactory<>("price"));
@@ -81,6 +85,7 @@ public class AdminController {
         tblNameCostumers.setCellValueFactory(new PropertyValueFactory<>("name"));
         tblGamesCostumers.setCellValueFactory(new PropertyValueFactory<>("wishList"));
         tbCostumers.setItems(costumerList);
+        renderActions();
     }
 
     // ---------------------------------------SING-IN------------------------------------------
@@ -92,7 +97,7 @@ public class AdminController {
 
     @FXML
     public void signIn(ActionEvent event) {
-        if (userName.getText().equalsIgnoreCase("root") && userName.getText().equalsIgnoreCase("root")) {
+        if (userName.getText().equalsIgnoreCase("root") && password.getText().equalsIgnoreCase("root")) {
             GameStoreGUI.getInstance().renderScreen(Route.ADMDASH);
             getData();
         } else {
@@ -169,20 +174,24 @@ public class AdminController {
 
     @FXML
     public void saveGame(ActionEvent event) {
-        if (!validateFields()) {
+        if (validateFields()) {
             try {
-                GameStoreGUI.getInstance().getGameStore().addGames(title.getText(), review.getText(),
+                GameStoreGUI.getInstance().getGameStore().addGame(title.getText(), review.getText(),
                         Integer.parseInt(price.getText()), Integer.parseInt(amount.getText()));
-                GameStoreGUI.getInstance().createAlert("Your game had been added succesfully", Route.SUCCESS);
+                GameStoreGUI.getInstance().createAlert("Your game has been added succesfully", Route.SUCCESS);
                 trimForm();
+                getData();
+                cancelModal(event);
             } catch (NumberFormatException e) {
-                GameStoreGUI.getInstance().createAlert("You only can write numbers!", Route.WARNING);
+                GameStoreGUI.getInstance().createAlert("You can not write letters in price or amount!", Route.ERROR);
             }
+        }else{
+            GameStoreGUI.getInstance().createAlert("Some empty Fields!", Route.WARNING);
         }
     }
 
-    public void initializeGamesTable() {
-
+    @FXML
+    public void editGame(ActionEvent event) {
     }
 
     // ---------------------------------------CREATE-SHELVE----------------------------------------------
@@ -265,7 +274,7 @@ public class AdminController {
     @FXML
     public void editCashier(ActionEvent event) {
         GameStoreGUI.getInstance().getGameStore().setCashiers(Integer.parseInt(txtCashier.getText()));
-        GameStoreGUI.getInstance().createAlert("Journal Cashiers edited ✅", Route.SUCCESS);
+        GameStoreGUI.getInstance().createAlert("Journal Cashiers edited ", Route.SUCCESS);
         txtCashier.setText("");
         lblCashier.setText(String.valueOf(GameStoreGUI.getInstance().getGameStore().getCashiers()));
     }
@@ -273,7 +282,6 @@ public class AdminController {
     // ----------------------------------------GENERICS------------------------------------------
 
     private void renderActions() {
-
         Callback<TableColumn<Game, String>, TableCell<Game, String>> cellFact = (TableColumn<Game, String> param) -> {
             final TableCell<Game, String> cell = new TableCell<Game, String>() {
                 @Override
@@ -293,7 +301,7 @@ public class AdminController {
                             selectedG = (Game) getTableRow().getItem();
                             GameStoreGUI.getInstance().getGameStore().getGames().remove(selectedG);
                             GameStoreGUI.getInstance().createAlert("The game was removed succesfully!", Route.SUCCESS);
-                            initializeGamesTable();
+                            getData();
                         });
                         edit.setOnAction((ActionEvent event) -> {
                             if (modal == null) {
@@ -301,7 +309,7 @@ public class AdminController {
                                 try {
                                     showModal();
                                 } catch (IOException e) {
-                                    GameStoreGUI.getInstance().createAlert("Edition Priblems", Route.ERROR);
+                                    GameStoreGUI.getInstance().createAlert("Edition Priblems, Close any modal opened", Route.ERROR);
                                 }
                                 modalGameName.setText("Edit Game");
                                 prepareGameEdition(selectedG);
@@ -322,11 +330,11 @@ public class AdminController {
     }
 
     public void prepareGameEdition(Game selected) {
-        tblIdGames.setText(String.valueOf(selected.getCode()));
-        tblNameGames.setText(selected.getGameName());
-        tblPriceGames.setText(String.valueOf(selected.getPrice()));
-        tblReviewGames.setText(selected.getReview());
-        tblAmountGames.setText(String.valueOf(selected.getAmount()));
+        code.setText(String.valueOf(selected.getCode()));
+        title.setText(selected.getGameName());
+        price.setText(String.valueOf(selected.getPrice()));
+        review.setText(selected.getReview());
+        amount.setText(String.valueOf(selected.getAmount()));
         edit.setVisible(true);
         save.setVisible(false);
     }

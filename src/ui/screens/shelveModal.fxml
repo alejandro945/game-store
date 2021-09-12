@@ -22,7 +22,7 @@
          </image>
       </ImageView>
       <Label fx:id="lblShelve" layoutX="78.0" layoutY="25.0" stylesheets="@../assets/styles/alert.css" text="Create a Shelve" />
-      <Button fx:id="save" layoutX="159.0" layoutY="354.0" mnemonicParsing="false" onAction="#saveShelve" prefHeight="30.0" prefWidth="80.0" stylesheets="@../assets/styles/table.css" text="Save" textFill="WHITE" />
+      <Button layoutX="159.0" layoutY="354.0" mnemonicParsing="false" onAction="#saveShelve" prefHeight="30.0" prefWidth="80.0" stylesheets="@../assets/styles/table.css" text="Save" textFill="WHITE" />
       <Button fx:id="delete" layoutX="54.0" layoutY="358.0" mnemonicParsing="false" onAction="#cancelModalShelve" stylesheets="@../assets/styles/table.css" text="Cancel" textFill="WHITE" />
       <Label layoutX="14.0" layoutY="191.0" text="Shelve Name" />
       <JFXComboBox fx:id="chooseGame" focusColor="#8000ff" layoutX="144.0" layoutY="228.0" onAction="#chooseGame" prefHeight="25.0" prefWidth="135.0">
