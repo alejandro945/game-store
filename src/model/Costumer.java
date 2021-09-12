@@ -7,13 +7,20 @@ public class Costumer {
     private String code;
     private String name;
     private ArrayList<Game> wishList;
-    private String message;
 
-    public Costumer(int id, String code, String name, ArrayList<Game> listWish) {
+    public Costumer(int id, String code, String name, ArrayList<Game> wishList) {
         this.id = id;
         this.code = code;
         this.name = name;
-        wishList = listWish;
+        this.wishList = new ArrayList<>();
+    }
+
+    public ArrayList<Game> getWishList() {
+        return this.wishList;
+    }
+
+    public void setWishList(ArrayList<Game> wishList) {
+        this.wishList = wishList;
     }
 
     public int getId() {
@@ -40,16 +47,13 @@ public class Costumer {
         this.name = name;
     }
 
-    public String getMessage() {
+    public String getGames() {
+        String getGames = "";
         for (Game game : wishList) {
-            message += game.getCode() + " ";
+            getGames += game.getCode() + " ";
         }
-        System.out.println(message);
-        return message;
-    }
-
-    public void setWishList(ArrayList<Game> wishList) {
-        this.wishList = wishList;
+        System.out.println(getGames);
+        return getGames;
     }
 
 }

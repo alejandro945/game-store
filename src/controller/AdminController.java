@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import com.jfoenix.controls.JFXPasswordField;
@@ -84,7 +85,7 @@ public class AdminController {
                 .observableArrayList(GameStoreGUI.getInstance().getGameStore().getCostumers());
         tblIdCostumer.setCellValueFactory(new PropertyValueFactory<>("id"));
         tblNameCostumers.setCellValueFactory(new PropertyValueFactory<>("name"));
-        tblGamesCostumers.setCellValueFactory(new PropertyValueFactory<>("message"));
+        tblGamesCostumers.setCellValueFactory(new PropertyValueFactory<>("getGames"));
         tbCostumers.setItems(costumerList);
         renderGameActions();
     }
@@ -174,13 +175,14 @@ public class AdminController {
     }
 
     @FXML
-    public void saveGame(ActionEvent event) {
+    public void saveGame(ActionEvent event) throws FileNotFoundException, ClassNotFoundException, IOException {
         if (validateFields()) {
             try {
                 GameStoreGUI.getInstance().getGameStore().addGame(title.getText(), review.getText(),
                         Integer.parseInt(price.getText()), Integer.parseInt(amount.getText()));
                 GameStoreGUI.getInstance().createAlert("Your game has been added succesfully", Route.SUCCESS);
                 trimForm();
+
                 getData();
                 cancelModal(event);
             } catch (NumberFormatException e) {
@@ -251,7 +253,7 @@ public class AdminController {
 
     @FXML
     public void editShelve(ActionEvent event) {
-    
+
     }
 
     // ----------------------------------VIEW-COSTUMERS----------------------------------------

@@ -165,7 +165,7 @@ public class ECommerceController {
 
     private int getAmount() throws NumberFormatException {
         int render = 0;
-        if (txtamountGame.getText().equals("0")|| txtamountGame.getText().equals("") ) {
+        if (txtamountGame.getText().equals("0") || txtamountGame.getText().equals("")) {
             render = 1;
         } else {
             render = Integer.parseInt(txtamountGame.getText());
@@ -255,7 +255,7 @@ public class ECommerceController {
     }
 
     public String generateCodeClient() {
-        String code = GameStoreGUI.getInstance().getGameStore().getCostumers().size()+1 + " ";
+        String code = GameStoreGUI.getInstance().getGameStore().getCostumers().size() + 1 + " ";
         for (int i = 0; i < listWish.size(); i++) {
             code += listWish.get(i).getCode() + " ";
         }
@@ -265,8 +265,8 @@ public class ECommerceController {
     @FXML
     public void onAddClient(ActionEvent event) {
         if (!txtnameClient.getText().equals("")) {
-            GameStoreGUI.getInstance().getGameStore().addClient(Integer.parseInt(txtCodeClient.getText().split(" ")[0]), txtCodeClient.getText(), txtnameClient.getText(),
-                    listWish);
+            GameStoreGUI.getInstance().getGameStore().addClient(Integer.parseInt(txtCodeClient.getText().split(" ")[0]),
+                    txtCodeClient.getText(), txtnameClient.getText(), listWish);
             GameStoreGUI.getInstance().createAlert("Costumer added Succesfully", Route.SUCCESS);
             onBackToListWish(event);
         } else {
