@@ -31,8 +31,8 @@ public class GameStore {
         this.cashiers = cashiers;
     }
 
-    public void addClient(String code, String name, ArrayList<Game> games) {
-        Costumer newClient = new Costumer(code, name, games);
+    public void addClient(int id, String code, String name, ArrayList<Game> games) {
+        Costumer newClient = new Costumer(id, code, name, games);
         costumers.add(newClient);
     }
 

@@ -66,9 +66,8 @@
       <TableView fx:id="tbShelves" layoutX="509.0" layoutY="127.0" prefHeight="246.0" prefWidth="360.0" stylesheets="@../assets/styles/table.css">
          <columns>
             <TableColumn fx:id="tblIdShelves" prefWidth="60.0" text="Id" />
-            <TableColumn fx:id="tblGamesShelves" prefWidth="202.0" text="Games" />
-            <TableColumn fx:id="tblAmountShelves" prefWidth="92.0" text="Amount" />
-            <TableColumn fx:id="colActionsShelves" prefWidth="170.0" text="Actions" />
+            <TableColumn fx:id="tblGamesShelves" prefWidth="224.0" text="Games" />
+            <TableColumn fx:id="colActionsShelves" prefWidth="148.0" text="Actions" />
          </columns>
       </TableView>
       <Button fx:id="edit" layoutX="305.0" layoutY="214.0" mnemonicParsing="false" onAction="#editCashier" stylesheets="@../assets/styles/table.css" text="Edit" textFill="WHITE" />

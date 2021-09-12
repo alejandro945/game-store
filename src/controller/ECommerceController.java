@@ -86,10 +86,7 @@ public class ECommerceController {
     @FXML
     private JFXTextField txtnameClient;
 
-    ArrayList<Game> gameM = new ArrayList<>(); // Testing
     ArrayList<Game> listWish = new ArrayList<>();
-
-    private int seqClient = 1;
 
     public ECommerceController() {
     }
@@ -108,32 +105,13 @@ public class ECommerceController {
     }
 
     public void onTableGames() {
-        createGameTest();
-        List<Game> games = gameM; // Llamar a la lista verdadera de la clase gameStore o entra por parametro,
-                                  // Nuevo test
-        ObservableList<Game> newGameM;
-        newGameM = FXCollections.observableList(games);
-
-        tblGameWish.setItems(newGameM);
+        ObservableList<Game> gameList = FXCollections
+                .observableList(GameStoreGUI.getInstance().getGameStore().getGames());
+        tblGameWish.setItems(gameList);
         tblCodeGame.setCellValueFactory(new PropertyValueFactory<>("code"));
         tblNameGame.setCellValueFactory(new PropertyValueFactory<>("gameName"));
         tblReviewGame.setCellValueFactory(new PropertyValueFactory<>("review"));
         tblPriceGame.setCellValueFactory(new PropertyValueFactory<>("price"));
-
-    }
-
-    // Test
-    private void createGameTest() {
-        Game g1 = new Game(1, "g1", "saoa", 2000, 2);
-        Game g2 = new Game(2, "g2", "saoa", 2100, 1);
-        Game g3 = new Game(3, "g3", "saoa", 1800, 6);
-        Game g4 = new Game(4, "g4", "saoa", 5000, 5);
-        Game g5 = new Game(5, "g5", "saoa", 204, 9);
-        gameM.add(g1);
-        gameM.add(g2);
-        gameM.add(g3);
-        gameM.add(g4);
-        gameM.add(g5);
     }
 
     @FXML
@@ -164,13 +142,14 @@ public class ECommerceController {
 
     @FXML
     public void onAddGameListWish(ActionEvent event) {
+        List<Game> g = GameStoreGUI.getInstance().getGameStore().getGames();
         int countadd = 0;
-        for (int i = 0; i < gameM.size(); i++) {
-            if (gameM.get(i).getCode() == Integer.parseInt(txtCodeGame.getText())) {
+        for (int i = 0; i < g.size(); i++) {
+            if (g.get(i).getCode() == Integer.parseInt(txtCodeGame.getText())) {
                 try {
                     countadd = getAmount();
                     for (int j = 0; j < countadd; j++) {
-                        listWish.add(gameM.get(i));
+                        listWish.add(g.get(i));
                     }
                     btnAddGameWish.setDisable(true);
                     btnRemoveGameWish.setDisable(false);
@@ -186,7 +165,7 @@ public class ECommerceController {
 
     private int getAmount() throws NumberFormatException {
         int render = 0;
-        if (txtamountGame.getText().equals("")) {
+        if (txtamountGame.getText().equals("0")|| txtamountGame.getText().equals("") ) {
             render = 1;
         } else {
             render = Integer.parseInt(txtamountGame.getText());
@@ -247,7 +226,7 @@ public class ECommerceController {
                 txtnameGame.setText(gameSelected.getGameName());
                 txtpriceGame.setText(gameSelected.getPrice() + "");
                 lblreviewGame.setText(gameSelected.getReview());
-                txtamountGame.setText("");
+                txtamountGame.setText("0");
             }
         }
     }
@@ -276,7 +255,7 @@ public class ECommerceController {
     }
 
     public String generateCodeClient() {
-        String code = seqClient + " ";
+        String code = GameStoreGUI.getInstance().getGameStore().getCostumers().size()+1 + " ";
         for (int i = 0; i < listWish.size(); i++) {
             code += listWish.get(i).getCode() + " ";
         }
@@ -286,9 +265,8 @@ public class ECommerceController {
     @FXML
     public void onAddClient(ActionEvent event) {
         if (!txtnameClient.getText().equals("")) {
-            GameStoreGUI.getInstance().getGameStore().addClient(txtCodeClient.getText(), txtnameClient.getText(),
+            GameStoreGUI.getInstance().getGameStore().addClient(Integer.parseInt(txtCodeClient.getText().split(" ")[0]), txtCodeClient.getText(), txtnameClient.getText(),
                     listWish);
-            seqClient++;
             GameStoreGUI.getInstance().createAlert("Costumer added Succesfully", Route.SUCCESS);
             onBackToListWish(event);
         } else {

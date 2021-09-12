@@ -28,10 +28,9 @@ public class AdminController {
 
     private Game selectedG;
     private Shelve selectedS;
+    private Stage modal;
 
     // -----------------------------------------------ADMIN-DASH-----------------------------
-
-    private Stage modal;
 
     @FXML
     public void cancelModal(ActionEvent event) {
@@ -56,7 +55,7 @@ public class AdminController {
     public void createGame(ActionEvent event) {
         if (modal == null) {
             modal = GameStoreGUI.getInstance().loadModal(Route.GAMEMODAL, this);
-            code.setText(String.valueOf(GameStoreGUI.getInstance().getGameStore().getGames().size()+1));
+            code.setText(String.valueOf(GameStoreGUI.getInstance().getGameStore().getGames().size() + 1));
             edit.setVisible(false);
             save.setVisible(true);
             modal.show();
@@ -69,6 +68,8 @@ public class AdminController {
     }
 
     private void getData() {
+        // Init Cashiers
+        lblCashier.setText(String.valueOf(GameStoreGUI.getInstance().getGameStore().getCashiers()));
         // Init Game Table
         ObservableList<Game> gameList = FXCollections
                 .observableArrayList(GameStoreGUI.getInstance().getGameStore().getGames());
@@ -83,9 +84,9 @@ public class AdminController {
                 .observableArrayList(GameStoreGUI.getInstance().getGameStore().getCostumers());
         tblIdCostumer.setCellValueFactory(new PropertyValueFactory<>("id"));
         tblNameCostumers.setCellValueFactory(new PropertyValueFactory<>("name"));
-        tblGamesCostumers.setCellValueFactory(new PropertyValueFactory<>("wishList"));
+        tblGamesCostumers.setCellValueFactory(new PropertyValueFactory<>("message"));
         tbCostumers.setItems(costumerList);
-        renderActions();
+        renderGameActions();
     }
 
     // ---------------------------------------SING-IN------------------------------------------
@@ -185,28 +186,32 @@ public class AdminController {
             } catch (NumberFormatException e) {
                 GameStoreGUI.getInstance().createAlert("You can not write letters in price or amount!", Route.ERROR);
             }
-        }else{
+        } else {
             GameStoreGUI.getInstance().createAlert("Some empty Fields!", Route.WARNING);
         }
     }
 
     @FXML
     public void editGame(ActionEvent event) {
+        selectedG.setGameName(title.getText());
+        selectedG.setReview(review.getText());
+        selectedG.setAmount(Integer.parseInt(amount.getText()));
+        selectedG.setPrice(Integer.parseInt(price.getText()));
+        GameStoreGUI.getInstance().createAlert("Game edited succesfully", Route.SUCCESS);
+        getData();
+        cancelModal(event);
     }
 
     // ---------------------------------------CREATE-SHELVE----------------------------------------------
 
     @FXML
-    private TableView<?> tbShelves;
+    private TableView<Shelve> tbShelves;
 
     @FXML
     private TableColumn<?, ?> tblIdShelves;
 
     @FXML
     private TableColumn<?, ?> tblGamesShelves;
-
-    @FXML
-    private TableColumn<?, ?> tblAmountShelves;
 
     @FXML
     private TableColumn<?, ?> colActionsShelves;
@@ -218,7 +223,7 @@ public class AdminController {
     private JFXTextField shelveName;
 
     @FXML
-    private JFXComboBox<?> chooseGame;
+    private JFXComboBox<Game> chooseGame;
 
     @FXML
     private JFXTextArea txtAreaGames;
@@ -246,7 +251,7 @@ public class AdminController {
 
     @FXML
     public void editShelve(ActionEvent event) {
-
+    
     }
 
     // ----------------------------------VIEW-COSTUMERS----------------------------------------
@@ -281,7 +286,7 @@ public class AdminController {
 
     // ----------------------------------------GENERICS------------------------------------------
 
-    private void renderActions() {
+    private void renderGameActions() {
         Callback<TableColumn<Game, String>, TableCell<Game, String>> cellFact = (TableColumn<Game, String> param) -> {
             final TableCell<Game, String> cell = new TableCell<Game, String>() {
                 @Override
@@ -309,7 +314,8 @@ public class AdminController {
                                 try {
                                     showModal();
                                 } catch (IOException e) {
-                                    GameStoreGUI.getInstance().createAlert("Edition Priblems, Close any modal opened", Route.ERROR);
+                                    GameStoreGUI.getInstance().createAlert("Edition Priblems, Close any modal opened",
+                                            Route.ERROR);
                                 }
                                 modalGameName.setText("Edit Game");
                                 prepareGameEdition(selectedG);
