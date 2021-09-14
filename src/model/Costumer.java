@@ -8,7 +8,6 @@ public class Costumer implements Serializable{
     private String code;
     private String name;
     private ArrayList<Game> wishList;
-    private String sapa;
 
     public Costumer(int id, String code, String name, ArrayList<Game> wishList) {
         this.id = id;
@@ -56,5 +55,4 @@ public class Costumer implements Serializable{
        }
         return msg;
     }
-
 }
