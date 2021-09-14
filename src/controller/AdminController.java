@@ -85,7 +85,7 @@ public class AdminController {
                 .observableArrayList(GameStoreGUI.getInstance().getGameStore().getCostumers());
         tblIdCostumer.setCellValueFactory(new PropertyValueFactory<>("id"));
         tblNameCostumers.setCellValueFactory(new PropertyValueFactory<>("name"));
-        tblGamesCostumers.setCellValueFactory(new PropertyValueFactory<>("getGames"));
+        tblGamesCostumers.setCellValueFactory(new PropertyValueFactory<>("sapa"));
         tbCostumers.setItems(costumerList);
         renderGameActions();
     }
@@ -262,13 +262,13 @@ public class AdminController {
     private TableView<Costumer> tbCostumers;
 
     @FXML
-    private TableColumn<?, ?> tblIdCostumer;
+    private TableColumn<Costumer, Integer> tblIdCostumer;
 
     @FXML
-    private TableColumn<?, ?> tblGamesCostumers;
+    private TableColumn<Costumer, String> tblNameCostumers;
 
     @FXML
-    private TableColumn<?, ?> tblNameCostumers;
+    private TableColumn<Game, String> tblGamesCostumers;
 
     // ----------------------------------------CASHIERS----------------------------------------------
 

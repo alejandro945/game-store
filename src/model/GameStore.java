@@ -7,9 +7,9 @@ import java.util.List;
 import controller.GameStoreGUI;
 import routes.Route;
 
-public class GameStore {
+public class GameStore implements Serializable {
 
-    public static final String SAVE_DATA = "data/IdentityGames.report";
+    public static final String SAVE_DATA = "data/IdentityGames.data";
     private List<Costumer> costumers;
     private List<Game> games;
     private int cashiers;
@@ -18,37 +18,43 @@ public class GameStore {
         costumers = new ArrayList<>();
         games = new ArrayList<>();
         cashiers = 0;
+        dateRender();
     }
 
     // ---------------------------------------PERSISTENCE------------------------------------------------------
 
-    public File getDataFile() {
+    public void dateRender() {
         File file = new File(SAVE_DATA);
-        return file;
+        if (file.length() > 0) {
+            loadInformation();
+        }
     }
 
-    public void saveInformation() throws FileNotFoundException, IOException, ClassNotFoundException {
-        ObjectOutputStream oos = null;
-        File file = new File(SAVE_DATA);
+    public void saveInformation() {
+        ObjectOutputStream oos;
         try {
-            oos = new ObjectOutputStream(new FileOutputStream(file));
+            oos = new ObjectOutputStream(new FileOutputStream(SAVE_DATA));
             oos.writeObject(costumers);
             oos.writeObject(games);
             oos.close();
-        } catch (FileNotFoundException e) {
+        } catch (Exception e) {
             GameStoreGUI.getInstance().createAlert("The file data could not be founded", Route.ERROR);
         }
     }
 
     @SuppressWarnings("unchecked")
-    public void loadInformation() throws IOException, ClassNotFoundException {
-        if (getDataFile().length() > 0) {
+    public void loadInformation() {
+        try {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(SAVE_DATA)));
             costumers = (ArrayList<Costumer>) ois.readObject();
             games = (ArrayList<Game>) ois.readObject();
-
             ois.close();
+        } catch (Exception e) {
+            // GameStoreGUI.getInstance().createAlert("The data could not be loaded",
+            // Route.ERROR);
+            e.printStackTrace();
         }
+
     }
 
     // --------------------------------------------------------------------------------------------------
@@ -72,6 +78,7 @@ public class GameStore {
     public void addClient(int id, String code, String name, ArrayList<Game> games) {
         Costumer newClient = new Costumer(id, code, name, games);
         costumers.add(newClient);
+        System.out.println(costumers.get(0).getSapa());
     }
 
     public void addGame(String name, String review, int price, int amount) {

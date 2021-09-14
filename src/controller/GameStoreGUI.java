@@ -66,6 +66,7 @@ public class GameStoreGUI {
     @FXML
     public void handleMouseClick(MouseEvent event) {
         if (event.getSource() == btnCloseLogin) {
+            getGameStore().saveInformation();
             System.exit(0);
         } else if (event.getSource() == btnMinimize) {
             getWindow().setIconified(true);

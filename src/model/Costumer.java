@@ -1,18 +1,20 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Costumer {
+public class Costumer implements Serializable{
     private int id;
     private String code;
     private String name;
     private ArrayList<Game> wishList;
+    private String sapa;
 
     public Costumer(int id, String code, String name, ArrayList<Game> wishList) {
         this.id = id;
         this.code = code;
         this.name = name;
-        this.wishList = new ArrayList<>();
+        this.wishList = wishList;
     }
 
     public ArrayList<Game> getWishList() {
@@ -47,13 +49,12 @@ public class Costumer {
         this.name = name;
     }
 
-    public String getGames() {
-        String getGames = "";
+    public String getSapa() {
+       String msg = "";
         for (Game game : wishList) {
-            getGames += game.getCode() + " ";
+            msg += game.getCode() + " ";
         }
-        System.out.println(getGames);
-        return getGames;
+        return msg;
     }
 
 }
