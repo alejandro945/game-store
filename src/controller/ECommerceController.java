@@ -93,7 +93,7 @@ public class ECommerceController {
 
     public void intializeEComerce() {
         onTableGames();
-        listWish.clear();
+        listWish = new ArrayList<>();
         btnEndWishList.setDisable(true);
         paneInformatión.setDisable(true);
     }
@@ -153,7 +153,6 @@ public class ECommerceController {
                     }
                     btnAddGameWish.setDisable(true);
                     btnRemoveGameWish.setDisable(false);
-                    trigger();
                     GameStoreGUI.getInstance().createAlert("Game added succesfully", Route.SUCCESS);
                 } catch (NumberFormatException e) {
                     GameStoreGUI.getInstance().createAlert("You can not enter letters", Route.ERROR);
@@ -161,6 +160,7 @@ public class ECommerceController {
                 }
             }
         }
+        trigger();
     }
 
     private int getAmount() throws NumberFormatException {
@@ -269,6 +269,7 @@ public class ECommerceController {
                     txtCodeClient.getText(), txtnameClient.getText(), listWish);
             GameStoreGUI.getInstance().createAlert("Costumer added Succesfully", Route.SUCCESS);
             onBackToListWish(event);
+            listWish = new ArrayList<>();
         } else {
             GameStoreGUI.getInstance().createAlert("Complete all Fields", Route.WARNING);
         }

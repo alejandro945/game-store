@@ -14,7 +14,7 @@ public class Costumer implements Serializable{
         this.id = id;
         this.code = code;
         this.name = name;
-        this.wishList = wishList;
+        this.wishList = new ArrayList<>();
     }
 
     public ArrayList<Game> getWishList() {
@@ -51,9 +51,9 @@ public class Costumer implements Serializable{
 
     public String getSapa() {
        String msg = "";
-        for (Game game : wishList) {
-            msg += game.getCode() + " ";
-        }
+       for(int i = 0; i<wishList.size(); i++){
+           msg = wishList.get(i).getGameName();
+       }
         return msg;
     }
 

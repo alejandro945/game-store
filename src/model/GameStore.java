@@ -76,9 +76,13 @@ public class GameStore implements Serializable {
     }
 
     public void addClient(int id, String code, String name, ArrayList<Game> games) {
-        Costumer newClient = new Costumer(id, code, name, games);
+        Costumer newClient = new Costumer(id, code, name, null);
+        newClient.setWishList(games);
         costumers.add(newClient);
+        System.out.println(costumers.get(0).getName());
+        System.out.println(costumers.get(0).getWishList().get(0).getGameName());
         System.out.println(costumers.get(0).getSapa());
+
     }
 
     public void addGame(String name, String review, int price, int amount) {

@@ -268,7 +268,7 @@ public class AdminController {
     private TableColumn<Costumer, String> tblNameCostumers;
 
     @FXML
-    private TableColumn<Game, String> tblGamesCostumers;
+    private TableColumn<Costumer, String> tblGamesCostumers;
 
     // ----------------------------------------CASHIERS----------------------------------------------
 
