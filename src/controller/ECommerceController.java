@@ -101,7 +101,6 @@ public class ECommerceController {
     @FXML
     public void goBack(ActionEvent event) {
         GameStoreGUI.getInstance().renderScreen(Route.WELCOME);
-        listWish.clear();
     }
 
     public void onTableGames() {

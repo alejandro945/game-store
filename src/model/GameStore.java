@@ -50,9 +50,7 @@ public class GameStore implements Serializable {
             games = (ArrayList<Game>) ois.readObject();
             ois.close();
         } catch (Exception e) {
-            // GameStoreGUI.getInstance().createAlert("The data could not be loaded",
-            // Route.ERROR);
-            e.printStackTrace();
+            GameStoreGUI.getInstance().createAlert("The data could not be loaded", Route.ERROR);
         }
 
     }
@@ -76,8 +74,7 @@ public class GameStore implements Serializable {
     }
 
     public void addClient(int id, String code, String name, ArrayList<Game> games) {
-        Costumer newClient = new Costumer(id, code, name, null);
-        newClient.setWishList(games);
+        Costumer newClient = new Costumer(id, code, name, games);
         costumers.add(newClient);
     }
 

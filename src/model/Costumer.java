@@ -13,7 +13,7 @@ public class Costumer implements Serializable{
         this.id = id;
         this.code = code;
         this.name = name;
-        this.wishList = new ArrayList<>();
+        this.wishList = wishList;
     }
 
     public ArrayList<Game> getWishList() {
@@ -48,11 +48,13 @@ public class Costumer implements Serializable{
         this.name = name;
     }
 
-    public String getSapa() {
-       String msg = "";
+    public String getGames() {
+       String games = "";
+       String separator = "";
        for(int i = 0; i<wishList.size(); i++){
-           msg = wishList.get(i).getGameName();
+        games += separator + wishList.get(i).getGameName();
+        separator = "-";
        }
-        return msg;
+        return games;
     }
 }
