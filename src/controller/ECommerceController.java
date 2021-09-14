@@ -118,12 +118,13 @@ public class ECommerceController {
         paneInformatión.setDisable(false);
         btnStartListWish.setDisable(true);
         btnEndWishList.setDisable(false);
+        btnAddGameWish.setDisable(true);
     }
 
     public void disableBtnAddorRemove(int code) {
         boolean out = false;
         if (!listWish.isEmpty()) {
-            for (int i = 0; i < listWish.size() && !out; i++) { // Cuando este la lista definitiva solo la llamaremos
+            for (int i = 0; i < listWish.size() && !out; i++) {
                 if (listWish.get(i).getCode() == code) {
                     btnAddGameWish.setDisable(true);
                     btnRemoveGameWish.setDisable(false);
@@ -226,6 +227,7 @@ public class ECommerceController {
                 txtpriceGame.setText(gameSelected.getPrice() + "");
                 lblreviewGame.setText(gameSelected.getReview());
                 txtamountGame.setText("0");
+                btnAddGameWish.setDisable(false);
             }
         }
     }
