@@ -86,7 +86,7 @@ public class AdminController {
         tbCostumers.setItems(costumerList);
         tblIdCostumer.setCellValueFactory(new PropertyValueFactory<>("id"));
         tblNameCostumers.setCellValueFactory(new PropertyValueFactory<>("name"));
-        tblGamesCostumers.setCellValueFactory(new PropertyValueFactory<>("games"));
+        tblGamesCostumers.setCellValueFactory(new PropertyValueFactory<>("sapa"));
         renderGameActions();
     }
 
