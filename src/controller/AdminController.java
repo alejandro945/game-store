@@ -83,10 +83,10 @@ public class AdminController {
         // Init Costumers Table
         ObservableList<Costumer> costumerList = FXCollections
                 .observableArrayList(GameStoreGUI.getInstance().getGameStore().getCostumers());
+        tbCostumers.setItems(costumerList);
         tblIdCostumer.setCellValueFactory(new PropertyValueFactory<>("id"));
         tblNameCostumers.setCellValueFactory(new PropertyValueFactory<>("name"));
-        tblGamesCostumers.setCellValueFactory(new PropertyValueFactory<>("sapa"));
-        tbCostumers.setItems(costumerList);
+        tblGamesCostumers.setCellValueFactory(new PropertyValueFactory<>("games"));
         renderGameActions();
     }
 
@@ -268,7 +268,7 @@ public class AdminController {
     private TableColumn<Costumer, String> tblNameCostumers;
 
     @FXML
-    private TableColumn<Game, String> tblGamesCostumers;
+    private TableColumn<Costumer, String> tblGamesCostumers;
 
     // ----------------------------------------CASHIERS----------------------------------------------
 

@@ -3,7 +3,6 @@ package model;
 import java.util.Hashtable;
 
 public class Shelve {
-
     private Hashtable<Integer, Game> gameShelve;
     private String nameShelve;
 
