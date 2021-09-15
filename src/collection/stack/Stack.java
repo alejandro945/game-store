@@ -34,7 +34,7 @@ public class Stack<T> implements IStack<T> {
     public T pop() {
         T aux;
         if (top == null) {
-            return null;
+            aux = null;
         } else if (top.getNext() != null) {
             aux = top.getData();
             top = top.getNext();

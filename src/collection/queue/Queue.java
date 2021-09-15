@@ -2,38 +2,57 @@ package collection.queue;
 
 public class Queue<T> implements IQueue<T> {
 
-    private Node<T> back;
+    private Node<T> front;
 
     public Queue() {
     }
 
     @Override
     public void enqueue(T newItem) {
-        
+        if (front == null) {
+            front = new Node<T>(newItem);
+        } else {
+            getLast(front).setBack(new Node<T>(newItem));
+        }
+    }
 
+    private Node<T> getLast(Node<T> current) {
+        if (current.getBack() == null) {
+            return current;
+        } else {
+            return getLast(current.getBack());
+        }
     }
 
     @Override
     public boolean isEmpty() {
-        return (back == null);
+        return (front == null);
     }
 
     @Override
     public T front() {
-        // TODO Auto-generated method stub
-        return null;
+        return front.getData();
     }
 
     @Override
     public T dequeue() {
-        // TODO Auto-generated method stub
-        return null;
+        T aux;
+        if (front == null) {
+            aux = null;
+        } else if (front.getBack() != null) {
+            aux = front.getData();
+            front = front.getBack();
+        } else {
+            aux = front.getData();
+            front = null;
+        }
+        return aux;
     }
 
     @Override
     public int size() {
         int count = 0;
-        Node<T> aux = back;
+        Node<T> aux = front;
         while (aux != null) {
             count++;
             aux = aux.getBack();
@@ -43,8 +62,7 @@ public class Queue<T> implements IQueue<T> {
 
     @Override
     public T getLast() {
-        // TODO Auto-generated method stub
-        return null;
+        return getLast(front).getData();
     }
 
 }

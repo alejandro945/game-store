@@ -338,7 +338,7 @@ public class AdminController {
 
     }
 
-    // ----------------------------------------GENERICS------------------------------------------
+    // ----------------------------------------ACTIONS------------------------------------------
 
     private void renderGameActions() {
         Callback<TableColumn<Game, String>, TableCell<Game, String>> cellFact = (TableColumn<Game, String> param) -> {
