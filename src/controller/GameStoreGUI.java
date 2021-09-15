@@ -42,10 +42,12 @@ public class GameStoreGUI {
     private GameStore gameStore;
     private AdminController aController;
     private ECommerceController eController;
+    private StartController sController;
 
     private GameStoreGUI() {
         aController = new AdminController();
         eController = new ECommerceController();
+        sController = new StartController();
     }
 
     public static GameStoreGUI getInstance() {
@@ -102,6 +104,8 @@ public class GameStoreGUI {
                 return aController;
             case ADMDASH:
                 return aController;
+            case STARTADDCLIENT:
+                return sController;
             default:
                 return null;
         }
@@ -109,7 +113,7 @@ public class GameStoreGUI {
 
     @FXML
     public void init(ActionEvent event) {
-
+        renderScreen(Route.STARTADDCLIENT);
     }
 
     @FXML
