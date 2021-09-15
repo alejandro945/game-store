@@ -82,7 +82,11 @@ public class GameStore implements Serializable {
     }
 
     public int getCashiers() {
-        return cashiers.length;
+        if(cashiers == null){
+            return 0;
+        }else{
+            return cashiers.length;
+        }
     }
 
     public void addClient(int id, String code, String name, ArrayList<Game> games) {
