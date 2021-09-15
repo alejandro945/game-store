@@ -2,21 +2,21 @@ package model;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.List;
 
 import controller.GameStoreGUI;
 import routes.Route;
-import java.util.Queue;
+
+import collection.queue.IQueue;
 
 public class GameStore implements Serializable {
 
     public static final String SAVE_DATA = "data/IdentityGames.data";
     private List<Costumer> costumers;
     private List<Game> games;
-    private List<Shelve> shelves;
-    private Queue<Costumer> line;
     private Cashier[] cashiers;
+    private List<Shelve> shelves;
+    private IQueue<Costumer> line;
 
     public GameStore() {
         costumers = new ArrayList<>();
@@ -44,6 +44,8 @@ public class GameStore implements Serializable {
             oos = new ObjectOutputStream(new FileOutputStream(SAVE_DATA));
             oos.writeObject(costumers);
             oos.writeObject(games);
+            oos.writeObject(cashiers);
+            oos.writeObject(shelves);
             oos.close();
         } catch (Exception e) {
             GameStoreGUI.getInstance().createAlert("The file data could not be founded", Route.ERROR);
@@ -56,6 +58,8 @@ public class GameStore implements Serializable {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(SAVE_DATA)));
             costumers = (ArrayList<Costumer>) ois.readObject();
             games = (ArrayList<Game>) ois.readObject();
+            cashiers = (Cashier[]) ois.readObject();
+            shelves = (ArrayList<Shelve>) ois.readObject();
             ois.close();
         } catch (Exception e) {
             GameStoreGUI.getInstance().createAlert("The data could not be loaded", Route.ERROR);

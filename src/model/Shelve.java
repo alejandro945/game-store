@@ -1,12 +1,13 @@
 package model;
 
-import java.util.Hashtable;
+
+import collection.hashTable.IHash;
 
 public class Shelve {
-    private Hashtable<Integer, Game> gameShelve;
+    private IHash<Integer, Game> gameShelve;
     private String nameShelve;
 
-    public Shelve(String nameShelve, Hashtable<Integer, Game> gameShelve) {
+    public Shelve(String nameShelve, IHash<Integer, Game> gameShelve) {
         this.nameShelve = nameShelve;
         this.gameShelve = gameShelve;
     }

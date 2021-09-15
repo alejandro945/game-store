@@ -3,7 +3,6 @@ package model;
 import java.io.Serializable;
 
 public class Game implements Serializable {
-
     private int code;
     private String gameName;
     private String review;

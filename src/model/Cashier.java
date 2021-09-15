@@ -1,8 +1,10 @@
 package model;
 
+import java.io.Serializable;
+
 import collection.stack.*;
 
-public class Cashier {
+public class Cashier implements Serializable {
 
     private Costumer currentCostumer;
     private boolean busy;
@@ -10,10 +12,10 @@ public class Cashier {
     private IStack<Game> pack;
 
     public Cashier() {
-
-        this.busy = false;
+        currentCostumer = null;
+        busy = false;
+        toPay = 0;
         pack = new Stack<>();
-
     }
 
     public Costumer getCurrentCostumer() {
