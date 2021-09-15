@@ -2,10 +2,12 @@ package model;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 import controller.GameStoreGUI;
 import routes.Route;
+import java.util.Queue;
 
 public class GameStore implements Serializable {
 
@@ -13,14 +15,18 @@ public class GameStore implements Serializable {
     private List<Costumer> costumers;
     private List<Game> games;
     private List<Shelve> shelves;
-    private int cashiers;
+    private Queue<Costumer> line;
+    private Cashier[] cashiers;
 
     public GameStore() {
         costumers = new ArrayList<>();
         games = new ArrayList<>();
         shelves = new ArrayList<>();
-        cashiers = 0;
         dateRender();
+    }
+
+    public void initCashiers(int i) {
+        cashiers = new Cashier[i];
     }
 
     // ---------------------------------------PERSISTENCE------------------------------------------------------
@@ -72,11 +78,7 @@ public class GameStore implements Serializable {
     }
 
     public int getCashiers() {
-        return cashiers;
-    }
-
-    public void setCashiers(int cashiers) {
-        this.cashiers = cashiers;
+        return cashiers.length;
     }
 
     public void addClient(int id, String code, String name, ArrayList<Game> games) {

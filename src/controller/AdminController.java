@@ -328,7 +328,7 @@ public class AdminController {
     @FXML
     public void editCashier(ActionEvent event) {
         try {
-            GameStoreGUI.getInstance().getGameStore().setCashiers(Integer.parseInt(txtCashier.getText()));
+            GameStoreGUI.getInstance().getGameStore().initCashiers(Integer.parseInt(txtCashier.getText()));
             GameStoreGUI.getInstance().createAlert("Journal Cashiers edited ", Route.SUCCESS);
             txtCashier.setText("");
             lblCashier.setText(String.valueOf(GameStoreGUI.getInstance().getGameStore().getCashiers()));
