@@ -12,11 +12,13 @@ public class GameStore implements Serializable {
     public static final String SAVE_DATA = "data/IdentityGames.data";
     private List<Costumer> costumers;
     private List<Game> games;
+    private List<Shelve> shelves;
     private int cashiers;
 
     public GameStore() {
         costumers = new ArrayList<>();
         games = new ArrayList<>();
+        shelves = new ArrayList<>();
         cashiers = 0;
         dateRender();
     }
@@ -65,6 +67,10 @@ public class GameStore implements Serializable {
         return games;
     }
 
+    public List<Shelve> getShelves() {
+        return shelves;
+    }
+
     public int getCashiers() {
         return cashiers;
     }
@@ -82,4 +88,20 @@ public class GameStore implements Serializable {
         Game newGame = new Game(games.size() + 1, name, review, price, amount);
         games.add(newGame);
     }
+
+    // -------------------------------SHELVES-----------------------------------------------------
+
+    public boolean addGameToShelve(Game game, List<Game> aux) {
+        boolean added = false;
+        if (!games.isEmpty() && game != null) {
+            for (int i = 0; i < games.size() && !added; i++) {
+                if (games.get(i).getGameName().equals(game.getGameName()) && !aux.contains(games.get(i))) {
+                    aux.add(games.get(i));
+                    added = true;
+                }
+            }
+        }
+        return added;
+    }
+
 }

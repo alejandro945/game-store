@@ -2,11 +2,13 @@ package controller;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.*;
 
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXButton;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -48,6 +50,7 @@ public class AdminController {
     public void createShelve(ActionEvent event) {
         if (modal == null) {
             modal = GameStoreGUI.getInstance().loadModal(Route.SHELVEMODAL, this);
+            initComboGameBox();
             modal.show();
         }
     }
@@ -206,6 +209,8 @@ public class AdminController {
 
     // ---------------------------------------CREATE-SHELVE----------------------------------------------
 
+    private List<Game> prelistGames = new ArrayList<>();
+
     @FXML
     private TableView<Shelve> tbShelves;
 
@@ -231,12 +236,51 @@ public class AdminController {
     private JFXTextArea txtAreaGames;
 
     @FXML
-    public void chooseGame(ActionEvent event) {
+    private JFXButton btnClear;
+
+    public boolean shelvesValidation(String name) {
+        boolean complete = true;
+        if (name.equals("") || chooseGame.getSelectionModel().getSelectedItem() == null) {
+            complete = false;
+        }
+        return complete;
+    }
+
+    public void trimShelve() {
+        shelveName.setText("");
+        chooseGame.setValue(null);
+    }
+
+    public void initBtnClear() {
+        if (txtAreaGames.getText() != "") {
+            btnClear.setDisable(false);
+        }
+    }
+
+    public void initComboGameBox() {
+        chooseGame.getItems().addAll(GameStoreGUI.getInstance().getGameStore().getGames());
+    }
+
+    @FXML
+    public void comboGame(ActionEvent event) {
+        initBtnClear();
+        boolean exist = GameStoreGUI.getInstance().getGameStore().addGameToShelve(chooseGame.getValue(), prelistGames);
+        txtAreaGames.setText(Arrays.toString(prelistGames.toArray()));
+        if (!exist) {
+            GameStoreGUI.getInstance().createAlert("You can not add the same game at same shelve", Route.WARNING);
+        }
 
     }
 
     @FXML
     public void clear(ActionEvent event) {
+        if (txtAreaGames.getText().equals("")) {
+            GameStoreGUI.getInstance().createAlert("The list is empty", Route.ALERT);
+        } else {
+            txtAreaGames.setText("");
+            prelistGames.clear();
+            btnClear.setDisable(true);
+        }
 
     }
 
@@ -248,7 +292,10 @@ public class AdminController {
 
     @FXML
     public void saveShelve(ActionEvent event) {
-
+        boolean validateShelves = shelvesValidation(shelveName.getText());
+        if (!validateShelves) {
+            GameStoreGUI.getInstance().createAlert("Please, complete all the fields", Route.WARNING);
+        }
     }
 
     @FXML
@@ -280,10 +327,15 @@ public class AdminController {
 
     @FXML
     public void editCashier(ActionEvent event) {
-        GameStoreGUI.getInstance().getGameStore().setCashiers(Integer.parseInt(txtCashier.getText()));
-        GameStoreGUI.getInstance().createAlert("Journal Cashiers edited ", Route.SUCCESS);
-        txtCashier.setText("");
-        lblCashier.setText(String.valueOf(GameStoreGUI.getInstance().getGameStore().getCashiers()));
+        try {
+            GameStoreGUI.getInstance().getGameStore().setCashiers(Integer.parseInt(txtCashier.getText()));
+            GameStoreGUI.getInstance().createAlert("Journal Cashiers edited ", Route.SUCCESS);
+            txtCashier.setText("");
+            lblCashier.setText(String.valueOf(GameStoreGUI.getInstance().getGameStore().getCashiers()));
+        } catch (NumberFormatException e) {
+            GameStoreGUI.getInstance().createAlert("Required numeric field", Route.ERROR);
+        }
+
     }
 
     // ----------------------------------------GENERICS------------------------------------------

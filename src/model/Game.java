@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-public class Game implements Serializable{
+public class Game implements Serializable {
 
     private int code;
     private String gameName;
@@ -56,5 +56,10 @@ public class Game implements Serializable{
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    @Override
+    public String toString() {
+        return gameName;
     }
 }
