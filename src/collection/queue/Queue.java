@@ -2,16 +2,20 @@ package collection.queue;
 
 public class Queue<T> implements IQueue<T> {
 
+    private Node<T> back;
+
+    public Queue() {
+    }
+
     @Override
     public void enqueue(T newItem) {
-        // TODO Auto-generated method stub
+        
 
     }
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        return false;
+        return (back == null);
     }
 
     @Override
@@ -28,8 +32,13 @@ public class Queue<T> implements IQueue<T> {
 
     @Override
     public int size() {
-        // TODO Auto-generated method stub
-        return 0;
+        int count = 0;
+        Node<T> aux = back;
+        while (aux != null) {
+            count++;
+            aux = aux.getBack();
+        }
+        return count;
     }
 
     @Override
