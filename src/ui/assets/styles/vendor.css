@@ -14,10 +14,20 @@
     -fx-background-color: linear-gradient(to left,rgb(162, 0, 255) ,#f8a1de);
     -fx-background-radius: 20 20 0 0;
 }
+.down-pane{
+    -fx-background-color: linear-gradient(to right,rgb(79, 3, 102) ,#aea1f8);
+    -fx-background-radius: 0 0 20 20;
+}
 .box{
     -fx-effect: dropshadow( gaussian, rgba(235, 235, 235, 0.4), 90, 0.8, 0.0, 0.0 );
     -fx-background-radius: 20;
     -fx-background-color: white;
+}
+.scroll-pane{
+    -fx-background-color:transparent;
+ }
+ .scroll-pane .viewport {
+    -fx-background-color: transparent;
 }
 .btn-flash{
     -fx-background-color : #fff ;

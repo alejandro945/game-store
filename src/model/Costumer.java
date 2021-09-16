@@ -10,6 +10,7 @@ public class Costumer implements Serializable{
     private int id;
     private String code;
     private String name;
+    private int timeInShop;
     private ArrayList<Game> wishList;
     private IStack<Game> shopBasket;
 
@@ -17,16 +18,9 @@ public class Costumer implements Serializable{
         this.id = id;
         this.code = code;
         this.name = name;
+        timeInShop = 0;
         this.wishList = wishList;
         shopBasket = new Stack<>();
-    }
-
-    public ArrayList<Game> getWishList() {
-        return this.wishList;
-    }
-
-    public void setWishList(ArrayList<Game> wishList) {
-        this.wishList = wishList;
     }
 
     public int getId() {
@@ -53,6 +47,26 @@ public class Costumer implements Serializable{
         this.name = name;
     }
 
+    public int getTimeInShop() {
+        return this.timeInShop;
+    }
+
+    public void setTimeInShop(int timeInShop) {
+        this.timeInShop = timeInShop;
+    }
+
+    public ArrayList<Game> getWishList() {
+        return this.wishList;
+    }
+
+    public void setWishList(ArrayList<Game> wishList) {
+        this.wishList = wishList;
+    }
+
+    public IStack<Game> getShopBasket() {
+        return this.shopBasket;
+    }
+
     public String getGames() {
        String games = "";
        String separator = "";
@@ -62,4 +76,5 @@ public class Costumer implements Serializable{
        }
         return games;
     }
+
 }

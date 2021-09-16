@@ -22,13 +22,16 @@ public class GameStore implements Serializable {
     public GameStore() {
         costumers = new ArrayList<>();
         games = new ArrayList<>();
-        shelves = new ArrayList<>();
-        line = new Queue<>();
+        shelves = new ArrayList<>();    
         dateRender();
     }
 
     public void initCashiers(int i) {
         cashiers = new Cashier[i];
+    }
+
+    public void initLine() {
+        line = new Queue<>();
     }
 
     // ---------------------------------------PERSISTENCE------------------------------------------------------
@@ -90,6 +93,10 @@ public class GameStore implements Serializable {
         } else {
             return cashiers.length;
         }
+    }
+
+    public IQueue<Costumer> getLine() {
+        return line;
     }
 
     public boolean addClient(int id, String code, String name, ArrayList<Game> games) {

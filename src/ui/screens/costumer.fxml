@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="220.0" styleClass="box" stylesheets="@../assets/styles/vendor.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="56.0" fitWidth="102.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/images/personal_info.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="costumerName" layoutX="130.0" layoutY="11.0" prefHeight="37.0" prefWidth="76.0" text="Name" wrapText="true">
+         <font>
+            <Font name="Courier New" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="costumerId" layoutX="130.0" layoutY="51.0" prefHeight="16.0" prefWidth="76.0" text="id">
+         <font>
+            <Font name="Courier New" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="49.0" layoutY="153.0" text="Time :">
+         <font>
+            <Font name="Courier New Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="costumerTime" alignment="CENTER" layoutX="116.0" layoutY="153.0" prefHeight="17.0" prefWidth="59.0" text="1 MIN">
+         <font>
+            <Font name="Courier New Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <JFXTextArea fx:id="costumerCode" editable="false" focusColor="#a90cf2" layoutX="40.0" layoutY="83.0" prefHeight="54.0" prefWidth="141.0" wrapText="true">
+         <unFocusColor>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#6901e1" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </unFocusColor>
+      </JFXTextArea>
+   </children>
+</Pane>

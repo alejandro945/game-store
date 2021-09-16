@@ -4,35 +4,87 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane layoutX="53.0" layoutY="151.0" prefHeight="399.0" prefWidth="365.0">
+      <Pane layoutX="52.0" layoutY="162.0" prefHeight="175.0" prefWidth="365.0" styleClass="box" stylesheets="@../assets/styles/vendor.css">
          <children>
-            <Label layoutX="74.0" layoutY="26.0" text="Select cliento to add to the store" />
-            <JFXComboBox fx:id="cbxSelectClient" layoutX="71.0" layoutY="71.0" prefHeight="31.0" prefWidth="216.0" />
-            <JFXButton layoutX="142.0" layoutY="169.0" onAction="#onAddClienttoShop" text="Agregar" />
-            <Label fx:id="lblCodeClient" layoutX="161.0" layoutY="127.0" text="Code" />
+            <Label layoutX="25.0" layoutY="29.0" prefHeight="49.0" prefWidth="315.0" text="Select a client to add to the store" wrapText="true">
+               <font>
+                  <Font name="Courier New" size="18.0" />
+               </font></Label>
+            <JFXComboBox fx:id="cbxSelectClient" focusColor="#630ad7" layoutX="25.0" layoutY="101.0" prefHeight="31.0" prefWidth="216.0">
+               <unFocusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#8100eb" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </unFocusColor></JFXComboBox>
+            <JFXButton layoutX="261.0" layoutY="103.0" onAction="#onAddClienttoShop" styleClass="btn-flash" text="Agregar" />
          </children>
       </Pane>
-      <TableView layoutX="431.0" layoutY="90.0" prefHeight="509.0" prefWidth="442.0">
+      <TableView fx:id="tbCostumer" layoutX="432.0" layoutY="137.0" prefHeight="224.0" prefWidth="442.0" stylesheets="@../assets/styles/table.css">
         <columns>
-          <TableColumn prefWidth="104.0" text="Id" />
-          <TableColumn prefWidth="127.0" text="Name" />
-            <TableColumn minWidth="0.0" prefWidth="210.0" text="Games" />
+          <TableColumn fx:id="id" prefWidth="104.0" text="Id" />
+          <TableColumn fx:id="name" prefWidth="127.0" text="Name" />
+            <TableColumn fx:id="games" minWidth="0.0" prefWidth="210.0" text="Games" />
         </columns>
       </TableView>
-      <Button layoutX="103.0" layoutY="66.0" mnemonicParsing="false" onAction="#goBack" styleClass="btn-flash" stylesheets="@../assets/styles/vendor.css">
+      <Button layoutX="66.0" layoutY="51.0" mnemonicParsing="false" onAction="#goBack" styleClass="btn-flash" stylesheets="@../assets/styles/vendor.css">
          <graphic>
             <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/images/Back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fitHeight="98.0" fitWidth="121.0" layoutX="173.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/images/profile_pic.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="300.0" layoutY="50.0" prefHeight="49.0" prefWidth="492.0" text="Hello! I am your advisor today, please tell me your code or name to get into our store" wrapText="true">
+         <font>
+            <Font name="Courier New" size="18.0" />
+         </font>
+      </Label>
+      <Pane layoutY="385.0" prefHeight="315.0" prefWidth="900.0" styleClass="down-pane" stylesheets="@../assets/styles/vendor.css">
+         <children>
+            <ScrollPane layoutX="137.0" layoutY="71.0" prefHeight="224.0" prefWidth="652.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="216.0" prefWidth="664.0">
+                     <children>
+                        <HBox fx:id="line" prefHeight="224.0" prefWidth="626.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+            <Label layoutX="293.0" layoutY="22.0" prefHeight="49.0" prefWidth="315.0" text="Section 1 State" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Courier New Bold Italic" size="31.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button fx:id="next" disable="true" layoutX="804.0" layoutY="50.0" mnemonicParsing="false" onAction="#goNext" styleClass="btn-flash" stylesheets="@../assets/styles/vendor.css">
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/images/Next.png" />
                </image>
             </ImageView>
          </graphic>

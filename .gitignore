@@ -1,5 +1,5 @@
-.DS_Store
 .gitignore
+.DS_Store
 out/
 .idea/
 game-store.iml
