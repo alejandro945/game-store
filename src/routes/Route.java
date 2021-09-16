@@ -7,7 +7,7 @@ public enum Route {
     ALERT("/ui/assets/styles/alert.css"), ECOMMERCE("/ui/screens/ecommerce.fxml"),
     GAMEMODAL("/ui/screens/gameModal.fxml"), ADMDASH("/ui/screens/admDash.fxml"),
     ADDCOSTUMER("/ui/screens/addCostumer.fxml"), SHELVEMODAL("/ui/screens/shelveModal.fxml"),
-    TABLE("/ui/assets/styles/table.css"), SECTION1("/ui/screens/startPaneAddClient.fxml"),NODE_COSTUMER("/ui/screens/costumer.fxml");
+    TABLE("/ui/assets/styles/table.css"), SECTION1("/ui/screens/section1.fxml"),NODE_COSTUMER("/ui/screens/costumer.fxml");
 
     private String route;
 

@@ -15,7 +15,7 @@
     -fx-background-radius: 20 20 0 0;
 }
 .down-pane{
-    -fx-background-color: linear-gradient(to right,rgb(79, 3, 102) ,#aea1f8);
+    -fx-background-color: linear-gradient(to right,rgb(243, 236, 245) ,#aea1f8);
     -fx-background-radius: 0 0 20 20;
 }
 .box{

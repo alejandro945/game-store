@@ -55,6 +55,7 @@ public class StartController {
         if (cbxSelectClient.getValue() != null) {
             if (g.addCostumerToLine(g.searchCostumer(cbxSelectClient.getValue().toString()))) {
                 GameStoreGUI.getInstance().createAlert("Added Client", Route.SUCCESS);
+                initializeStartComerce();
                 refreshLine();
             } else {
                 GameStoreGUI.getInstance().createAlert("The client has already been added", Route.ERROR);
