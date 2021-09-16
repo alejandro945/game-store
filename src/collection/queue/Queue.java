@@ -3,7 +3,7 @@ package collection.queue;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Queue<T> implements IQueue<T>, Cloneable {
+public class Queue<T> implements IQueue<T> {
 
     private Node<T> front;
 
@@ -64,11 +64,12 @@ public class Queue<T> implements IQueue<T>, Cloneable {
     }
 
     @Override
-    public List<T> convertQueToArr(Queue<T> line) {
+    public List<T> convertQueueToArr() {
+        Node<T> aux = front;
         List<T> temp = new ArrayList<>();
-        Queue<T> clone = line.clone().getClass();
-        while(!line.isEmpty()){
-            temp.add(line.dequeue());
+        while(aux != null){
+            temp.add(aux.getData());
+            aux = aux.getBack();
         }
         return temp;
     }
@@ -77,5 +78,20 @@ public class Queue<T> implements IQueue<T>, Cloneable {
     public T getLast() {
         return getLast(front).getData();
     }
+
+    @Override
+    public boolean search(T elem) {
+        boolean found = false;
+        Node<T> aux = front;
+        while (aux != null && !found) {
+            if(aux.getData().equals(elem)){
+                found = true;
+            }
+            aux = aux.getBack();
+        }
+        return found;
+    }
+
+    
 
 }

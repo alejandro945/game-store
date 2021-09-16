@@ -49,11 +49,10 @@ public class GameStore implements Serializable {
             oos.writeObject(costumers);
             oos.writeObject(games);
             oos.writeObject(cashiers);
-            //oos.writeObject(shelves);
-            oos.writeObject(costumersInShop);
+            oos.writeObject(shelves);
             oos.close();
         } catch (Exception e) {
-            //GameStoreGUI.getInstance().createAlert("The file data could not be founded", Route.ERROR);
+            GameStoreGUI.getInstance().createAlert("The file data could not be founded", Route.ERROR);
             e.printStackTrace();
         }
     }
@@ -65,8 +64,7 @@ public class GameStore implements Serializable {
             costumers = (ArrayList<Costumer>) ois.readObject();
             games = (ArrayList<Game>) ois.readObject();
             cashiers = (Cashier[]) ois.readObject();
-            //shelves = (ArrayList<Shelve>) ois.readObject();
-            costumersInShop = (ArrayList<Costumer>) ois.readObject();
+            shelves = (ArrayList<Shelve>) ois.readObject();
             ois.close();
         } catch (Exception e) {
             GameStoreGUI.getInstance().createAlert("The data could not be loaded", Route.ERROR);
@@ -89,22 +87,20 @@ public class GameStore implements Serializable {
     }
 
     public int getCashiers() {
-        if(cashiers == null){
+        if (cashiers == null) {
             return 0;
-        }else{
+        } else {
             return cashiers.length;
         }
-    }
-
-    public List<Costumer> getCostumersInShop(){
-        return costumersInShop;
     }
 
     public boolean addClient(int id, String code, String name, ArrayList<Game> games) {
         boolean added = false;
         Costumer newClient = new Costumer(id, code, name, games);
-
-        costumers.add(newClient);
+        if (!verifyRepeatCostumer(name)) {
+            costumers.add(newClient);
+            added = true;
+        }
         return added;
     }
 
@@ -128,25 +124,23 @@ public class GameStore implements Serializable {
         return added;
     }
 
-    public boolean addClientsToShop(Costumer newCostumer){
+    public boolean addCostumerToLine(Costumer newCostumer) {
         boolean added = false;
-        if(verifyRepeatCostumer(newCostumer.getName(), costumersInShop)){
-            costumersInShop.add(newCostumer);
+        if (!line.search(newCostumer)) {
+            line.enqueue(newCostumer);
             added = true;
-        } else {
-            added = false;
         }
         return added;
     }
 
-    public boolean verifyRepeatCostumer(String param, ArrayList<Costumer> costumers){
-        boolean out = false;
-        for (int i = 0; i < costumers.size() && !out; i++){
-            if(costumers.get(i).getName().equals(param)){
-                out = true;
+    public boolean verifyRepeatCostumer(String name) {
+        boolean repeated = false;
+        for (int i = 0; i < costumers.size() && !repeated; i++) {
+            if (costumers.get(i).getName().equals(name)) {
+                repeated = true;
             }
         }
-        return out;
+        return repeated;
     }
 
 }
