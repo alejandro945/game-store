@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
@@ -10,8 +7,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" styleClass="box" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
@@ -24,29 +19,18 @@
       <Label fx:id="lblShelve" layoutX="78.0" layoutY="25.0" stylesheets="@../assets/styles/alert.css" text="Create a Shelve" />
       <Button layoutX="159.0" layoutY="354.0" mnemonicParsing="false" onAction="#saveShelve" prefHeight="30.0" prefWidth="80.0" stylesheets="@../assets/styles/table.css" text="Save" textFill="WHITE" />
       <Button fx:id="delete" layoutX="54.0" layoutY="358.0" mnemonicParsing="false" onAction="#cancelModalShelve" stylesheets="@../assets/styles/table.css" text="Cancel" textFill="WHITE" />
-      <Label layoutX="14.0" layoutY="191.0" text="Shelve Name" />
-      <JFXComboBox fx:id="chooseGame" focusColor="#8000ff" layoutX="144.0" layoutY="228.0" onAction="#comboGame" prefHeight="25.0" prefWidth="135.0">
-         <unFocusColor>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="#2f00ff9c" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </unFocusColor>
-      </JFXComboBox>
-      <Label layoutX="9.0" layoutY="240.0" prefHeight="19.0" prefWidth="125.0" text="Choose Games" />
+      <Label layoutX="16.0" layoutY="200.0" text="Shelve Name" />
       <JFXTextField fx:id="shelveName" focusColor="#a84097" layoutX="145.0" layoutY="188.0" prefHeight="26.0" prefWidth="135.0" unFocusColor="#9207b5">
          <font>
             <Font name="Courier New" size="14.0" />
          </font></JFXTextField>
       <Button fx:id="edit" layoutX="159.0" layoutY="356.0" mnemonicParsing="false" onAction="#editShelve" prefHeight="30.0" prefWidth="80.0" stylesheets="@../assets/styles/table.css" text="Edit" textFill="WHITE" visible="false" />
-      <JFXTextArea fx:id="txtAreaGames" editable="false" layoutX="31.0" layoutY="272.0" prefHeight="62.0" prefWidth="155.0" wrapText="true">
+      <Label layoutX="16.0" layoutY="252.0" text="Amount rows" />
+      <JFXTextField fx:id="rowsShelve" focusColor="#a84097" layoutX="145.0" layoutY="239.0" prefHeight="26.0" prefWidth="135.0" unFocusColor="#9207b5">
          <font>
-            <Font name="Courier New" size="13.0" />
+            <Font name="Courier New" size="14.0" />
          </font>
-      </JFXTextArea>
-      <JFXButton fx:id="btnClear" layoutX="199.0" layoutY="286.0" onAction="#clear" prefHeight="35.0" prefWidth="80.0" styleClass="btn-flash" stylesheets="@../assets/styles/table.css" text="Clear" />
+      </JFXTextField>
    </children>
    <stylesheets>
       <URL value="@../assets/styles/vendor.css" />

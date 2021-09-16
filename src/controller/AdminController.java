@@ -8,7 +8,6 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXButton;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -50,7 +49,6 @@ public class AdminController {
     public void createShelve(ActionEvent event) {
         if (modal == null) {
             modal = GameStoreGUI.getInstance().loadModal(Route.SHELVEMODAL, this);
-            initComboGameBox();
             modal.show();
         }
     }
@@ -112,6 +110,8 @@ public class AdminController {
 
     // --------------------------------------CREATE-GAMES--------------------------------------------
 
+    private List<Game> prelistGames = new ArrayList<>();
+
     @FXML
     private TableView<Game> tbGames;
 
@@ -129,6 +129,9 @@ public class AdminController {
 
     @FXML
     private TableColumn<?, ?> tblReviewGames;
+
+    @FXML
+    private JFXComboBox<?> comboAddGameToShelve;
 
     @FXML
     private TableColumn<Game, String> colActions;
@@ -160,9 +163,14 @@ public class AdminController {
     @FXML
     private Button save;
 
+    @FXML
+    public void comboShelve(ActionEvent event) {
+
+    }
+
     public Boolean validateFields() {
         if (price.getText().equals("") || amount.getText().equals("") || review.getText().equals("")
-                || title.getText().equals("")) {
+                || title.getText().equals("") || comboAddGameToShelve.getSelectionModel().getSelectedItem() == null) {
             return false;
         } else {
             return true;
@@ -175,6 +183,7 @@ public class AdminController {
         amount.setText("");
         review.setText("");
         title.setText("");
+        comboAddGameToShelve.setValue(null);
     }
 
     @FXML
@@ -209,8 +218,6 @@ public class AdminController {
 
     // ---------------------------------------CREATE-SHELVE----------------------------------------------
 
-    private List<Game> prelistGames = new ArrayList<>();
-
     @FXML
     private TableView<Shelve> tbShelves;
 
@@ -230,17 +237,11 @@ public class AdminController {
     private JFXTextField shelveName;
 
     @FXML
-    private JFXComboBox<Game> chooseGame;
+    private JFXTextField rowsShelve;
 
-    @FXML
-    private JFXTextArea txtAreaGames;
-
-    @FXML
-    private JFXButton btnClear;
-
-    public boolean shelvesValidation(String name) {
+    public boolean shelvesValidation(String name, int amountRows) {
         boolean complete = true;
-        if (name.equals("") || chooseGame.getSelectionModel().getSelectedItem() == null) {
+        if (name.equals("") || amountRows == 0) {
             complete = false;
         }
         return complete;
@@ -248,40 +249,7 @@ public class AdminController {
 
     public void trimShelve() {
         shelveName.setText("");
-        chooseGame.setValue(null);
-    }
-
-    public void initBtnClear() {
-        if (txtAreaGames.getText() != "") {
-            btnClear.setDisable(false);
-        }
-    }
-
-    public void initComboGameBox() {
-        chooseGame.getItems().addAll(GameStoreGUI.getInstance().getGameStore().getGames());
-    }
-
-    @FXML
-    public void comboGame(ActionEvent event) {
-        initBtnClear();
-        boolean exist = GameStoreGUI.getInstance().getGameStore().addGameToShelve(chooseGame.getValue(), prelistGames);
-        txtAreaGames.setText(Arrays.toString(prelistGames.toArray()));
-        if (!exist) {
-            GameStoreGUI.getInstance().createAlert("You can not add the same game at same shelve", Route.WARNING);
-        }
-
-    }
-
-    @FXML
-    public void clear(ActionEvent event) {
-        if (txtAreaGames.getText().equals("")) {
-            GameStoreGUI.getInstance().createAlert("The list is empty", Route.ALERT);
-        } else {
-            txtAreaGames.setText("");
-            prelistGames.clear();
-            btnClear.setDisable(true);
-        }
-
+        rowsShelve.setText("");
     }
 
     @FXML
@@ -292,7 +260,7 @@ public class AdminController {
 
     @FXML
     public void saveShelve(ActionEvent event) {
-        boolean validateShelves = shelvesValidation(shelveName.getText());
+        boolean validateShelves = shelvesValidation(shelveName.getText(), Integer.parseInt(rowsShelve.getText()));
         if (!validateShelves) {
             GameStoreGUI.getInstance().createAlert("Please, complete all the fields", Route.WARNING);
         }

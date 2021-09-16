@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
@@ -12,19 +13,19 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" styleClass="box" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="332.0" styleClass="box" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="97.0" fitWidth="178.0" layoutX="62.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="73.0" fitWidth="152.0" layoutX="88.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/images/Ninja.png" />
          </image>
       </ImageView>
       <Label fx:id="modalGameName" layoutX="87.0" layoutY="14.0" stylesheets="@../assets/styles/alert.css" text="Create a Game" />
       <Button fx:id="edit" layoutX="154.0" layoutY="353.0" mnemonicParsing="false" onAction="#editGame" prefHeight="30.0" prefWidth="80.0" stylesheets="@../assets/styles/table.css" text="Edit" textFill="WHITE" visible="false" />
-      <Button fx:id="delete" layoutX="59.0" layoutY="353.0" mnemonicParsing="false" onAction="#cancelModal" stylesheets="@../assets/styles/table.css" text="Cancel" textFill="WHITE" />
-      <Label layoutX="65.0" layoutY="157.0" text="Code" />
-      <Label layoutX="39.0" layoutY="229.0" text="Title" />
-      <JFXTextField fx:id="title" alignment="CENTER" layoutX="138.0" layoutY="215.0" prefHeight="27.0" prefWidth="118.0">
+      <Button fx:id="delete" layoutX="62.0" layoutY="384.0" mnemonicParsing="false" onAction="#cancelModal" stylesheets="@../assets/styles/table.css" text="Cancel" textFill="WHITE" />
+      <Label layoutX="83.0" layoutY="138.0" text="Code" />
+      <Label layoutX="42.0" layoutY="200.0" text="Title" />
+      <JFXTextField fx:id="title" alignment="CENTER" layoutX="141.0" layoutY="186.0" prefHeight="27.0" prefWidth="118.0">
          <unFocusColor>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -38,7 +39,7 @@
             <Font name="Courier New" size="13.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="code" alignment="CENTER" disable="true" layoutX="135.0" layoutY="149.0" prefHeight="27.0" prefWidth="118.0">
+      <JFXTextField fx:id="code" alignment="CENTER" disable="true" layoutX="138.0" layoutY="120.0" prefHeight="27.0" prefWidth="118.0">
          <unFocusColor>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -52,7 +53,7 @@
             <Font name="Courier New" size="13.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="price" alignment="CENTER" layoutX="138.0" layoutY="246.0" prefHeight="27.0" prefWidth="118.0">
+      <JFXTextField fx:id="price" alignment="CENTER" layoutX="141.0" layoutY="217.0" prefHeight="27.0" prefWidth="118.0">
          <unFocusColor>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -65,9 +66,9 @@
             <Font name="Courier New" size="13.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="37.0" layoutY="259.0" text="Price $" />
-      <Label layoutX="41.0" layoutY="197.0" text="Amount" />
-      <JFXTextField fx:id="amount" alignment="CENTER" layoutX="137.0" layoutY="183.0" prefHeight="27.0" prefWidth="118.0">
+      <Label layoutX="40.0" layoutY="230.0" text="Price $" />
+      <Label layoutX="44.0" layoutY="168.0" text="Amount" />
+      <JFXTextField fx:id="amount" alignment="CENTER" layoutX="140.0" layoutY="154.0" prefHeight="27.0" prefWidth="118.0">
          <unFocusColor>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -80,8 +81,8 @@
             <Font name="Courier New" size="13.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="39.0" layoutY="301.0" text="Review" />
-      <JFXTextArea fx:id="review" layoutX="138.0" layoutY="289.0" prefHeight="43.0" prefWidth="118.0" wrapText="true">
+      <Label layoutX="45.0" layoutY="273.0" text="Review" />
+      <JFXTextArea fx:id="review" layoutX="141.0" layoutY="261.0" prefHeight="42.0" prefWidth="118.0" wrapText="true">
          <font>
             <Font name="Courier New" size="13.0" />
          </font>
@@ -95,7 +96,9 @@
             </LinearGradient>
          </unFocusColor>
       </JFXTextArea>
-      <Button fx:id="save" layoutX="154.0" layoutY="351.0" mnemonicParsing="false" onAction="#saveGame" prefHeight="35.0" prefWidth="80.0" stylesheets="@../assets/styles/table.css" text="Save" textFill="WHITE" />
+      <Button fx:id="save" layoutX="157.0" layoutY="382.0" mnemonicParsing="false" onAction="#saveGame" prefHeight="35.0" prefWidth="80.0" stylesheets="@../assets/styles/table.css" text="Save" textFill="WHITE" />
+      <Label layoutX="21.0" layoutY="334.0" text="Add to shelve" />
+      <JFXComboBox fx:id="comboAddGameToShelve" focusColor="#9e40a8e1" layoutX="158.0" layoutY="331.0" onAction="#comboShelve" prefHeight="25.0" prefWidth="125.0" unFocusColor="#0b0bd971" />
    </children>
    <stylesheets>
       <URL value="@../assets/styles/vendor.css" />
