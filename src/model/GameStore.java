@@ -10,8 +10,6 @@ import routes.Route;
 
 import collection.queue.IQueue;
 
-import javax.swing.plaf.IconUIResource;
-
 public class GameStore implements Serializable {
 
     public static final String SAVE_DATA = "data/IdentityGames.data";
@@ -141,6 +139,16 @@ public class GameStore implements Serializable {
             }
         }
         return repeated;
+    }
+
+    public Costumer searchCostumer(String name) {
+        Costumer c = null;
+        for (Costumer cos : costumers) {
+            if (cos.getName().equals(name)) {
+                c = cos;
+            }
+        }
+        return c;
     }
 
 }

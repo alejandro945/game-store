@@ -6,18 +6,15 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import model.Costumer;
-import model.Game;
 import model.GameStore;
 import routes.Route;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 
 public class StartController {
 
-    public StartController(){
+    public StartController() {
     }
 
     @FXML
@@ -28,8 +25,9 @@ public class StartController {
 
     @FXML
     public void onAddClienttoShop(ActionEvent event) {
-        if(cbxSelectClient.getValue() != null){
-            if(GameStoreGUI.getInstance().getGameStore().addClientsToShop(searchClient(cbxSelectClient.getValue().toString()))){
+        GameStore g = GameStoreGUI.getInstance().getGameStore();
+        if (cbxSelectClient.getValue() != null) {
+            if (g.addCostumerToLine(g.searchCostumer(cbxSelectClient.getValue().toString()))) {
                 GameStoreGUI.getInstance().createAlert("Added Client", Route.SUCCESS);
             } else {
                 GameStoreGUI.getInstance().createAlert("The client has already been added", Route.ERROR);
@@ -39,26 +37,17 @@ public class StartController {
         }
     }
 
-    public Costumer searchClient (String name){
-        for (int i = 0; i<GameStoreGUI.getInstance().getGameStore().getCostumers().size(); i++){
-            if(GameStoreGUI.getInstance().getGameStore().getCostumers().get(i).getName().equals(name)){
-                return GameStoreGUI.getInstance().getGameStore().getCostumers().get(i);
-            }
-        }
-        return null;
-    }
-
-    public void initializeStartComerce(){
+    public void initializeStartComerce() {
         onDataCBXClient();
     }
 
-    public void onDataCBXClient(){
+    public void onDataCBXClient() {
+        GameStore g = GameStoreGUI.getInstance().getGameStore();
         try {
             List<String> clientName = new ArrayList<>();
-            for (int i = 0; i<GameStoreGUI.getInstance().getGameStore().getCostumers().size(); i++){
-                clientName.add(GameStoreGUI.getInstance().getGameStore().getCostumers().get(i).getName());
+            for (int i = 0; i < g.getCostumers().size(); i++) {
+                clientName.add(g.getCostumers().get(i).getName());
             }
-
             ObservableList<String> obs;
             obs = FXCollections.observableArrayList(clientName);
             cbxSelectClient.setItems(obs);

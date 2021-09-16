@@ -1,9 +1,11 @@
 package model;
 
 
+import java.io.Serializable;
+
 import collection.hashTable.IHash;
 
-public class Shelve {
+public class Shelve implements Serializable{
     private IHash<Integer, Game> gameShelve;
     private String nameShelve;
 
