@@ -1,6 +1,8 @@
 package collection.stack;
 
-public class Stack<T> implements IStack<T> {
+import java.io.Serializable;
+
+public class Stack<T> implements IStack<T>, Serializable {
 
     private Node<T> top;
 

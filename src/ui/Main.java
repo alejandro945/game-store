@@ -18,7 +18,6 @@ public class Main extends Application {
     public Main() {
         gameStoreGUI = GameStoreGUI.getInstance();
         gameStoreGUI.setGameStore(new GameStore());
-        //gameStoreGUI.setGameStore(new GameStore());
     }
 
     public static void main(String[] args) {

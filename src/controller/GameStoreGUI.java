@@ -114,6 +114,7 @@ public class GameStoreGUI {
     @FXML
     public void init(ActionEvent event) {
         renderScreen(Route.STARTADDCLIENT);
+        sController.initializeStartComerce();
     }
 
     @FXML

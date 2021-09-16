@@ -2,21 +2,23 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="53.0" layoutY="151.0" prefHeight="399.0" prefWidth="365.0">
          <children>
             <Label layoutX="74.0" layoutY="26.0" text="Select cliento to add to the store" />
-            <JFXComboBox layoutX="71.0" layoutY="71.0" prefHeight="31.0" prefWidth="216.0" />
-            <JFXButton layoutX="142.0" layoutY="169.0" text="Agregar" />
-            <Label layoutX="161.0" layoutY="127.0" text="Code" />
+            <JFXComboBox fx:id="cbxSelectClient" layoutX="71.0" layoutY="71.0" prefHeight="31.0" prefWidth="216.0" />
+            <JFXButton layoutX="142.0" layoutY="169.0" onAction="#onAddClienttoShop" text="Agregar" />
+            <Label fx:id="lblCodeClient" layoutX="161.0" layoutY="127.0" text="Code" />
          </children>
       </Pane>
       <TableView layoutX="431.0" layoutY="90.0" prefHeight="509.0" prefWidth="442.0">
@@ -26,5 +28,14 @@
             <TableColumn minWidth="0.0" prefWidth="210.0" text="Games" />
         </columns>
       </TableView>
+      <Button layoutX="103.0" layoutY="66.0" mnemonicParsing="false" onAction="#goBack" styleClass="btn-flash" stylesheets="@../assets/styles/vendor.css">
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/images/Back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

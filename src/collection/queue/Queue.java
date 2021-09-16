@@ -1,6 +1,9 @@
 package collection.queue;
 
-public class Queue<T> implements IQueue<T> {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Queue<T> implements IQueue<T>, Cloneable {
 
     private Node<T> front;
 
@@ -58,6 +61,16 @@ public class Queue<T> implements IQueue<T> {
             aux = aux.getBack();
         }
         return count;
+    }
+
+    @Override
+    public List<T> convertQueToArr(Queue<T> line) {
+        List<T> temp = new ArrayList<>();
+        Queue<T> clone = line.clone().getClass();
+        while(!line.isEmpty()){
+            temp.add(line.dequeue());
+        }
+        return temp;
     }
 
     @Override
