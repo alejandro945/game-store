@@ -57,9 +57,6 @@ public class ECommerceController {
     private JFXButton btnEndWishList;
 
     @FXML
-    private JFXButton btnStartListWish;
-
-    @FXML
     private JFXTextField txtCodeGame;
 
     @FXML
@@ -113,14 +110,6 @@ public class ECommerceController {
         tblPriceGame.setCellValueFactory(new PropertyValueFactory<>("price"));
     }
 
-    @FXML
-    public void onStartListWish(ActionEvent event) {
-        paneInformatión.setDisable(false);
-        btnStartListWish.setDisable(true);
-        btnEndWishList.setDisable(false);
-        btnAddGameWish.setDisable(true);
-    }
-
     public void disableBtnAddorRemove(int code) {
         boolean out = false;
         if (!listWish.isEmpty()) {
@@ -151,9 +140,9 @@ public class ECommerceController {
                     for (int j = 0; j < countadd; j++) {
                         listWish.add(g.get(i));
                     }
-                    btnAddGameWish.setDisable(true);
-                    btnRemoveGameWish.setDisable(false);
+                    paneInformatión.setDisable(true);
                     GameStoreGUI.getInstance().createAlert("Game added succesfully", Route.SUCCESS);
+                    btnEndWishList.setDisable(false);
                 } catch (NumberFormatException e) {
                     GameStoreGUI.getInstance().createAlert("You can not enter letters", Route.ERROR);
                     txtamountGame.setText("");
@@ -195,8 +184,10 @@ public class ECommerceController {
                     }
                 }
                 GameStoreGUI.getInstance().createAlert("Deletion succesfully", Route.SUCCESS);
-                btnRemoveGameWish.setDisable(true);
-                btnAddGameWish.setDisable(false);
+                paneInformatión.setDisable(true);
+                if(listWish.size()==0){
+                    btnEndWishList.setDisable(true);
+                }
                 trigger();
             } else {
                 GameStoreGUI.getInstance().createAlert("Trying to delete a bigger amount", Route.ERROR);
@@ -228,6 +219,7 @@ public class ECommerceController {
                 lblreviewGame.setText(gameSelected.getReview());
                 txtamountGame.setText("0");
                 btnAddGameWish.setDisable(false);
+                paneInformatión.setDisable(false);
             }
         }
     }

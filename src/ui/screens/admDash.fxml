@@ -65,8 +65,8 @@
       </Label>
       <TableView fx:id="tbShelves" layoutX="509.0" layoutY="127.0" prefHeight="246.0" prefWidth="360.0" stylesheets="@../assets/styles/table.css">
          <columns>
-            <TableColumn fx:id="tblIdShelves" prefWidth="60.0" text="Id" />
-            <TableColumn fx:id="tblGamesShelves" prefWidth="224.0" text="Games" />
+            <TableColumn fx:id="tblInameShelves" prefWidth="60.0" text="Name" />
+            <TableColumn fx:id="tblRacks" prefWidth="224.0" text="Amount of Racks" />
             <TableColumn fx:id="colActionsShelves" prefWidth="148.0" text="Actions" />
          </columns>
       </TableView>

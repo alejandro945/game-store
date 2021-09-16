@@ -24,7 +24,7 @@ public class Costumer implements Serializable{
     }
 
     public int getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(int id) {
@@ -32,7 +32,7 @@ public class Costumer implements Serializable{
     }
 
     public String getCode() {
-        return this.code;
+        return code;
     }
 
     public void setCode(String code) {
@@ -40,7 +40,7 @@ public class Costumer implements Serializable{
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public void setName(String name) {
@@ -48,7 +48,7 @@ public class Costumer implements Serializable{
     }
 
     public int getTimeInShop() {
-        return this.timeInShop;
+        return timeInShop;
     }
 
     public void setTimeInShop(int timeInShop) {
@@ -56,7 +56,7 @@ public class Costumer implements Serializable{
     }
 
     public ArrayList<Game> getWishList() {
-        return this.wishList;
+        return wishList;
     }
 
     public void setWishList(ArrayList<Game> wishList) {
@@ -64,7 +64,7 @@ public class Costumer implements Serializable{
     }
 
     public IStack<Game> getShopBasket() {
-        return this.shopBasket;
+        return shopBasket;
     }
 
     public String getGames() {

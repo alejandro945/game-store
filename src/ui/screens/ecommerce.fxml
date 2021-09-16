@@ -46,25 +46,13 @@
                         <Font name="Courier New Italic" size="16.0" />
                     </font>
                 </Label>
-                <JFXButton fx:id="btnStartListWish" layoutX="534.0" layoutY="111.0" onAction="#onStartListWish" style="-fx-background-color: #a9a9a9;" text="Start wish list">
-               <ripplerFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop color="#aa00ff" />
-                        <Stop color="WHITE" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </ripplerFill>
-               <font>
-                  <Font name="Courier New" size="15.0" />
-               </font></JFXButton>
                 <Pane fx:id="paneInformatión" layoutX="563.0" layoutY="163.0" prefHeight="484.0" prefWidth="281.0" stylesheets="@../assets/styles/vendor.css">
                     <styleClass>
                         <String fx:value="main-pane" />
                         <String fx:value="box" />
                     </styleClass>
                     <children>
-                        <JFXButton fx:id="btnAddGameWish" layoutX="17.0" layoutY="417.0" onAction="#onAddGameListWish" prefHeight="29.0" prefWidth="119.0" ripplerFill="#3c3c3c" style="-fx-background-color: #2a35eb;" text="Add Game" textFill="WHITE">
+                        <JFXButton fx:id="btnAddGameWish" disable="true" layoutX="17.0" layoutY="417.0" onAction="#onAddGameListWish" prefHeight="29.0" prefWidth="119.0" ripplerFill="#3c3c3c" style="-fx-background-color: #2a35eb;" text="Add Game" textFill="WHITE">
                             <font>
                                 <Font name="Courier New Italic" size="15.0" />
                             </font>
@@ -104,7 +92,7 @@
                      </font></Label>
                     </children>
                 </Pane>
-                <JFXButton fx:id="btnEndWishList" layoutX="717.0" layoutY="111.0" onAction="#onEndWishList" prefHeight="29.0" prefWidth="155.0" style="-fx-background-color: #a9a9a9;" text="End wish list" textFill="#434343">
+                <JFXButton fx:id="btnEndWishList" layoutX="585.0" layoutY="102.0" onAction="#onEndWishList" prefHeight="29.0" prefWidth="237.0" styleClass="btn-flash" text="End wish list" textFill="#434343">
                <font>
                   <Font name="Courier New" size="15.0" />
                </font>

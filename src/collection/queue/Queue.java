@@ -1,9 +1,10 @@
 package collection.queue;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Queue<T> implements IQueue<T> {
+public class Queue<T> implements IQueue<T>,Serializable {
 
     private Node<T> front;
 

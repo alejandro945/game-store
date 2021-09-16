@@ -22,7 +22,7 @@ public class GameStore implements Serializable {
     public GameStore() {
         costumers = new ArrayList<>();
         games = new ArrayList<>();
-        shelves = new ArrayList<>();    
+        shelves = new ArrayList<>();
         dateRender();
     }
 
@@ -73,7 +73,7 @@ public class GameStore implements Serializable {
 
     }
 
-    // --------------------------------------------------------------------------------------------------
+    // -----------------------------------------GETTERS----------------------------------------------
 
     public List<Costumer> getCostumers() {
         return costumers;
@@ -99,6 +99,8 @@ public class GameStore implements Serializable {
         return line;
     }
 
+    // -------------------------------ADDING-----------------------------------------------------
+
     public boolean addClient(int id, String code, String name, ArrayList<Game> games) {
         boolean added = false;
         Costumer newClient = new Costumer(id, code, name, games);
@@ -109,24 +111,31 @@ public class GameStore implements Serializable {
         return added;
     }
 
-    public void addGame(String name, String review, int price, int amount) {
-        Game newGame = new Game(games.size() + 1, name, review, price, amount);
+    public String addShelve(String name, int size) {
+        String msg = "Shelve already in app";
+        Shelve newShelve = new Shelve(name, size);
+        if (!verifyRepeatShelve(name)) {
+            shelves.add(newShelve);
+            msg = "Shelve added succesfully";
+        }
+        return msg;
+    }
+
+    public void addGame(String name, String review, int price, String shelveName, int amount) {
+        Game newGame = new Game(games.size() + 1, name, review, price, shelveName, amount);
         games.add(newGame);
     }
 
-    // -------------------------------SHELVES-----------------------------------------------------
+    // -------------------------------VALIDATIONS-----------------------------------------------------
 
-    public boolean addGameToShelve(Game game, List<Game> aux) {
-        boolean added = false;
-        if (!games.isEmpty() && game != null) {
-            for (int i = 0; i < games.size() && !added; i++) {
-                if (games.get(i).getGameName().equals(game.getGameName()) && !aux.contains(games.get(i))) {
-                    aux.add(games.get(i));
-                    added = true;
-                }
+    public boolean verifyRepeatShelve(String name) {
+        boolean repeated = false;
+        for (int i = 0; i < shelves.size() && !repeated; i++) {
+            if (shelves.get(i).getNameShelve().equals(name)) {
+                repeated = true;
             }
         }
-        return added;
+        return repeated;
     }
 
     public boolean addCostumerToLine(Costumer newCostumer) {

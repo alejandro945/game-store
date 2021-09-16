@@ -2,33 +2,26 @@ package model;
 
 import java.io.Serializable;
 
+import collection.hashTable.Hash;
 import collection.hashTable.IHash;
 
 public class Shelve implements Serializable {
     private IHash<Integer, Game> gameShelve;
     private String nameShelve;
-    private int amountShelves;
+    private int size;
 
-    public Shelve(String nameShelve, int amountShelves, IHash<Integer, Game> gameShelve) {
+    public Shelve(String nameShelve, int sizeShelves) {
         this.nameShelve = nameShelve;
-        this.gameShelve = gameShelve;
-        amountShelves = 0;
+        size = sizeShelves;
+        gameShelve = new Hash<>(sizeShelves);
     }
 
     public String getNameShelve() {
         return this.nameShelve;
     }
 
-    public void setNameShelve(String nameShelve) {
-        this.nameShelve = nameShelve;
-    }
-
-    public int getAmountShelves() {
-        return this.amountShelves;
-    }
-
-    public void setAmountShelves(int amountShelves) {
-        this.amountShelves = amountShelves;
+    public int getSize() {
+        return this.size;
     }
 
 }

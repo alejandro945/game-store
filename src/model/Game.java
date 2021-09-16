@@ -7,13 +7,15 @@ public class Game implements Serializable {
     private String gameName;
     private String review;
     private int price;
+    private String shelveName;
     private int amount;
 
-    public Game(int code, String gameName, String review, int price, int amount) {
+    public Game(int code, String gameName, String review, int price, String shelveName, int amount) {
         this.code = code;
         this.gameName = gameName;
         this.review = review;
         this.price = price;
+        this.shelveName = shelveName;
         this.amount = amount;
     }
 
@@ -55,6 +57,14 @@ public class Game implements Serializable {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public String getShelveName() {
+        return shelveName;
+    }
+
+    public void setShelveName(String shelveName) {
+        this.shelveName = shelveName;
     }
 
     @Override

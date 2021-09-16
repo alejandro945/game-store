@@ -103,7 +103,7 @@ public class StartController {
             ObservableList<String> obs = FXCollections.observableArrayList(clientName);
             cbxSelectClient.setItems(obs);
         } catch (NullPointerException e) {
-            GameStoreGUI.getInstance().createAlert("Sorry we do not have costumer yet", Route.WARNING);
+            GameStoreGUI.getInstance().createAlert("Sorry we do not have costumers yet", Route.WARNING);
         }
     }
 

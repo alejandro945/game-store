@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" styleClass="box" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="362.0" prefWidth="300.0" styleClass="box" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="112.0" fitWidth="163.0" layoutX="69.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -17,16 +17,15 @@
          </image>
       </ImageView>
       <Label fx:id="lblShelve" layoutX="78.0" layoutY="25.0" stylesheets="@../assets/styles/alert.css" text="Create a Shelve" />
-      <Button layoutX="159.0" layoutY="354.0" mnemonicParsing="false" onAction="#saveShelve" prefHeight="30.0" prefWidth="80.0" stylesheets="@../assets/styles/table.css" text="Save" textFill="WHITE" />
-      <Button fx:id="delete" layoutX="54.0" layoutY="358.0" mnemonicParsing="false" onAction="#cancelModalShelve" stylesheets="@../assets/styles/table.css" text="Cancel" textFill="WHITE" />
+      <Button layoutX="163.0" layoutY="305.0" mnemonicParsing="false" onAction="#saveShelve" prefHeight="30.0" prefWidth="80.0" stylesheets="@../assets/styles/table.css" text="Save" textFill="WHITE" />
+      <Button fx:id="delete" layoutX="58.0" layoutY="309.0" mnemonicParsing="false" onAction="#cancelModalShelve" stylesheets="@../assets/styles/table.css" text="Cancel" textFill="WHITE" />
       <Label layoutX="16.0" layoutY="200.0" text="Shelve Name" />
-      <JFXTextField fx:id="shelveName" focusColor="#a84097" layoutX="145.0" layoutY="188.0" prefHeight="26.0" prefWidth="135.0" unFocusColor="#9207b5">
+      <JFXTextField fx:id="shelveName" alignment="CENTER" focusColor="#a84097" layoutX="145.0" layoutY="188.0" prefHeight="26.0" prefWidth="135.0" unFocusColor="#9207b5">
          <font>
             <Font name="Courier New" size="14.0" />
          </font></JFXTextField>
-      <Button fx:id="edit" layoutX="159.0" layoutY="356.0" mnemonicParsing="false" onAction="#editShelve" prefHeight="30.0" prefWidth="80.0" stylesheets="@../assets/styles/table.css" text="Edit" textFill="WHITE" visible="false" />
       <Label layoutX="16.0" layoutY="252.0" text="Amount rows" />
-      <JFXTextField fx:id="rowsShelve" focusColor="#a84097" layoutX="145.0" layoutY="239.0" prefHeight="26.0" prefWidth="135.0" unFocusColor="#9207b5">
+      <JFXTextField fx:id="rowsShelve" alignment="CENTER" focusColor="#a84097" layoutX="145.0" layoutY="239.0" prefHeight="26.0" prefWidth="135.0" unFocusColor="#9207b5">
          <font>
             <Font name="Courier New" size="14.0" />
          </font>

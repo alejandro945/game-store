@@ -2,7 +2,8 @@ package controller;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -23,6 +24,7 @@ import javafx.scene.layout.HBox;
 import javafx.geometry.Insets;
 import model.Costumer;
 import model.Game;
+import model.GameStore;
 import model.Shelve;
 import routes.Route;
 
@@ -60,7 +62,22 @@ public class AdminController {
             code.setText(String.valueOf(GameStoreGUI.getInstance().getGameStore().getGames().size() + 1));
             edit.setVisible(false);
             save.setVisible(true);
+            initComboShelves();
             modal.show();
+        }
+    }
+
+    private void initComboShelves(){
+        GameStore g = GameStoreGUI.getInstance().getGameStore();
+        try {
+            List<String> shelvesNames = new ArrayList<>();
+            for (Shelve s : g.getShelves()) {
+                shelvesNames.add(s.getNameShelve());
+            }
+            ObservableList<String> obs = FXCollections.observableArrayList(shelvesNames);
+            comboAddGameToShelve.setItems(obs);
+        } catch (NullPointerException e) {
+            GameStoreGUI.getInstance().createAlert("Sorry we do not have shelves yet", Route.WARNING);
         }
     }
 
@@ -89,6 +106,14 @@ public class AdminController {
         tblNameCostumers.setCellValueFactory(new PropertyValueFactory<>("name"));
         tblGamesCostumers.setCellValueFactory(new PropertyValueFactory<>("games"));
         renderGameActions();
+        // Init Shelves Table
+        ObservableList<Shelve> shelveList = FXCollections
+                .observableArrayList(GameStoreGUI.getInstance().getGameStore().getShelves());
+        tbShelves.setItems(shelveList);
+        tblInameShelves.setCellValueFactory(new PropertyValueFactory<>("nameShelve"));
+        tblRacks.setCellValueFactory(new PropertyValueFactory<>("size"));
+        renderGameActions();
+        renderShelveActions();
     }
 
     // ---------------------------------------SING-IN------------------------------------------
@@ -110,8 +135,6 @@ public class AdminController {
 
     // --------------------------------------CREATE-GAMES--------------------------------------------
 
-    private List<Game> prelistGames = new ArrayList<>();
-
     @FXML
     private TableView<Game> tbGames;
 
@@ -131,7 +154,7 @@ public class AdminController {
     private TableColumn<?, ?> tblReviewGames;
 
     @FXML
-    private JFXComboBox<?> comboAddGameToShelve;
+    private JFXComboBox<String> comboAddGameToShelve;
 
     @FXML
     private TableColumn<Game, String> colActions;
@@ -163,11 +186,6 @@ public class AdminController {
     @FXML
     private Button save;
 
-    @FXML
-    public void comboShelve(ActionEvent event) {
-
-    }
-
     public Boolean validateFields() {
         if (price.getText().equals("") || amount.getText().equals("") || review.getText().equals("")
                 || title.getText().equals("") || comboAddGameToShelve.getSelectionModel().getSelectedItem() == null) {
@@ -191,10 +209,10 @@ public class AdminController {
         if (validateFields()) {
             try {
                 GameStoreGUI.getInstance().getGameStore().addGame(title.getText(), review.getText(),
-                        Integer.parseInt(price.getText()), Integer.parseInt(amount.getText()));
+                        Integer.parseInt(price.getText()), comboAddGameToShelve.getValue(),
+                        Integer.parseInt(amount.getText()));
                 GameStoreGUI.getInstance().createAlert("Your game has been added succesfully", Route.SUCCESS);
                 trimForm();
-
                 getData();
                 cancelModal(event);
             } catch (NumberFormatException e) {
@@ -210,6 +228,7 @@ public class AdminController {
         selectedG.setGameName(title.getText());
         selectedG.setReview(review.getText());
         selectedG.setAmount(Integer.parseInt(amount.getText()));
+        selectedG.setShelveName(comboAddGameToShelve.getValue());
         selectedG.setPrice(Integer.parseInt(price.getText()));
         GameStoreGUI.getInstance().createAlert("Game edited succesfully", Route.SUCCESS);
         getData();
@@ -222,13 +241,13 @@ public class AdminController {
     private TableView<Shelve> tbShelves;
 
     @FXML
-    private TableColumn<?, ?> tblIdShelves;
+    private TableColumn<?, ?> tblInameShelves;
 
     @FXML
-    private TableColumn<?, ?> tblGamesShelves;
+    private TableColumn<?, ?> tblRacks;
 
     @FXML
-    private TableColumn<?, ?> colActionsShelves;
+    private TableColumn<Shelve, String> colActionsShelves;
 
     @FXML
     private Label lblShelve;
@@ -240,11 +259,11 @@ public class AdminController {
     private JFXTextField rowsShelve;
 
     public boolean shelvesValidation(String name, int amountRows) {
-        boolean complete = true;
+        boolean empty = false;
         if (name.equals("") || amountRows == 0) {
-            complete = false;
+            empty = true;
         }
-        return complete;
+        return empty;
     }
 
     public void trimShelve() {
@@ -260,15 +279,21 @@ public class AdminController {
 
     @FXML
     public void saveShelve(ActionEvent event) {
-        boolean validateShelves = shelvesValidation(shelveName.getText(), Integer.parseInt(rowsShelve.getText()));
-        if (!validateShelves) {
-            GameStoreGUI.getInstance().createAlert("Please, complete all the fields", Route.WARNING);
+        try {
+            boolean empty = shelvesValidation(shelveName.getText(), Integer.parseInt(rowsShelve.getText()));
+            if (empty) {
+                GameStoreGUI.getInstance().createAlert("Please, complete all the fields", Route.WARNING);
+            } else {
+                String msg = GameStoreGUI.getInstance().getGameStore().addShelve(shelveName.getText(),
+                        Integer.parseInt(rowsShelve.getText()));
+                GameStoreGUI.getInstance().createAlert(msg, Route.WARNING);
+                trimShelve();
+                getData();
+                cancelModalShelve(event);
+            }
+        } catch (NumberFormatException e) {
+            GameStoreGUI.getInstance().createAlert("Amount of rows in shelve must be a number", Route.ERROR);
         }
-    }
-
-    @FXML
-    public void editShelve(ActionEvent event) {
-
     }
 
     // ----------------------------------VIEW-COSTUMERS----------------------------------------
@@ -363,8 +388,41 @@ public class AdminController {
         price.setText(String.valueOf(selected.getPrice()));
         review.setText(selected.getReview());
         amount.setText(String.valueOf(selected.getAmount()));
+        comboAddGameToShelve.setValue(selected.getShelveName());
         edit.setVisible(true);
         save.setVisible(false);
+    }
+
+    private void renderShelveActions() {
+        Callback<TableColumn<Shelve, String>, TableCell<Shelve, String>> cellFact = (TableColumn<Shelve, String> param) -> {
+            final TableCell<Shelve, String> cell = new TableCell<Shelve, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty) {
+                        setGraphic(null);
+                        setText(null);
+                    } else {
+                        Button delete = new Button("Delete");
+                        delete.setId("delete");
+                        delete.getStylesheets().add(Route.TABLE.getRoute());
+                        delete.setOnAction((ActionEvent event) -> {
+                            selectedS = (Shelve) getTableRow().getItem();
+                            GameStoreGUI.getInstance().getGameStore().getShelves().remove(selectedS);
+                            GameStoreGUI.getInstance().createAlert("The shelve was removed succesfully!", Route.SUCCESS);
+                            getData();
+                        });
+                        HBox managebtn = new HBox(delete);
+                        managebtn.setStyle("-fx-alignment:center");
+                        HBox.setMargin(delete, new Insets(2, 2, 0, 3));
+                        setGraphic(managebtn);
+                        setText(null);
+                    }
+                }
+            };
+            return cell;
+        };
+        colActionsShelves.setCellFactory(cellFact);
     }
 
 }

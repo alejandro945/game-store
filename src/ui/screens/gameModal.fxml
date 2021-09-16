@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="332.0" styleClass="box" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="305.0" styleClass="box" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="73.0" fitWidth="152.0" layoutX="88.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -98,7 +98,7 @@
       </JFXTextArea>
       <Button fx:id="save" layoutX="157.0" layoutY="382.0" mnemonicParsing="false" onAction="#saveGame" prefHeight="35.0" prefWidth="80.0" stylesheets="@../assets/styles/table.css" text="Save" textFill="WHITE" />
       <Label layoutX="21.0" layoutY="334.0" text="Add to shelve" />
-      <JFXComboBox fx:id="comboAddGameToShelve" focusColor="#9e40a8e1" layoutX="158.0" layoutY="331.0" onAction="#comboShelve" prefHeight="25.0" prefWidth="125.0" unFocusColor="#0b0bd971" />
+      <JFXComboBox fx:id="comboAddGameToShelve" focusColor="#9e40a8e1" layoutX="158.0" layoutY="331.0" prefHeight="25.0" prefWidth="125.0" unFocusColor="#0b0bd971" />
    </children>
    <stylesheets>
       <URL value="@../assets/styles/vendor.css" />
