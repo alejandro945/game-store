@@ -19,7 +19,11 @@ public class CostumerController {
     @FXML
     private JFXTextArea costumerCode;
 
-    public CostumerController(Costumer c){
+    public CostumerController(){
+        
+    }
+
+    public void getData(Costumer c){
         costumerCode.setText(c.getCode());
         costumerId.setText(String.valueOf(c.getId()));
         costumerName.setText(c.getName());

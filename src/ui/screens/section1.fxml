@@ -62,24 +62,6 @@
             <Font name="Courier New" size="18.0" />
          </font>
       </Label>
-      <Pane layoutY="385.0" prefHeight="315.0" prefWidth="900.0" styleClass="down-pane" stylesheets="@../assets/styles/vendor.css">
-         <children>
-            <ScrollPane layoutX="137.0" layoutY="71.0" prefHeight="224.0" prefWidth="652.0">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="216.0" prefWidth="664.0">
-                     <children>
-                        <HBox fx:id="line" prefHeight="224.0" prefWidth="626.0" />
-                     </children>
-                  </AnchorPane>
-              </content>
-            </ScrollPane>
-            <Label layoutX="293.0" layoutY="22.0" prefHeight="49.0" prefWidth="315.0" text="Section 1 State" textFill="WHITE" wrapText="true">
-               <font>
-                  <Font name="Courier New Bold Italic" size="31.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
       <Button fx:id="next" disable="true" layoutX="804.0" layoutY="50.0" mnemonicParsing="false" onAction="#goNext" styleClass="btn-flash" stylesheets="@../assets/styles/vendor.css">
          <graphic>
             <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
@@ -89,5 +71,19 @@
             </ImageView>
          </graphic>
       </Button>
+      <Label layoutX="275.0" layoutY="361.0" prefHeight="49.0" prefWidth="315.0" text="Section 1 State" textFill="#8d8d8d" wrapText="true">
+         <font>
+            <Font name="Courier New Bold Italic" size="31.0" />
+         </font>
+      </Label>
+      <ScrollPane layoutX="118.0" layoutY="438.0" prefHeight="224.0" prefWidth="652.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="216.0" prefWidth="670.0">
+               <children>
+                  <HBox fx:id="line" prefHeight="224.0" prefWidth="626.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

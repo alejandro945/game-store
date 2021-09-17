@@ -88,9 +88,10 @@ public class StartController {
 
     private void addNode(Costumer c) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(Route.NODE_COSTUMER.getRoute()));
-        CostumerController controller = new CostumerController(c);
+        CostumerController controller = new CostumerController();
         fxmlLoader.setController(controller);
         Pane pane = fxmlLoader.load();
+        controller.getData(c);
         line.getChildren().add(pane);
     }
 

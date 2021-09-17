@@ -45,6 +45,9 @@
                </stops>
             </LinearGradient>
          </unFocusColor>
+         <font>
+            <Font name="Courier New" size="13.0" />
+         </font>
       </JFXTextArea>
    </children>
 </Pane>

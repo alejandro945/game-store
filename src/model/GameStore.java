@@ -142,6 +142,7 @@ public class GameStore implements Serializable {
         boolean added = false;
         if (!line.search(newCostumer)) {
             line.enqueue(newCostumer);
+            newCostumer.setTimeInShop(line.size());
             added = true;
         }
         return added;
