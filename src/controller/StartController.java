@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -77,6 +78,8 @@ public class StartController {
 
     private void refreshLine(){
         line.getChildren().clear();
+        line.setSpacing(12);
+        line.setPadding(new Insets(10));
         for (Costumer costumer : cLine) {
             try {
                 addNode(costumer);

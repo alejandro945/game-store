@@ -36,7 +36,7 @@
             <Font name="Courier New Bold Italic" size="14.0" />
          </font>
       </Label>
-      <JFXTextArea fx:id="costumerCode" editable="false" focusColor="#a90cf2" layoutX="40.0" layoutY="83.0" prefHeight="54.0" prefWidth="141.0" wrapText="true">
+      <JFXTextArea fx:id="costumerCode" editable="false" focusColor="#a90cf2" labelFloat="true" layoutX="40.0" layoutY="83.0" prefHeight="54.0" prefWidth="141.0" wrapText="true">
          <unFocusColor>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
