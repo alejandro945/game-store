@@ -24,7 +24,7 @@ public class CostumerController {
     }
 
     public void getData(Costumer c){
-        costumerCode.setText(c.getCode());
+        costumerCode.setText(c.getGames());
         costumerId.setText(String.valueOf(c.getId()));
         costumerName.setText(c.getName());
         costumerTime.setText(c.getTimeInShop() + " MIN");

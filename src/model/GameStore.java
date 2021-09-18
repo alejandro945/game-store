@@ -133,9 +133,18 @@ public class GameStore implements Serializable {
         return msg;
     }
 
-    public void removeGame(Game g){
+    public void removeGame(Game g) {
         searchShelve(g.getShelveName()).getGameShelve().remove(g.getCode());
         games.remove(g);
+    }
+
+    public boolean removeShelve(Shelve s) {
+        boolean removed = false;
+        if (s.getGameShelve().isEmpty()) {
+            removed = true;
+            shelves.remove(s);
+        }
+        return removed;
     }
 
     // -------------------------------VALIDATIONS-----------------------------------------------------

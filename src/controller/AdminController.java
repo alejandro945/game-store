@@ -1,6 +1,5 @@
 package controller;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -205,15 +204,15 @@ public class AdminController {
     }
 
     @FXML
-    public void saveGame(ActionEvent event) throws FileNotFoundException, ClassNotFoundException, IOException {
+    public void saveGame(ActionEvent event) {
         if (validateFields()) {
             try {
                 String msg = GameStoreGUI.getInstance().getGameStore().addGame(title.getText(), review.getText(),
                         Integer.parseInt(price.getText()), comboAddGameToShelve.getValue(),
                         Integer.parseInt(amount.getText()));
-                if(msg.equals("Game added succesfully")){
+                if (msg.equals("Game added succesfully")) {
                     GameStoreGUI.getInstance().createAlert(msg, Route.SUCCESS);
-                }else{
+                } else {
                     GameStoreGUI.getInstance().createAlert(msg, Route.ERROR);
                 }
                 trimForm();
@@ -221,6 +220,8 @@ public class AdminController {
                 cancelModal(event);
             } catch (NumberFormatException e) {
                 GameStoreGUI.getInstance().createAlert("You can not write letters in price or amount!", Route.ERROR);
+            } catch (Exception e) {
+                GameStoreGUI.getInstance().createAlert("Contact Alejandro Varela", Route.ERROR);
             }
         } else {
             GameStoreGUI.getInstance().createAlert("Some empty Fields!", Route.WARNING);
@@ -229,12 +230,15 @@ public class AdminController {
 
     @FXML
     public void editGame(ActionEvent event) {
-        selectedG.setGameName(title.getText());
-        selectedG.setReview(review.getText());
-        selectedG.setAmount(Integer.parseInt(amount.getText()));
-        selectedG.setShelveName(comboAddGameToShelve.getValue());
-        selectedG.setPrice(Integer.parseInt(price.getText()));
-        GameStoreGUI.getInstance().createAlert("Game edited succesfully", Route.SUCCESS);
+        GameStoreGUI.getInstance().getGameStore().removeGame(selectedG);
+        String msg = GameStoreGUI.getInstance().getGameStore().addGame(title.getText(), review.getText(),
+                Integer.parseInt(price.getText()), comboAddGameToShelve.getValue(), Integer.parseInt(amount.getText()));
+        if (msg.equals("Game added succesfully")) {
+            GameStoreGUI.getInstance().createAlert("Game edited succesfully", Route.SUCCESS);
+        } else {
+            GameStoreGUI.getInstance().createAlert(msg, Route.ERROR);
+        }
+        trimForm();
         getData();
         cancelModal(event);
     }
@@ -392,7 +396,9 @@ public class AdminController {
         price.setText(String.valueOf(selected.getPrice()));
         review.setText(selected.getReview());
         amount.setText(String.valueOf(selected.getAmount()));
+        initComboShelves();
         comboAddGameToShelve.setValue(selected.getShelveName());
+        ;
         edit.setVisible(true);
         save.setVisible(false);
     }
@@ -413,9 +419,14 @@ public class AdminController {
                         delete.getStylesheets().add(Route.TABLE.getRoute());
                         delete.setOnAction((ActionEvent event) -> {
                             selectedS = (Shelve) getTableRow().getItem();
-                            GameStoreGUI.getInstance().getGameStore().getShelves().remove(selectedS);
-                            GameStoreGUI.getInstance().createAlert("The shelve was removed succesfully!",
-                                    Route.SUCCESS);
+                            boolean render = GameStoreGUI.getInstance().getGameStore().removeShelve(selectedS);
+                            if (render) {
+                                GameStoreGUI.getInstance().createAlert("The shelve was removed succesfully!",
+                                        Route.SUCCESS);
+                            } else {
+                                GameStoreGUI.getInstance().createAlert("The shelve has games or references Sorry",
+                                        Route.ERROR);
+                            }
                             getData();
                         });
                         HBox managebtn = new HBox(delete);
