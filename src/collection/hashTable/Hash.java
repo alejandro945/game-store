@@ -18,6 +18,11 @@ public class Hash<K, V> implements IHash<K, V>, Serializable {
     }
 
     @Override
+    public int getIndexInTable(K key) {
+        return hash(key);
+    }
+
+    @Override
     public void addElement(K key, V value) {
         int slot = hash(key);
         int i = -1;

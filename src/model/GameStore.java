@@ -199,4 +199,76 @@ public class GameStore implements Serializable {
         return s;
     }
 
+    public void bubbleSort(Costumer c){
+        ArrayList<Game> list = c.getWishList();
+        for (int i = 0; i<list.size(); i++){
+            for (int j = 1; j<list.size() - i; j++){
+                Shelve s1 = searchShelve(list.get(j-1).getShelveName());
+                Shelve s2 = searchShelve(list.get(j).getShelveName());
+                if(s1.getNameShelve().compareTo(s2.getNameShelve())  == 0){
+                    if(s1.getGameShelve().getIndexInTable(list.get(j-1).getCode()) > s1.getGameShelve().getIndexInTable(list.get(j).getCode())){
+                        Game temp = list.get(j-1);
+                        list.set(j-1, list.get(j));
+                        list.set(j, temp);
+                    }
+                } else if (s1.getNameShelve().compareTo(s2.getNameShelve()) > 0) {
+                    Game temp = list.get(j-1);
+                    list.set(j-1, list.get(j));
+                    list.set(j, temp);
+                }
+            }
+        }
+        c.setWishList(list);
+        for (int i = 0; i<list.size(); i++){
+            System.out.println(list.get(i).getCode());
+        }
+    }
+
+    public void insertionSort(Costumer c){
+        ArrayList<Game> list = c.getWishList();
+        for (int i = 0; i< list.size()-1; i++){
+            Game minor = list.get(i);
+            int cual = i;
+            for (int j = i+1; j<list.size(); j++){
+                Shelve s1 = searchShelve(list.get(i).getShelveName());
+                Shelve s2 = searchShelve(list.get(j).getShelveName());
+                if(s1.getNameShelve().compareTo(s2.getNameShelve())  == 0){
+                    if(s1.getGameShelve().getIndexInTable(list.get(j).getCode()) < s1.getGameShelve().getIndexInTable(list.get(i).getCode())){
+                        minor = list.get(j);
+                        cual = j;
+                    }
+                } else if (s1.getNameShelve().compareTo(s2.getNameShelve()) > 0){
+                    Game temp = list.get(i);
+                    list.set(i, list.get(j));
+                    list.set(j, temp);
+                }
+            }
+            Game temp = list.get(i);
+            list.set(i, minor);
+            list.set(cual, temp);
+        }
+        c.setWishList(list);
+        for (int i = 0; i<list.size(); i++){
+            System.out.println(list.get(i).getCode());
+        }
+
+    }
+    /*
+for( int i = 0; i < tamanio - 1; i++ )
+{
+int menor = arreglo[ i ];
+int cual = i;
+for( int j = i + 1; j < tamanio; j++ )
+if( arreglo[ j ] < menor )
+{
+menor = arreglo[ j ];
+cual = j;
+}
+}
+int temp = arreglo[ i ];
+arreglo[ i ] = menor;
+arreglo[ cual ] = temp;
+}
+     */
+
 }

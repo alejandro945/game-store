@@ -75,6 +75,7 @@ public class Queue<T> implements IQueue<T>,Serializable {
         return temp;
     }
 
+
     @Override
     public T getLast() {
         return getLast(front).getData();

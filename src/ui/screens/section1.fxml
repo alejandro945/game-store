@@ -63,7 +63,7 @@
             <Font name="Courier New" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="next" disable="true" layoutX="804.0" layoutY="50.0" mnemonicParsing="false" onAction="#goNext" styleClass="btn-flash" stylesheets="@../assets/styles/vendor.css">
+      <Button fx:id="next" disable="true" layoutX="804.0" layoutY="50.0" mnemonicParsing="false" onAction="#goNext" pickOnBounds="false" styleClass="btn-flash" stylesheets="@../assets/styles/vendor.css">
          <graphic>
             <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                <image>

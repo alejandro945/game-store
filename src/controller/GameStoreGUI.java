@@ -43,11 +43,13 @@ public class GameStoreGUI {
     private AdminController aController;
     private ECommerceController eController;
     private StartController sController;
+    private OrderController oController;
 
     private GameStoreGUI() {
         aController = new AdminController();
         eController = new ECommerceController();
         sController = new StartController();
+        oController = new OrderController();
     }
 
     public static GameStoreGUI getInstance() {
@@ -105,6 +107,8 @@ public class GameStoreGUI {
                 return aController;
             case SECTION1:
                 return sController;
+            case SECTION2:
+                return oController;
             default:
                 return null;
         }
@@ -126,6 +130,10 @@ public class GameStoreGUI {
     @FXML
     public void toLogin(ActionEvent event) {
         renderScreen(Route.LOGIN);
+    }
+
+    public void showCostumer() throws IOException {
+        oController.initializaOrderClient();
     }
 
     public Stage loadModal(Route route, Object controller) {

@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import model.Costumer;
+import model.Game;
 import model.GameStore;
 import routes.Route;
 
@@ -58,6 +59,7 @@ public class StartController {
                 GameStoreGUI.getInstance().createAlert("Added Client", Route.SUCCESS);
                 initializeStartComerce();
                 refreshLine();
+                next.setDisable(false);
             } else {
                 GameStoreGUI.getInstance().createAlert("The client has already been added", Route.ERROR);
             }
@@ -118,7 +120,11 @@ public class StartController {
     }
 
     @FXML
-    public void goNext(ActionEvent event) {
-
+    public void goNext(ActionEvent event) throws IOException {
+        GameStore g = GameStoreGUI.getInstance().getGameStore();
+        if(!g.getLine().isEmpty()){
+            GameStoreGUI.getInstance().renderScreen(Route.SECTION2);
+            GameStoreGUI.getInstance().showCostumer();
+        }
     }
 }
