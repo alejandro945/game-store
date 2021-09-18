@@ -67,7 +67,7 @@ public class AdminController {
         }
     }
 
-    private void initComboShelves(){
+    private void initComboShelves() {
         GameStore g = GameStoreGUI.getInstance().getGameStore();
         try {
             List<String> shelvesNames = new ArrayList<>();
@@ -208,10 +208,14 @@ public class AdminController {
     public void saveGame(ActionEvent event) throws FileNotFoundException, ClassNotFoundException, IOException {
         if (validateFields()) {
             try {
-                GameStoreGUI.getInstance().getGameStore().addGame(title.getText(), review.getText(),
+                String msg = GameStoreGUI.getInstance().getGameStore().addGame(title.getText(), review.getText(),
                         Integer.parseInt(price.getText()), comboAddGameToShelve.getValue(),
                         Integer.parseInt(amount.getText()));
-                GameStoreGUI.getInstance().createAlert("Your game has been added succesfully", Route.SUCCESS);
+                if(msg.equals("Game added succesfully")){
+                    GameStoreGUI.getInstance().createAlert(msg, Route.SUCCESS);
+                }else{
+                    GameStoreGUI.getInstance().createAlert(msg, Route.ERROR);
+                }
                 trimForm();
                 getData();
                 cancelModal(event);
@@ -351,7 +355,7 @@ public class AdminController {
                         edit.getStylesheets().add(Route.TABLE.getRoute());
                         delete.setOnAction((ActionEvent event) -> {
                             selectedG = (Game) getTableRow().getItem();
-                            GameStoreGUI.getInstance().getGameStore().getGames().remove(selectedG);
+                            GameStoreGUI.getInstance().getGameStore().removeGame(selectedG);
                             GameStoreGUI.getInstance().createAlert("The game was removed succesfully!", Route.SUCCESS);
                             getData();
                         });
@@ -394,7 +398,8 @@ public class AdminController {
     }
 
     private void renderShelveActions() {
-        Callback<TableColumn<Shelve, String>, TableCell<Shelve, String>> cellFact = (TableColumn<Shelve, String> param) -> {
+        Callback<TableColumn<Shelve, String>, TableCell<Shelve, String>> cellFact = (
+                TableColumn<Shelve, String> param) -> {
             final TableCell<Shelve, String> cell = new TableCell<Shelve, String>() {
                 @Override
                 public void updateItem(String item, boolean empty) {
@@ -409,7 +414,8 @@ public class AdminController {
                         delete.setOnAction((ActionEvent event) -> {
                             selectedS = (Shelve) getTableRow().getItem();
                             GameStoreGUI.getInstance().getGameStore().getShelves().remove(selectedS);
-                            GameStoreGUI.getInstance().createAlert("The shelve was removed succesfully!", Route.SUCCESS);
+                            GameStoreGUI.getInstance().createAlert("The shelve was removed succesfully!",
+                                    Route.SUCCESS);
                             getData();
                         });
                         HBox managebtn = new HBox(delete);

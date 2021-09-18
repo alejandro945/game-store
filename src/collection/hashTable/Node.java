@@ -1,10 +1,10 @@
 package collection.hashTable;
 
-public class Node<K, V> {
+import java.io.Serializable;
+
+public class Node<K, V> implements Serializable {
     private K key;
     private V value;
-    private Node<K, V> next;
-    private Node<K, V> prev;
 
     public Node(K key, V value) {
         this.value = value;
@@ -25,22 +25,6 @@ public class Node<K, V> {
 
     public void setValue(V value) {
         this.value = value;
-    }
-
-    public Node<K, V> getNext() {
-        return this.next;
-    }
-
-    public void setNext(Node<K, V> next) {
-        this.next = next;
-    }
-
-    public Node<K, V> getPrev() {
-        return this.prev;
-    }
-
-    public void setPrev(Node<K, V> prev) {
-        this.prev = prev;
     }
 
 }

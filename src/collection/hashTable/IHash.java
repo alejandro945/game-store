@@ -6,4 +6,5 @@ public interface IHash<K,V> {
     public boolean isFull();
     public boolean isEmpty();
     public V search(K key);
+    public int getSize();
 }

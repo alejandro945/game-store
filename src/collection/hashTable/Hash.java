@@ -12,7 +12,7 @@ public class Hash<K, V> implements IHash<K, V>, Serializable {
         maxSize = size;
         racks = (Node<K, V>[]) (new Node[maxSize]);
     }
-
+    @Override
     public int getSize() {
         return currentSize;
     }
@@ -20,7 +20,7 @@ public class Hash<K, V> implements IHash<K, V>, Serializable {
     @Override
     public void addElement(K key, V value) {
         int slot = hash(key);
-        int i = 0;
+        int i = -1;
         int count = 0;
         boolean added = false;
         while (i != slot && !added) {
@@ -30,7 +30,6 @@ public class Hash<K, V> implements IHash<K, V>, Serializable {
                 racks[i] = new Node<K, V>(key, value);
                 currentSize++;
                 added = true;
-                ;
             }
             count++;
             i = (i + 1) % maxSize;
@@ -73,7 +72,7 @@ public class Hash<K, V> implements IHash<K, V>, Serializable {
         V render = null;
         int i = hash(key);
         // Cuando no hay elemento en el slot se sale o cuando lo encuentra
-        while (racks[i] != null || render == null) {
+        while (racks[i] != null && render == null) {
             if (racks[i].getKey().equals(key)) {
                 render = racks[i].getValue();
             }

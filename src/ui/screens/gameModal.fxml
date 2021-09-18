@@ -21,7 +21,7 @@
          </image>
       </ImageView>
       <Label fx:id="modalGameName" layoutX="87.0" layoutY="14.0" stylesheets="@../assets/styles/alert.css" text="Create a Game" />
-      <Button fx:id="edit" layoutX="154.0" layoutY="353.0" mnemonicParsing="false" onAction="#editGame" prefHeight="30.0" prefWidth="80.0" stylesheets="@../assets/styles/table.css" text="Edit" textFill="WHITE" visible="false" />
+      <Button fx:id="edit" layoutX="157.0" layoutY="384.0" mnemonicParsing="false" onAction="#editGame" prefHeight="30.0" prefWidth="80.0" stylesheets="@../assets/styles/table.css" text="Edit" textFill="WHITE" visible="false" />
       <Button fx:id="delete" layoutX="62.0" layoutY="384.0" mnemonicParsing="false" onAction="#cancelModal" stylesheets="@../assets/styles/table.css" text="Cancel" textFill="WHITE" />
       <Label layoutX="83.0" layoutY="138.0" text="Code" />
       <Label layoutX="42.0" layoutY="200.0" text="Title" />

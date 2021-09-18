@@ -121,9 +121,21 @@ public class GameStore implements Serializable {
         return msg;
     }
 
-    public void addGame(String name, String review, int price, String shelveName, int amount) {
-        Game newGame = new Game(games.size() + 1, name, review, price, shelveName, amount);
-        games.add(newGame);
+    public String addGame(String name, String review, int price, String shelveName, int amount) {
+        String msg = "We dont have more spaces in the shelve selected";
+        Shelve aux = searchShelve(shelveName);
+        if (!aux.getGameShelve().isFull()) {
+            Game newGame = new Game(games.size() + 1, name, review, price, shelveName, amount);
+            games.add(newGame);
+            aux.getGameShelve().addElement(newGame.getCode(), newGame);
+            msg = "Game added succesfully";
+        }
+        return msg;
+    }
+
+    public void removeGame(Game g){
+        searchShelve(g.getShelveName()).getGameShelve().remove(g.getCode());
+        games.remove(g);
     }
 
     // -------------------------------VALIDATIONS-----------------------------------------------------
@@ -166,6 +178,16 @@ public class GameStore implements Serializable {
             }
         }
         return c;
+    }
+
+    public Shelve searchShelve(String name) {
+        Shelve s = null;
+        for (Shelve sh : shelves) {
+            if (sh.getNameShelve().equals(name)) {
+                s = sh;
+            }
+        }
+        return s;
     }
 
 }

@@ -24,4 +24,8 @@ public class Shelve implements Serializable {
         return this.size;
     }
 
+    public IHash<Integer,Game> getGameShelve() {
+        return this.gameShelve;
+    }
+
 }
