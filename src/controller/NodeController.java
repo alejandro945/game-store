@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXTextArea;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import model.Costumer;
 import model.Game;
 
@@ -25,6 +26,24 @@ public class NodeController {
 
     @FXML
     private Label game;
+
+    @FXML
+    private Pane currentCostumer;
+
+    @FXML
+    private Label busy;
+
+    @FXML
+    private Label active;
+
+    @FXML
+    private Label toPay;
+
+    @FXML
+    private Label cashier;
+
+    @FXML
+    private Label pack;
 
     public NodeController(){
         

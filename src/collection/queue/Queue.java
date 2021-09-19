@@ -1,7 +1,5 @@
 package collection.queue;
 
-import model.Costumer;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,11 +76,8 @@ public class Queue<T> implements IQueue<T>,Serializable {
     }
 
     @Override
-    public void convertArrtoQueue(List<T> list) {
-        front = new Node<T>(list.get(0));
-        for (int i = 1; i<list.size(); i++){
-            enqueue(list.get(i));
-        }
+    public void clear() {
+        front = null;
     }
 
 

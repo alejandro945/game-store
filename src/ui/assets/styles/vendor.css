@@ -61,3 +61,14 @@
     -fx-font-style: italic;
     -fx-font-size: 20px;
 }
+#active{
+    -fx-font-family: "Courier new" ;
+    -fx-font-style: italic;
+    -fx-background-color:linear-gradient(to right,#8bffae ,#39b300);
+    -fx-background-radius:20 20 20 20; 
+}
+#busy{
+    -fx-font-family: "Courier new" ;
+    -fx-background-color: linear-gradient(to right,#ff8b8b ,#ee1b1b);
+    -fx-background-radius:20 20 20 20; 
+}

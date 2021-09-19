@@ -15,6 +15,7 @@ import javafx.scene.layout.VBox;
 import model.Costumer;
 import model.Game;
 import model.GameStore;
+import model.Shelve;
 import routes.Route;
 
 import java.io.IOException;
@@ -86,11 +87,17 @@ public class OrderController {
     private void initShelves() throws IOException{
         GameStore g = GameStoreGUI.getInstance().getGameStore();
         shevels.setSpacing(12);
-        for (Game game : g.getGames()) {
-            String slot = game.getShelveName() + " - " + g.searchShelve(game.getShelveName()).getGameShelve().getIndexInTable(game.getCode());
-            addRack(slot, game);
-            shelveR.setMinHeight(shelveR.getHeight()+60);
+        int count = 0;
+        for (Shelve s : g.getShelves()) {
+            for (int i = 0; i < s.getGameShelve().getMax(); i++) {
+                if(s.getGameShelve().getRack(i) != null){
+                    String slot = s.getNameShelve() + " - " + i;
+                    addRack(slot, s.getGameShelve().getRack(i));
+                }
+                count++;
+            }
         }
+        shelveR.setMinHeight(shelveR.getHeight()+(50*count));
     }
 
     private void initLine() throws IOException{
@@ -98,10 +105,12 @@ public class OrderController {
         line.getChildren().clear();
         line.setPadding(new Insets(10));
         line.setSpacing(12);
+        int count = 0;
         for (Costumer c : g.getLine().convertQueueToArr()) {
             addCostumer(c, 2);
-            lineR.setMinWidth(lineR.getWidth()+40);
+            count++;
         }
+        lineR.setMinWidth(lineR.getWidth()+(80*count));
     }
 
     public List<Costumer> getArray() throws IOException {

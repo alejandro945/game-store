@@ -7,6 +7,7 @@ public interface IHash<K,V> {
     public boolean isEmpty();
     public V search(K key);
     public int getSize();
+    public int getMax();
     public int getIndexInTable(K key);
     public V getRack(int i);
 }

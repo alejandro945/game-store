@@ -71,6 +71,10 @@ public class Costumer implements Serializable {
         return shopBasket;
     }
 
+    public void setShopBasket(IStack<Game> shopBasket) {
+        this.shopBasket = shopBasket;
+    }
+
     public String getGames() {
         String games = "";
         String separator = "";

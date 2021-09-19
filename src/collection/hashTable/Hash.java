@@ -20,7 +20,11 @@ public class Hash<K, V> implements IHash<K, V>, Serializable {
 
     @Override
     public V getRack(int i) {
-        return racks[i].getValue();
+        if (racks[i] == null) {
+            return null;
+        } else {
+            return racks[i].getValue();
+        }
     }
 
     @Override
@@ -94,6 +98,11 @@ public class Hash<K, V> implements IHash<K, V>, Serializable {
 
     private int hash(K key) {
         return key.hashCode() % maxSize;
+    }
+
+    @Override
+    public int getMax() {
+        return maxSize;
     }
 
 }
