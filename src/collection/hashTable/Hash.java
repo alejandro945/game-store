@@ -12,9 +12,15 @@ public class Hash<K, V> implements IHash<K, V>, Serializable {
         maxSize = size;
         racks = (Node<K, V>[]) (new Node[maxSize]);
     }
+
     @Override
     public int getSize() {
         return currentSize;
+    }
+
+    @Override
+    public V getRack(int i) {
+        return racks[i].getValue();
     }
 
     @Override
@@ -46,9 +52,9 @@ public class Hash<K, V> implements IHash<K, V>, Serializable {
         if (search(key) != null) {
             // Ecncontrar position de key para eliminar
             int i = hash(key);
-            while (!key.equals(racks[i].getKey())){
+            while (!key.equals(racks[i].getKey())) {
                 i = (i + 1) % maxSize;
-            }     
+            }
             racks[i] = null;
             // rehash todas las keys
             for (i = (i + 1) % maxSize; racks[i] != null; i = (i + 1) % maxSize) {

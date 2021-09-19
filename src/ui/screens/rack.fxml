@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="200.0" styleClass="box" stylesheets="@../assets/styles/vendor.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="45.0" fitWidth="65.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/images/Polaroid.png" />
+         </image>
+      </ImageView>
+      <Separator layoutX="16.0" layoutY="55.0" prefHeight="0.0" prefWidth="171.0" style="-fx-background-color: #4000E6;" />
+      <Label fx:id="slot" layoutX="70.0" layoutY="3.0" prefHeight="14.0" prefWidth="122.0" text="Label">
+         <font>
+            <Font name="Courier Bold Oblique" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="game" layoutX="70.0" layoutY="17.0" prefHeight="35.0" prefWidth="122.0" text="Label" wrapText="true">
+         <font>
+            <Font name="Courier New" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
