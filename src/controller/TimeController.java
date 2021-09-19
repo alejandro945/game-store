@@ -47,10 +47,10 @@ public class TimeController {
         if (clientOrder == 0){
             setTimeGetGames(getArray().get(clientOrder));
             convertToStackGame(getArray().get(clientOrder));
-            clientOrder++;
             addCostumer(getArray().get(clientOrder));
             int newTime = getArray().get(clientOrder).getTimeInShop() + getArray().get(clientOrder).getWishList().size();
             txtNewTime.setText(newTime + "");
+            clientOrder++;
         } else {
             if (clientOrder < getArray().size()-1) {
                 addCostumer(getArray().get(clientOrder));
@@ -58,6 +58,7 @@ public class TimeController {
                 convertToStackGame(getArray().get(clientOrder));
                 clientOrder++;
             } else {
+                orderClient();
                 btnUpdateTime.setDisable(true);
                 btnSeeLastFinal.setDisable(false);
                 next.setDisable(false);
@@ -92,8 +93,11 @@ public class TimeController {
 
     public void setTimeGetGames(Costumer c) {
         for (int i = 0; i<getArray().size(); i++){
-            if (getArray().get(i).equals(c.getName())){
+            if (getArray().get(i).getCode().equals(c.getCode())){
+                System.out.println(c.getTimeInShop());
+                System.out.println(c.getWishList().size());
                 c.setTime(c.getTimeInShop()+c.getWishList().size());
+                System.out.println(c.getTimeInShop());
             }
         }
     }
@@ -103,6 +107,19 @@ public class TimeController {
             if(getArray().get(i).getName().equals(c.getName())){
                 c.getShopBasket().convertArrtoStack(getArray().get(i).getWishList());
             }
+        }
+    }
+
+    public void orderClient(){
+        for (int i = 1; i<getArray().size(); i++){
+            for (int j = i; j>0 && getArray().get(j-1).getTimeInShop()>getArray().get(j).getTimeInShop(); j--){
+                Costumer temp = getArray().get(j);
+                getArray().set(j, getArray().get(j-1));
+                getArray().set(j-1, temp);
+            }
+        }
+        for (int i = 0; i<getArray().size(); i++){
+            System.out.println(getArray().get(i).getTimeInShop()+"Gono");
         }
     }
 
@@ -120,7 +137,7 @@ public class TimeController {
         for (int i = 0; i<getArray().size(); i++) {
 
         }
-        
+
          */
     }
 
