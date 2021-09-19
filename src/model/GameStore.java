@@ -219,9 +219,6 @@ public class GameStore implements Serializable {
             }
         }
         c.setWishList(list);
-        for (int i = 0; i<list.size(); i++){
-            System.out.println(list.get(i).getCode());
-        }
     }
 
     public void insertionSort(Costumer c){
@@ -248,27 +245,5 @@ public class GameStore implements Serializable {
             list.set(cual, temp);
         }
         c.setWishList(list);
-        for (int i = 0; i<list.size(); i++){
-            System.out.println(list.get(i).getCode());
-        }
-
     }
-    /*
-for( int i = 0; i < tamanio - 1; i++ )
-{
-int menor = arreglo[ i ];
-int cual = i;
-for( int j = i + 1; j < tamanio; j++ )
-if( arreglo[ j ] < menor )
-{
-menor = arreglo[ j ];
-cual = j;
-}
-}
-int temp = arreglo[ i ];
-arreglo[ i ] = menor;
-arreglo[ cual ] = temp;
-}
-     */
-
 }
