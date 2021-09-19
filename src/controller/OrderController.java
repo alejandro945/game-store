@@ -55,13 +55,9 @@ public class OrderController {
     private int clientOrder = 0;
 
     @FXML
-    public void goBack(ActionEvent event) {
-        GameStoreGUI.getInstance().renderScreen(Route.WELCOME);
-    }
-
-    @FXML
-    public void goNext(ActionEvent event) {
-
+    public void goNext(ActionEvent event) throws IOException {
+        GameStoreGUI.getInstance().renderScreen(Route.SECTION3);
+        GameStoreGUI.getInstance().showCostumerTime();
     }
 
     @FXML
@@ -75,6 +71,8 @@ public class OrderController {
                 next.setDisable(false);
                 initLine();
             }
+            rbOrderBubble.setSelected(false);
+            rbOrderInsertion.setSelected(false);
         }
     }
 

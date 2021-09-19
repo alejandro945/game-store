@@ -44,12 +44,14 @@ public class GameStoreGUI {
     private ECommerceController eController;
     private StartController sController;
     private OrderController oController;
+    private TimeController tController;
 
     private GameStoreGUI() {
         aController = new AdminController();
         eController = new ECommerceController();
         sController = new StartController();
         oController = new OrderController();
+        tController = new TimeController();
     }
 
     public static GameStoreGUI getInstance() {
@@ -109,6 +111,8 @@ public class GameStoreGUI {
                 return sController;
             case SECTION2:
                 return oController;
+            case SECTION3:
+                return tController;
             default:
                 return null;
         }
@@ -134,6 +138,10 @@ public class GameStoreGUI {
 
     public void showCostumer() throws IOException {
         oController.initializaOrderClient();
+    }
+
+    public void showCostumerTime() throws IOException {
+        tController.initTimeUpdate();
     }
 
     public Stage loadModal(Route route, Object controller) {

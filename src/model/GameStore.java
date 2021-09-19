@@ -247,4 +247,5 @@ public class GameStore implements Serializable {
         }
         c.setWishList(list);
     }
+
 }

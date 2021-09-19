@@ -10,5 +10,5 @@ public interface IQueue<T> {
     public int size();
     public boolean search(T elem);
     public List<T> convertQueueToArr();
-    //public void convertArrayToQueue();
+    public void convertArrtoQueue(List<T> list);
 }

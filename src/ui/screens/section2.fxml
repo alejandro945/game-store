@@ -35,15 +35,6 @@
          </font></Label>
       <Pane fx:id="pInfoClient" layoutX="100.0" layoutY="195.0" prefHeight="180.0" prefWidth="220.0" />
       <JFXButton fx:id="btnNextClient" layoutX="134.0" layoutY="394.0" onAction="#onOrderGames" prefHeight="31.0" prefWidth="151.0" styleClass="btn-flash" stylesheets="@../assets/styles/vendor.css" text="Next Client" />
-      <Button layoutX="326.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" styleClass="btn-flash" stylesheets="@../assets/styles/vendor.css">
-         <graphic>
-            <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/images/Back.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
       <Button fx:id="next" disable="true" layoutX="516.0" layoutY="14.0" mnemonicParsing="false" onAction="#goNext" pickOnBounds="false" styleClass="btn-flash" stylesheets="@../assets/styles/vendor.css">
          <graphic>
             <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">

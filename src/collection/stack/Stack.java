@@ -1,6 +1,7 @@
 package collection.stack;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Stack<T> implements IStack<T>, Serializable {
 
@@ -11,7 +12,6 @@ public class Stack<T> implements IStack<T>, Serializable {
 
     @Override
     public void push(T newItem) {
-
         if (top == null) {
             top = new Node<T>(newItem);
         } else {
@@ -56,6 +56,14 @@ public class Stack<T> implements IStack<T>, Serializable {
             aux = aux.getNext();
         }
         return count;
+    }
+
+    @Override
+    public void convertArrtoStack(List<T> list) {
+        top = null;
+        for (int i = 0; i<list.size(); i++){
+            push(list.get(i));
+        }
     }
 
 }
