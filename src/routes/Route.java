@@ -8,7 +8,7 @@ public enum Route {
     GAMEMODAL("/ui/screens/gameModal.fxml"), ADMDASH("/ui/screens/admDash.fxml"),
     ADDCOSTUMER("/ui/screens/addCostumer.fxml"), SHELVEMODAL("/ui/screens/shelveModal.fxml"),
     TABLE("/ui/assets/styles/table.css"), SECTION1("/ui/screens/section1.fxml"),NODE_COSTUMER("/ui/screens/costumer.fxml"),
-    SECTION2("/ui/screens/section2.fxml");
+    SECTION2("/ui/screens/section2.fxml"), NODE_RACK("/ui/screens/rack.fxml");
 
     private String route;
 

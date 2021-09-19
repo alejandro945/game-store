@@ -11,10 +11,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import model.Costumer;
-import model.Game;
 import model.GameStore;
 import routes.Route;
 
@@ -27,7 +27,7 @@ public class StartController {
     private List<Costumer> cLine;
 
     public StartController() {
-        
+
     }
 
     @FXML
@@ -44,6 +44,9 @@ public class StartController {
 
     @FXML
     private JFXComboBox<String> cbxSelectClient;
+
+    @FXML
+    private AnchorPane lineR;
 
     @FXML
     private HBox line;
@@ -78,13 +81,14 @@ public class StartController {
         games.setCellValueFactory(new PropertyValueFactory<>("games"));
     }
 
-    private void refreshLine(){
+    private void refreshLine() {
         line.getChildren().clear();
         line.setSpacing(12);
         line.setPadding(new Insets(10));
         for (Costumer costumer : cLine) {
             try {
                 addNode(costumer);
+                lineR.setMinWidth(lineR.getWidth()+40);
             } catch (IOException e) {
                 GameStoreGUI.getInstance().createAlert("Opps Screen not found it", Route.ERROR);
             }
@@ -93,10 +97,10 @@ public class StartController {
 
     private void addNode(Costumer c) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(Route.NODE_COSTUMER.getRoute()));
-        CostumerController controller = new CostumerController();
+        NodeController controller = new NodeController();
         fxmlLoader.setController(controller);
         Pane pane = fxmlLoader.load();
-        controller.getData(c);
+        controller.getCostumer(c);
         line.getChildren().add(pane);
     }
 
@@ -122,7 +126,7 @@ public class StartController {
     @FXML
     public void goNext(ActionEvent event) throws IOException {
         GameStore g = GameStoreGUI.getInstance().getGameStore();
-        if(!g.getLine().isEmpty()){
+        if (!g.getLine().isEmpty()) {
             GameStoreGUI.getInstance().renderScreen(Route.SECTION2);
             GameStoreGUI.getInstance().showCostumer();
         }

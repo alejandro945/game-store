@@ -163,7 +163,7 @@ public class GameStore implements Serializable {
         boolean added = false;
         if (!line.search(newCostumer)) {
             line.enqueue(newCostumer);
-            newCostumer.setTimeInShop(line.size());
+            newCostumer.setTime(line.size());
             added = true;
         }
         return added;
@@ -198,6 +198,7 @@ public class GameStore implements Serializable {
         }
         return s;
     }
+    // -------------------------------SORTING-----------------------------------------------------
 
     public void bubbleSort(Costumer c){
         ArrayList<Game> list = c.getWishList();

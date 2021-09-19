@@ -8,4 +8,5 @@ public interface IHash<K,V> {
     public V search(K key);
     public int getSize();
     public int getIndexInTable(K key);
+    public V getRack(int i);
 }

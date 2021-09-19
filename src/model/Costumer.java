@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import collection.stack.IStack;
 import collection.stack.Stack;
 
-public class Costumer implements Serializable{
+public class Costumer implements Serializable {
     private int id;
     private String code;
     private String name;
@@ -51,8 +51,12 @@ public class Costumer implements Serializable{
         return timeInShop;
     }
 
-    public void setTimeInShop(int timeInShop) {
-        this.timeInShop = timeInShop;
+    public void setTimeInShop() {
+        timeInShop++;
+    }
+
+    public void setTime(int time) {
+        timeInShop = time;
     }
 
     public ArrayList<Game> getWishList() {
@@ -68,12 +72,12 @@ public class Costumer implements Serializable{
     }
 
     public String getGames() {
-       String games = "";
-       String separator = "";
-       for(int i = 0; i<wishList.size(); i++){
-        games += separator + wishList.get(i).getCode();
-        separator = "-";
-       }
+        String games = "";
+        String separator = "";
+        for (int i = 0; i < wishList.size(); i++) {
+            games += separator + wishList.get(i).getCode();
+            separator = "-";
+        }
         return games;
     }
 

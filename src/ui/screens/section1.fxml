@@ -72,14 +72,14 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label layoutX="275.0" layoutY="361.0" prefHeight="49.0" prefWidth="315.0" text="Section 1 State" textFill="#8d8d8d" wrapText="true">
+      <Label layoutX="275.0" layoutY="375.0" prefHeight="49.0" prefWidth="315.0" text="Section 1 State" textFill="#8d8d8d" wrapText="true">
          <font>
             <Font name="Courier New Bold Italic" size="31.0" />
          </font>
       </Label>
       <ScrollPane layoutX="118.0" layoutY="438.0" prefHeight="208.0" prefWidth="652.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="195.0" prefWidth="670.0">
+          <AnchorPane fx:id="lineR" minHeight="0.0" minWidth="0.0" prefHeight="195.0" prefWidth="670.0">
                <children>
                   <HBox fx:id="line" prefHeight="208.0" prefWidth="680.0">
                      <opaqueInsets>
