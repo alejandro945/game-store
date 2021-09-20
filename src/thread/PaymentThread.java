@@ -21,24 +21,31 @@ public class PaymentThread extends Thread {
 
     @Override
     public void run() {
-        while (!line.isEmpty() && !nController.getCashier().isBusy()) {
+        while (!line.isEmpty()) {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
                     nController.setPack("");
+                    nController.getCashier().newPack();
                     nController.getCashier().setPayment(0);
                     nController.setToPay(0);
                     Costumer c = line.dequeue();
                     nController.setCurrent(c);
                     nController.getCashier().setBusy(true);
-                    nController.setCashier(nController.getCashier());  
+                    nController.setCashier(nController.getCashier());
                     try {
                         pController.initLine();
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
-                   AuxThread aux = new AuxThread(c, nController);
-                   aux.start();
+                    try {
+                        AuxThread aux = new AuxThread(c, nController);
+                        aux.start();
+                        wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
                 }
             });
             try {

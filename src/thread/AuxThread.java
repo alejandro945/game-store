@@ -30,7 +30,7 @@ public class AuxThread extends Thread {
                 }
             });
             try {
-                Thread.sleep(4000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -38,7 +38,6 @@ public class AuxThread extends Thread {
         System.out.println(nController.getCashier().getToPay());
         Cashier c = nController.getCashier();
         c.setBusy(false);
-        nController.setCashier(c);
-        nController.setCurrent(null);
+        notify();
     }
 }

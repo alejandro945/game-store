@@ -47,6 +47,10 @@ public class Cashier implements Serializable {
         toPay = price;
     }
 
+    public void newPack(){
+        pack = new Stack<>();
+    }
+
     public void setBusy(boolean state) {
         busy = state;
     }
