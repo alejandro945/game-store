@@ -34,6 +34,19 @@ public class PaymentController {
     private Label report;
 
     @FXML
+    private Label rpt;
+    private String repor;
+
+    public synchronized String getReport(){
+        return repor;
+    }
+
+    public synchronized void setReport(String rp){
+        repor += rp;
+        rpt.setText(repor);
+    }
+
+    @FXML
     void end(ActionEvent event) {
 
     }
@@ -92,6 +105,5 @@ public class PaymentController {
         p.start();
 
     }
-    
 
 }

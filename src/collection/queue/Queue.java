@@ -29,7 +29,7 @@ public class Queue<T> implements IQueue<T>,Serializable {
     }
 
     @Override
-    public boolean isEmpty() {
+    public synchronized boolean isEmpty() {
         return (front == null);
     }
 

@@ -26,7 +26,7 @@ public class AuxThread extends Thread {
                 @Override
                 public void run() {
                     Game g = c.getShopBasket().pop();
-                    if(g!=null && g.validateInventory()){
+                    if(g!=null /*&& g.validateInventory()*/){
                         nController.getCashier().getPack().push(g);
                         nController.setPack(nController.getCashier().getPack().getInfo());
                         nController.getCashier().setToPay(g.getPrice());

@@ -52,5 +52,6 @@
             </AnchorPane>
          </content>
       </ScrollPane>
+      <Label fx:id="rpt" alignment="CENTER" layoutX="14.0" layoutY="508.0" prefHeight="166.0" prefWidth="67.0" text="Label" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>
