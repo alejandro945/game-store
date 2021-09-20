@@ -78,9 +78,10 @@ public class PaymentController {
         controller.setCashier(c);
         cashiers.getChildren().add(pane);
         cashiers.toBack();
-        PaymentThread p = new PaymentThread(GameStoreGUI.getInstance().getGameStore().getLine(), controller,this);
+        PaymentThread p = new PaymentThread(GameStoreGUI.getInstance().getGameStore().getLine(), controller, this);
         p.start();
-    }
 
+    }
+    
 
 }

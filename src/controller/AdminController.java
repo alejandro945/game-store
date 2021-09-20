@@ -207,7 +207,7 @@ public class AdminController {
     public void saveGame(ActionEvent event) {
         if (validateFields()) {
             try {
-                String msg = GameStoreGUI.getInstance().getGameStore().addGame(title.getText(), review.getText(),
+                String msg = GameStoreGUI.getInstance().getGameStore().addGame(0,title.getText(), review.getText(),
                         Integer.parseInt(price.getText()), comboAddGameToShelve.getValue(),
                         Integer.parseInt(amount.getText()));
                 if (msg.equals("Game added succesfully")) {
@@ -231,7 +231,7 @@ public class AdminController {
     @FXML
     public void editGame(ActionEvent event) {
         GameStoreGUI.getInstance().getGameStore().removeGame(selectedG);
-        String msg = GameStoreGUI.getInstance().getGameStore().addGame(title.getText(), review.getText(),
+        String msg = GameStoreGUI.getInstance().getGameStore().addGame(selectedG.getCode(), title.getText(), review.getText(),
                 Integer.parseInt(price.getText()), comboAddGameToShelve.getValue(), Integer.parseInt(amount.getText()));
         if (msg.equals("Game added succesfully")) {
             GameStoreGUI.getInstance().createAlert("Game edited succesfully", Route.SUCCESS);
