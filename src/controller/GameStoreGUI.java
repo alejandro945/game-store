@@ -45,6 +45,7 @@ public class GameStoreGUI {
     private StartController sController;
     private OrderController oController;
     private TimeController tController;
+    private PaymentController pController;
 
     private GameStoreGUI() {
         aController = new AdminController();
@@ -52,6 +53,7 @@ public class GameStoreGUI {
         sController = new StartController();
         oController = new OrderController();
         tController = new TimeController();
+        pController = new PaymentController();
     }
 
     public static GameStoreGUI getInstance() {
@@ -113,6 +115,8 @@ public class GameStoreGUI {
                 return oController;
             case SECTION3:
                 return tController;
+            case SECTION4:
+                return pController;
             default:
                 return null;
         }
@@ -142,6 +146,10 @@ public class GameStoreGUI {
 
     public void showCostumerTime() throws IOException {
         tController.initTimeUpdate();
+    }
+
+    public void showPayment() throws IOException {
+        pController.initPayment();
     }
 
     public Stage loadModal(Route route, Object controller) {

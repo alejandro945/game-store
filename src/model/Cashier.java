@@ -5,37 +5,50 @@ import java.io.Serializable;
 import collection.stack.*;
 
 public class Cashier implements Serializable {
-
+    private int id;
     private Costumer currentCostumer;
     private boolean busy;
     private int toPay;
     private IStack<Game> pack;
 
-    public Cashier() {
+    public Cashier(int id) {
+        this.id = id;
         currentCostumer = null;
         busy = false;
         toPay = 0;
         pack = new Stack<>();
     }
 
-    public Costumer getCurrentCostumer() {
-        return this.currentCostumer;
+    public int getId() {
+        return id;
     }
 
-    public boolean getBusy() {
-        return this.busy;
+    public Costumer getCurrentCostumer() {
+        return currentCostumer;
     }
 
     public boolean isBusy() {
-        return this.busy;
+        return busy;
     }
 
     public int getToPay() {
-        return this.toPay;
+        return toPay;
     }
 
     public IStack<Game> getPack() {
-        return this.pack;
+        return pack;
+    }
+
+    public void setToPay(int price) {
+        toPay += price;
+    }
+
+    public void setPayment(int price) {
+        toPay = price;
+    }
+
+    public void setBusy(boolean state) {
+        busy = state;
     }
 
 }

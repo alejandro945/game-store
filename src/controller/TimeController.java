@@ -45,10 +45,10 @@ public class TimeController {
 
     @FXML
     public void onUpdateTime(ActionEvent event) throws IOException {
-            convertToStackGame(getArray().get(clientOrder));
-            clientOrder++;
-        if (clientOrder < getArray().size()) {      
-            addCostumer(getArray().get(clientOrder),1);
+        convertToStackGame(getArray().get(clientOrder));
+        clientOrder++;
+        if (clientOrder < getArray().size()) {
+            addCostumer(getArray().get(clientOrder), 1);
             txtNewTime.setText(setCostumerTime(getArray().get(clientOrder)) + " MIN");
         } else {
             orderClient();
@@ -61,25 +61,25 @@ public class TimeController {
 
     public void initTimeUpdate() throws IOException {
         clientOrder = 0;
-        addCostumer(getArray().get(clientOrder),1);
+        addCostumer(getArray().get(clientOrder), 1);
         txtNewTime.setText(setCostumerTime(getArray().get(0)) + " MIN");
         next.setDisable(true);
     }
 
-    private void addCostumer(Costumer c,int type) throws IOException {
+    private void addCostumer(Costumer c, int type) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(Route.NODE_COSTUMER.getRoute()));
         NodeController controller = new NodeController();
         fxmlLoader.setController(controller);
         Pane pane = fxmlLoader.load();
         controller.getCostumer(c);
-        if(type==1){
+        if (type == 1) {
             pInformationClient.getChildren().add(pane);
             pInformationClient.toBack();
-        }else{
+        } else {
             line.getChildren().add(pane);
             line.toBack();
         }
-      
+
     }
 
     public List<Costumer> getArray() {
@@ -117,7 +117,7 @@ public class TimeController {
         }
     }
 
-    private void initLine() throws IOException{
+    private void initLine() throws IOException {
         GameStore g = GameStoreGUI.getInstance().getGameStore();
         line.getChildren().clear();
         line.setPadding(new Insets(10));
@@ -127,11 +127,12 @@ public class TimeController {
             addCostumer(c, 2);
             count++;
         }
-        lineR.setMinWidth(lineR.getWidth()+(80*count));
+        lineR.setMinWidth(lineR.getWidth() + (80 * count));
     }
 
     @FXML
-    public void onNext(ActionEvent event) {
-
+    public void onNext(ActionEvent event) throws IOException {
+        GameStoreGUI.getInstance().renderScreen(Route.SECTION4);
+        GameStoreGUI.getInstance().showPayment();
     }
 }

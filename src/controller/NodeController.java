@@ -1,12 +1,17 @@
 package controller;
 
+import java.io.IOException;
+
 import com.jfoenix.controls.JFXTextArea;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import model.Cashier;
 import model.Costumer;
 import model.Game;
+import routes.Route;
 
 public class NodeController {
     @FXML
@@ -44,20 +49,60 @@ public class NodeController {
 
     @FXML
     private Label pack;
+    private Cashier c;
 
-    public NodeController(){
-        
+    public NodeController() {
+
     }
 
-    public void getCostumer(Costumer c){
+    public void getCostumer(Costumer c) {
         costumerCode.setText(c.getGames());
         costumerId.setText(String.valueOf(c.getId()));
         costumerName.setText(c.getName());
         costumerTime.setText(c.getTimeInShop() + " MIN");
     }
 
-    public void getRack(String s, Game g){
+    public void getRack(String s, Game g) {
         slot.setText(s);
-        game.setText("Cod. "+ g.getCode() + "  $ " + g.getPrice());
+        game.setText("Cod. " + g.getCode() + "  $ " + g.getPrice());
+    }
+
+    public void setCashier(Cashier c) {
+        cashier.setText("Cashier: " + c.getId());
+        if (!c.isBusy()) {
+            active.toFront();
+        } else {
+            busy.toFront();
+        }
+        this.c = c;
+    }
+
+    public Cashier getCashier() {
+        return c;
+    }
+
+    public void setPack(String p) {
+        pack.setText(p);
+    }
+
+    public void setToPay(int amount) {
+        toPay.setText("$ " + amount);
+    }
+
+    public void setCurrent(Costumer c) {
+        if(c!=null){
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(Route.NODE_COSTUMER.getRoute()));
+            NodeController controller = new NodeController();
+            fxmlLoader.setController(controller);
+            try {
+                Pane pane = fxmlLoader.load();
+                controller.getCostumer(c);
+                currentCostumer.getChildren().add(pane);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+            currentCostumer.getChildren().clear();
+        }
     }
 }

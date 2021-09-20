@@ -61,9 +61,20 @@ public class Stack<T> implements IStack<T>, Serializable {
     @Override
     public void convertArrtoStack(List<T> list) {
         top = null;
-        for (int i = 0; i<list.size(); i++){
+        for (int i = 0; i < list.size(); i++) {
             push(list.get(i));
         }
+    }
+
+    @Override
+    public String getInfo() {
+        String msg = "";
+        Node<T> aux = top;
+        while (aux != null) {
+            msg += aux.getData()+"-";
+            aux = aux.getNext();
+        }
+        return msg;
     }
 
 }

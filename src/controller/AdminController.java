@@ -87,7 +87,7 @@ public class AdminController {
 
     private void getData() {
         // Init Cashiers
-        lblCashier.setText(String.valueOf(GameStoreGUI.getInstance().getGameStore().getCashiers()));
+        lblCashier.setText(String.valueOf(GameStoreGUI.getInstance().getGameStore().getLengthCashiers()));
         // Init Game Table
         ObservableList<Game> gameList = FXCollections
                 .observableArrayList(GameStoreGUI.getInstance().getGameStore().getGames());
@@ -332,7 +332,7 @@ public class AdminController {
             GameStoreGUI.getInstance().getGameStore().initCashiers(Integer.parseInt(txtCashier.getText()));
             GameStoreGUI.getInstance().createAlert("Journal Cashiers edited ", Route.SUCCESS);
             txtCashier.setText("");
-            lblCashier.setText(String.valueOf(GameStoreGUI.getInstance().getGameStore().getCashiers()));
+            lblCashier.setText(String.valueOf(GameStoreGUI.getInstance().getGameStore().getLengthCashiers()));
         } catch (NumberFormatException e) {
             GameStoreGUI.getInstance().createAlert("Required numeric field", Route.ERROR);
         }

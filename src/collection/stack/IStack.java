@@ -8,5 +8,6 @@ public interface IStack<T> {
     public T top();
     public T pop();
     public int size();
+    public String getInfo();
     public void convertArrtoStack(List<T> list);
 }

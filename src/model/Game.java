@@ -59,6 +59,10 @@ public class Game implements Serializable {
         this.amount = amount;
     }
 
+    public void purchase(){
+        amount--;
+    }
+
     public String getShelveName() {
         return shelveName;
     }
@@ -69,6 +73,6 @@ public class Game implements Serializable {
 
     @Override
     public String toString() {
-        return gameName;
+        return code+"";
     }
 }

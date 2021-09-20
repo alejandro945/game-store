@@ -28,6 +28,9 @@ public class GameStore implements Serializable {
 
     public void initCashiers(int i) {
         cashiers = new Cashier[i];
+        for (int index = 0; index < i; index++) {
+            cashiers[index] = new Cashier(index+1);
+        }
     }
 
     public void initLine() {
@@ -87,12 +90,16 @@ public class GameStore implements Serializable {
         return shelves;
     }
 
-    public int getCashiers() {
+    public int getLengthCashiers() {
         if (cashiers == null) {
             return 0;
         } else {
             return cashiers.length;
         }
+    }
+
+    public Cashier[] getCashiers(){
+        return cashiers;
     }
 
     public IQueue<Costumer> getLine() {
