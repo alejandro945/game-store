@@ -33,7 +33,7 @@ public class Stack<T> implements IStack<T>, Serializable {
     }
 
     @Override
-    public T pop() {
+    public synchronized T pop() {
         T aux;
         if (top == null) {
             aux = null;

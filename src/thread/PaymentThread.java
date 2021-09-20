@@ -20,8 +20,8 @@ public class PaymentThread extends Thread {
     }
 
     private void initCashier() {
-        nController.setPack("");
         nController.getCashier().newPack();
+        nController.setPack("");
         nController.setToPay(0);
         nController.getCashier().setPayment(0);
         nController.getCashier().setBusy(true);
@@ -43,11 +43,10 @@ public class PaymentThread extends Thread {
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
-                    AuxThread aux = new AuxThread(c, nController);
-                    aux.start();
-                    if(line.isEmpty()){
-                        nController.setCurrent(null);
-                    }             
+                    if(c != null){
+                        AuxThread aux = new AuxThread(c, nController);
+                        aux.start();
+                    }         
                 }
             });
             try {

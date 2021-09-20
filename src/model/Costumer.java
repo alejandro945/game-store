@@ -67,7 +67,7 @@ public class Costumer implements Serializable {
         this.wishList = wishList;
     }
 
-    public IStack<Game> getShopBasket() {
+    public synchronized IStack<Game> getShopBasket() {
         return shopBasket;
     }
 

@@ -2,8 +2,10 @@ package controller;
 
 import java.io.IOException;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.geometry.Insets;
 import javafx.scene.layout.HBox;
@@ -27,6 +29,14 @@ public class PaymentController {
 
     @FXML
     private HBox cashiers;
+
+    @FXML
+    private Label report;
+
+    @FXML
+    void end(ActionEvent event) {
+
+    }
 
     public void initPayment() throws IOException {
         initLine();

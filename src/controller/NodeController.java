@@ -67,7 +67,7 @@ public class NodeController {
         game.setText("Cod. " + g.getCode() + "  $ " + g.getPrice());
     }
 
-    public void setCashier(Cashier c) {
+    public synchronized void setCashier(Cashier c) {
         cashier.setText("Cashier: " + c.getId());
         if (!c.isBusy()) {
             active.toFront();
@@ -77,19 +77,19 @@ public class NodeController {
         this.c = c;
     }
 
-    public Cashier getCashier() {
+    public synchronized Cashier getCashier() {
         return c;
     }
 
-    public void setPack(String p) {
+    public synchronized void setPack(String p) {
         pack.setText(p);
     }
 
-    public void setToPay(int amount) {
+    public synchronized void  setToPay(int amount) {
         toPay.setText("$ " + amount);
     }
 
-    public void setCurrent(Costumer c) {
+    public synchronized void setCurrent(Costumer c) {
         if(c!=null){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(Route.NODE_COSTUMER.getRoute()));
             NodeController controller = new NodeController();

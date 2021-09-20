@@ -26,11 +26,13 @@ public class AuxThread extends Thread {
                 @Override
                 public void run() {
                     Game g = c.getShopBasket().pop();
-                    nController.getCashier().getPack().push(g);
-                    nController.setPack(nController.getCashier().getPack().getInfo());
-                    nController.getCashier().setToPay(g.getPrice());
-                    nController.setToPay(nController.getCashier().getToPay());
-                    g.purchase();
+                    if(g!=null){
+                        nController.getCashier().getPack().push(g);
+                        nController.setPack(nController.getCashier().getPack().getInfo());
+                        nController.getCashier().setToPay(g.getPrice());
+                        nController.setToPay(nController.getCashier().getToPay());
+                        g.purchase();
+                    }             
                     if (c.getShopBasket().isEmpty()) {
                         nController.getCashier().setBusy(false);
                         nController.setCashier(nController.getCashier());

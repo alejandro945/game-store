@@ -9,7 +9,8 @@ public enum Route {
     ADDCOSTUMER("/ui/screens/addCostumer.fxml"), SHELVEMODAL("/ui/screens/shelveModal.fxml"),
     TABLE("/ui/assets/styles/table.css"), SECTION1("/ui/screens/section1.fxml"),
     NODE_COSTUMER("/ui/screens/costumer.fxml"), SECTION2("/ui/screens/section2.fxml"),
-    NODE_RACK("/ui/screens/rack.fxml"),NODE_CASHIER("/ui/screens/cashier.fxml"), SECTION3("/ui/screens/section3.fxml"), SECTION4("/ui/screens/section4.fxml");
+    NODE_RACK("/ui/screens/rack.fxml"), NODE_CASHIER("/ui/screens/cashier.fxml"), SECTION3("/ui/screens/section3.fxml"),
+    SECTION4("/ui/screens/section4.fxml"), CONGRATULATIONS("/ui/screens/congratulations.fxml");
 
     private String route;
 

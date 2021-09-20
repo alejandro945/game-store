@@ -34,12 +34,12 @@ public class Queue<T> implements IQueue<T>,Serializable {
     }
 
     @Override
-    public T front() {
+    public synchronized T front() {
         return front.getData();
     }
 
     @Override
-    public T dequeue() {
+    public synchronized T dequeue() {
         T aux;
         if (front == null) {
             aux = null;
