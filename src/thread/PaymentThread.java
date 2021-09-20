@@ -27,14 +27,6 @@ public class PaymentThread extends Thread {
         nController.getCashier().setBusy(true);
     }
 
-    private void report(){
-        if(nController.getCashier().getToPay() !=0){
-            pController.setReport(nController.getCashier().getToPay()+"-");       
-        }else{
-            System.out.println("hp");
-        }
-    }
-
     @Override
     public void run() {
         initCashier();
@@ -43,32 +35,32 @@ public class PaymentThread extends Thread {
             int render = c.getShopBasket().size();
             Platform.runLater(new Runnable() {
                 @Override
-                public void run() { 
-                    report();
-                    initCashier(); 
-                    if(c != null){
-                    nController.setCurrent(c);
-                    nController.setCashier(nController.getCashier());
-                    try {
-                        pController.initLine();
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }              
-                        AuxThread aux = new AuxThread(c, nController);
+                public void run() {
+                    if (c != null) {
+                        initCashier();
+                        nController.setCurrent(c);
+                        nController.setCashier(nController.getCashier());
+                        try {
+                            pController.initLine();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        AuxThread aux = new AuxThread(c, nController, pController);
                         aux.start();
-                    } 
-                    if(line.isEmpty()){
-                        report();
-                    } 
+                        if(line.isEmpty()){
+                            System.out.println("hp");
+                        }
+                    }
+
                 }
             });
             try {
-                Thread.sleep(10000 * render);
+                Thread.sleep(4200 * render);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        
+
     }
 
 }
