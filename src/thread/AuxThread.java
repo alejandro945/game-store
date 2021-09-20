@@ -34,12 +34,12 @@ public class AuxThread extends Thread {
                         g.purchase();
                     }             
                     if (c.getShopBasket().isEmpty()) {
+                        System.out.println(c.getCode());
                         nController.getCashier().setBusy(false);
                         nController.setCashier(nController.getCashier());
                     }
                 }
             });
         }
-        System.out.println(nController.getCashier().getToPay());
     }
 }

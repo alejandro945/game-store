@@ -27,17 +27,26 @@ public class PaymentThread extends Thread {
         nController.getCashier().setBusy(true);
     }
 
+    private void report(){
+        if(nController.getCashier().getToPay() !=0){
+            pController.setReport(nController.getCashier().getToPay()+"-");       
+        }else{
+            System.out.println("hp");
+        }
+    }
+
     @Override
     public void run() {
+        initCashier();
         while (!line.isEmpty()) {
             Costumer c = line.dequeue();
             int render = c.getShopBasket().size();
             Platform.runLater(new Runnable() {
                 @Override
-                public void run() {  
+                public void run() { 
+                    report();
+                    initCashier(); 
                     if(c != null){
-                    pController.setReport( "-"+ nController.getCashier().getToPay());       
-                    initCashier();
                     nController.setCurrent(c);
                     nController.setCashier(nController.getCashier());
                     try {
@@ -47,15 +56,19 @@ public class PaymentThread extends Thread {
                     }              
                         AuxThread aux = new AuxThread(c, nController);
                         aux.start();
-                    }  
+                    } 
+                    if(line.isEmpty()){
+                        report();
+                    } 
                 }
             });
             try {
-                Thread.sleep(4200 * render);
+                Thread.sleep(10000 * render);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+        
     }
 
 }

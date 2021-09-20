@@ -35,7 +35,7 @@ public class PaymentController {
 
     @FXML
     private Label rpt;
-    private String repor;
+    private String repor = "";
 
     public synchronized String getReport(){
         return repor;
