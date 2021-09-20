@@ -59,7 +59,15 @@ public class Game implements Serializable {
         this.amount = amount;
     }
 
-    public void purchase(){
+    public synchronized boolean validateInventory() {
+        boolean inventory = false;
+        if (amount > 0) {
+            inventory = true;
+        }
+        return inventory;
+    }
+
+    public synchronized void purchase() {
         amount--;
     }
 
@@ -73,6 +81,6 @@ public class Game implements Serializable {
 
     @Override
     public String toString() {
-        return code+"";
+        return code + "";
     }
 }

@@ -31,7 +31,7 @@ public class Cashier implements Serializable {
         return busy;
     }
 
-    public int getToPay() {
+    public synchronized int getToPay() {
         return toPay;
     }
 
