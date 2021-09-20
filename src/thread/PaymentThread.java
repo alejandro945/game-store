@@ -12,16 +12,34 @@ public class PaymentThread extends Thread {
     private IQueue<Costumer> line;
     private NodeController nController;
     private PaymentController pController;
+    private boolean suspend;
+
+
 
     public PaymentThread(IQueue<Costumer> line, NodeController nController, PaymentController pController) {
         this.line = line;
         this.nController = nController;
         this.pController = pController;
+        suspend = false;
+    }
+
+    public void suspendThread(){
+        suspend = true;
+    }
+
+    public synchronized void rnd(){
+        suspend = false;
+        notify();
     }
 
     @Override
     public void run() {
         while (!line.isEmpty()) {
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
@@ -38,21 +56,22 @@ public class PaymentThread extends Thread {
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
-                    try {
-                        AuxThread aux = new AuxThread(c, nController);
-                        aux.start();
-                        wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    PaymentThread p = (PaymentThread) this.getClass().cast(this);
+                    AuxThread aux = new AuxThread(c, nController,);
+                    aux.start();
+                   synchronized (this) {
+                        while (suspend) {
+                            try {
+                                wait();
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
 
+                        }
+                    }
                 }
             });
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
         }
     }
 

@@ -9,14 +9,17 @@ import model.Game;
 public class AuxThread extends Thread {
     private Costumer c;
     private NodeController nController;
+    private PaymentThread pController;
 
-    public AuxThread(Costumer c, NodeController nController) {
+    public AuxThread(Costumer c, NodeController nController, PaymentThread pController) {
         this.c = c;
         this.nController = nController;
+        this.pController = pController;
     }
 
     @Override
     public void run() {
+        pController.suspendThread();
         while (!c.getShopBasket().isEmpty()) {
             Platform.runLater(new Runnable() {
                 @Override
@@ -38,6 +41,6 @@ public class AuxThread extends Thread {
         System.out.println(nController.getCashier().getToPay());
         Cashier c = nController.getCashier();
         c.setBusy(false);
-        notify();
+        pController.rnd();
     }
 }
