@@ -1,5 +1,5 @@
 <div align="center">
-![ScreenShot](https://github.com/alejandro945/game-store/blob/master/src/ui/assets/images/screens/logo.png)<br>
+<img src="https://github.com/alejandro945/game-store/blob/master/src/ui/assets/images/screens/logo.png"><br>
 </div>
 <div align="center">
 <h2> Welcome to our proyect! <img src="https://github.com/ABSphreak/ABSphreak/blob/master/gifs/Hi.gif" width="30px"></h2>
