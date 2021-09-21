@@ -71,15 +71,15 @@ public class TimeController {
         NodeController controller = new NodeController();
         fxmlLoader.setController(controller);
         Pane pane = fxmlLoader.load();
-        controller.getCostumer(c);
         if (type == 1) {
+            controller.getCostumer(c);
             pInformationClient.getChildren().add(pane);
             pInformationClient.toBack();
         } else {
+            controller.getCostumerWithBasket(c);
             line.getChildren().add(pane);
             line.toBack();
         }
-
     }
 
     public List<Costumer> getArray() {

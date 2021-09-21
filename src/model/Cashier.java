@@ -6,14 +6,12 @@ import collection.stack.*;
 
 public class Cashier implements Serializable {
     private int id;
-    private Costumer currentCostumer;
     private boolean busy;
     private int toPay;
     private IStack<Game> pack;
 
     public Cashier(int id) {
         this.id = id;
-        currentCostumer = null;
         busy = false;
         toPay = 0;
         pack = new Stack<>();
@@ -21,10 +19,6 @@ public class Cashier implements Serializable {
 
     public int getId() {
         return id;
-    }
-
-    public Costumer getCurrentCostumer() {
-        return currentCostumer;
     }
 
     public boolean isBusy() {

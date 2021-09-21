@@ -105,7 +105,7 @@ public class PaymentController {
         NodeController controller = new NodeController();
         fxmlLoader.setController(controller);
         Pane pane = fxmlLoader.load();
-        controller.getCostumer(c);
+        controller.getCostumerWithBasket(c);
         line.getChildren().add(pane);
         line.toBack();
     }

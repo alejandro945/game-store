@@ -126,9 +126,13 @@ public class GameStoreGUI {
 
     @FXML
     public void init(ActionEvent event) {
-        renderScreen(Route.SECTION1);
-        gameStore.initLine();
-        sController.initializeStartComerce();
+        if(gameStore.getCashiers()!=null){
+            renderScreen(Route.SECTION1);
+            gameStore.initLine();
+            sController.initializeStartComerce();    
+        }else{
+            createAlert("We do not have any cashiers in journal", Route.WARNING);
+        }
     }
 
     @FXML

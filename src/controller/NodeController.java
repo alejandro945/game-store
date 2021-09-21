@@ -62,6 +62,13 @@ public class NodeController {
         costumerTime.setText(c.getTimeInShop() + " MIN");
     }
 
+    public void getCostumerWithBasket(Costumer c) {
+        costumerCode.setText(c.getShopBasket().getInfo());
+        costumerId.setText(String.valueOf(c.getId()));
+        costumerName.setText(c.getName());
+        costumerTime.setText(c.getTimeInShop() + " MIN");
+    }
+
     public void getRack(String s, Game g) {
         slot.setText(s);
         game.setText("Cod. " + g.getCode() + "  $ " + g.getPrice());
@@ -95,7 +102,7 @@ public class NodeController {
             fxmlLoader.setController(this);
             try {
                 Pane pane = fxmlLoader.load();
-                getCostumer(c);
+                getCostumerWithBasket(c);
                 currentCostumer.getChildren().add(pane);
             } catch (IOException e) {
                 e.printStackTrace();

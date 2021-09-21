@@ -128,19 +128,23 @@ public class GameStore implements Serializable {
         return msg;
     }
 
-    public String addGame(int id, String name, String review, int price, String shelveName, int amount) {
+    private int getGameId(int id){
         int render = 0;
-        if (id == 0) {
-            render = games.size() + 1;
-        } else if (games.size() > 0) {
-            render = games.get(games.size() - 1).getCode() + 1;
-        } else {
+        if (id != 0) {
             render = id;
+        } else if (games.size() == 0) {
+            render = games.size() + 1 ;
+        } else {
+            render = games.get(games.size() - 1).getCode() + 1;
         }
+        return render;
+    }
+
+    public String addGame(int id, String name, String review, int price, String shelveName, int amount) {  
         String msg = "We dont have more spaces in the shelve selected";
         Shelve aux = searchShelve(shelveName);
         if (!aux.getGameShelve().isFull()) {
-            Game newGame = new Game(render, name, review, price, shelveName, amount);
+            Game newGame = new Game(getGameId(id), name, review, price, shelveName, amount);
             games.add(newGame);
             aux.getGameShelve().addElement(newGame.getCode(), newGame);
             msg = "Game added succesfully";

@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,15 +20,23 @@
             <Image url="@../assets/images/winners.png" />
          </image>
       </ImageView>
+      <ScrollPane layoutX="184.0" layoutY="375.0" prefHeight="178.0" prefWidth="532.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="306.0" prefWidth="501.0">
+               <children>
+                  <Label fx:id="report" alignment="CENTER" prefHeight="156.0" prefWidth="505.0" text="Label" wrapText="true">
+                     <font>
+                        <Font name="Courier New" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
       <JFXButton layoutX="334.0" layoutY="571.0" onAction="#end" prefHeight="27.0" prefWidth="233.0" styleClass="btn-flash" stylesheets="@../assets/styles/vendor.css" text="Finish Simulation">
          <font>
             <Font name="Courier New Bold Italic" size="18.0" />
          </font>
       </JFXButton>
-      <Label fx:id="report" alignment="CENTER" layoutX="198.0" layoutY="394.0" prefHeight="156.0" prefWidth="505.0" text="Label" wrapText="true">
-         <font>
-            <Font name="Courier New" size="18.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>
