@@ -29,7 +29,6 @@ public class PaymentThread extends Thread {
 
     @Override
     public void run() {
-        initCashier();
         while (!line.isEmpty()) {
             Costumer c = line.dequeue();
             int render = c.getShopBasket().size();
@@ -48,7 +47,6 @@ public class PaymentThread extends Thread {
                         AuxThread aux = new AuxThread(c, nController, pController);
                         aux.start();
                     }
-
                 }
             });
             try {

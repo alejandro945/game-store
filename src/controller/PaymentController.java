@@ -57,6 +57,7 @@ public class PaymentController {
 
     @FXML
     public void end(ActionEvent event) {
+        repor = "";
         GameStoreGUI.getInstance().renderScreen(Route.WELCOME);
     }
 
@@ -110,7 +111,6 @@ public class PaymentController {
     }
 
     private void addCashier(Cashier c) throws IOException {
-        c.newPack();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(Route.NODE_CASHIER.getRoute()));
         NodeController controller = new NodeController();
         fxmlLoader.setController(controller);

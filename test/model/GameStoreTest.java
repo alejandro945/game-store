@@ -2,9 +2,9 @@ package model;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 class GameStoreTest {
 
@@ -87,7 +87,7 @@ class GameStoreTest {
 
         boolean added = gameStore.verifyRepeatCostumer("Pepito");
 
-        assertEquals(added, true, "The costumer already exist in the game store");
+        assertEquals(added, "The costumer already exist in the game store");
     }
 
 }
