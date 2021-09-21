@@ -4,25 +4,30 @@
 
 # Identity Games Software 🎮 ![Status badge](https://img.shields.io/badge/status-in%20progress-yellow)
 
-Identity Games aims to show a new functionality for organizing shelves with video games and some automated baskets created to help consumers find their video games
+Identity Games aims to show a new functionality for organizing shelves with video games and some automated baskets created to help consumers find their video games.
 
 This application allows users to choose their games and analyze the available units of each one, there will also be an approach to the best possible getting games route, accompanied by an automated basket that helps costumers to take their games in each store shelve. Finally a payment section awaits them to terminate thier instance within the store.
 
-This version was created by Alejandro Varela, Luis Murcia and Gabriel suarez. The interesting about the work, is the application code use a varitie of java tools like collections an data structures, but also the team create their owns structures for futures implementations.
+This version was created by Alejandro Varela, Luis Murcia and Gabriel Suarez. The interesting about the work, is the application code use a varitie of java tools like collections ands data structures, but also the team create their owns structures for futures implementations.
 
 ## Sections 🧩
+```
+Costumer entrance
+```
+```
+Getting the best game route
+```
+```
+Taking your Games into basket
+```
+```
+Payment 
+```
+```
+Costumer
+```
 
-#### Costumer entrance
-
-#### Getting the best game route
-
-#### Taking your Games into basket
-
-#### Payment 
-
-#### Costumer
-
-### Changelog 
+## Changelog 🎯
 
 #### Version 1
 * PSP0 report
@@ -39,65 +44,66 @@ This version was created by Alejandro Varela, Luis Murcia and Gabriel suarez. Th
 * Project description
 * Readme
 
-### Pre-requirements 💥
+## Pre-requirements 💥
 ```
 You need JDK 1.8_261
 ```
 
-** Clarifications: ** By default the software handles a set of data that is found in data root directory.
+Clarifications: By default the software handles a set of data that is found in data root directory.
 
-### Data persistence 🔩
+## Data persistence 🔩
 
 _We handle binary files with all the current information on your system_
 
 ```
-Check the general file in data -IndentyGames.data. **Note** that is a binary file.
+Check the general file in data -IndentyGames.data.Note that is a binary file.
 ```
 
 ## Documentation 📃
-**Don´t hesitate 
 
-* click here ➡️ [Engineering Method](https://github.com/alejandro945/game-store/blob/master/docs/ENGINEERING%20METHOD.pdf)
+* Click here ➡️ [Engineering Method](https://github.com/alejandro945/game-store/blob/master/docs/ENGINEERING%20METHOD.pdf)
 
-* click here ➡️ [Requirements](https://github.com/alejandro945/game-store/blob/master/docs/FUNCTIONAL%20REQUIREMENTS%20.pdf)
+* Click here ➡️ [Requirements](https://github.com/alejandro945/game-store/blob/master/docs/FUNCTIONAL%20REQUIREMENTS%20.pdf)
 
 ## Main Screen 🚀
 * <b>Principle Screen</b> <br><br>
-![ScreenShot](https://github.com/alejandro945/game-store/tree/master/src/ui/assets/images/screens/init.png)<br><br>
+![ScreenShot](https://github.com/alejandro945/game-store/blob/master/src/ui/assets/images/screens/init.png)<br><br>
 
-## E-Commerce 
+## E-Commerce 🎲
 
 * <b>Select your favorites games</b> <br><br>
-![ScreenShot](https://github.com/alejandro945/game-store/tree/master/src/ui/assets/images/screens/e-commerce.png)<br><br>
+![ScreenShot](https://github.com/alejandro945/game-store/blob/master/src/ui/assets/images/screens/e-commerce.png)<br><br>
 * <b>Get into the game store</b> <br><br>
-![ScreenShot](https://github.com/alejandro945/game-store/tree/master/src/ui/assets/images/screens/costumer.png)<br><br>
+![ScreenShot](https://github.com/alejandro945/game-store/blob/master/src/ui/assets/images/screens/costumer.png)<br><br>
 
-### Store Administrator
+## Store Administrator 👤
 
 * <b>Login</b> <br><br>
-![ScreenShot](https://github.com/alejandro945/game-store/tree/master/src/ui/assets/images/screens/login.png)<br><br>
+![ScreenShot](https://github.com/alejandro945/game-store/blob/master/src/ui/assets/images/screens/login.png)<br><br>
 
 * <b>Dashboard</b> <br><br>
-![ScreenShot](https://github.com/alejandro945/game-store/tree/master/src/ui/assets/images/screens/dashboard.png)<br><br>
+![ScreenShot](https://github.com/alejandro945/game-store/blob/master/src/ui/assets/images/screens/dashboard.png)<br><br>
+
+## Store Sections 🛒
 
 ### Section 1
 
 * <b>Store Entrance</b> <br><br>
-![ScreenShot](https://github.com/alejandro945/game-store/tree/master/src/ui/assets/images/screens/section1.png)<br><br>
+![ScreenShot](https://github.com/alejandro945/game-store/blob/master/src/ui/assets/images/screens/section1.png)<br><br>
 
 ### Section 2 
 
 * <b>List wish Sorting</b> <br><br>
-![ScreenShot](https://github.com/alejandro945/game-store/tree/master/src/ui/assets/images/screens/section2.png)<br><br>
+![ScreenShot](https://github.com/alejandro945/game-store/blob/master/src/ui/assets/images/screens/section2.png)<br><br>
 
 ### Section 3
 * <b>Getting your Games </b> <br><br>
-![ScreenShot](https://github.com/alejandro945/game-store/tree/master/src/ui/assets/images/screens/section3.png)<br><br>
+![ScreenShot](https://github.com/alejandro945/game-store/blob/master/src/ui/assets/images/screens/section3.png)<br><br>
 
 ### Section 4
 
 * <b>Payment in Real Time</b> <br><br>
-![ScreenShot](https://github.com/alejandro945/game-store/tree/master/src/ui/assets/images/screens/section4.png)<br><br>
+![ScreenShot](https://github.com/alejandro945/game-store/blob/master/src/ui/assets/images/screens/section4.png)<br><br>
 
 
 
