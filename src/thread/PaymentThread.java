@@ -21,8 +21,6 @@ public class PaymentThread extends Thread {
 
     private void initCashier() {
         nController.getCashier().newPack();
-        nController.setPack("");
-        nController.setToPay(0);
         nController.getCashier().setPayment(0);
         nController.getCashier().setBusy(true);
     }

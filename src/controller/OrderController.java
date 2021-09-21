@@ -110,7 +110,7 @@ public class OrderController {
             addCostumer(c, 2);
             count++;
         }
-        lineR.setMinWidth(lineR.getWidth()+(150*count));
+        lineR.setMinWidth(lineR.getWidth()+(160*count));
     }
 
     public List<Costumer> getArray() throws IOException {

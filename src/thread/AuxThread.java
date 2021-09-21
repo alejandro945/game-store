@@ -11,14 +11,17 @@ public class AuxThread extends Thread {
     private NodeController nController;
     PaymentController pController;
 
-    public AuxThread(Costumer c, NodeController nController,PaymentController pController) {
+    public AuxThread(Costumer c, NodeController nController, PaymentController pController) {
         this.c = c;
         this.nController = nController;
         this.pController = pController;
     }
 
     private void report() {
-            pController.setReport(c.getId()+" "+nController.getCashier().getToPay() + "\n"+ nController.getCashier().getPack().getInfo()+"\n");
+        pController.setReport(c.getId() + " " + nController.getCashier().getToPay() + "\n"
+                + nController.getCashier().getPack().getInfo() + "\n");
+        nController.setPack("");
+        nController.setToPay(0);
     }
 
     @Override
@@ -33,18 +36,20 @@ public class AuxThread extends Thread {
                 @Override
                 public void run() {
                     Game g = c.getShopBasket().pop();
-                    if(g!=null /*&& g.validateInventory()*/){
+                    if (g != null /* && g.validateInventory() */) {
                         nController.getCashier().getPack().push(g);
                         nController.setPack(nController.getCashier().getPack().getInfo());
                         nController.getCashier().setToPay(g.getPrice());
                         nController.setToPay(nController.getCashier().getToPay());
+                        nController.setCurrent(c);
                         g.purchase();
                         if (c.getShopBasket().isEmpty()) {
                             report();
                             nController.getCashier().setBusy(false);
                             nController.setCashier(nController.getCashier());
+                            nController.setCurrent(null);
                         }
-                    }             
+                    }
                 }
             });
         }

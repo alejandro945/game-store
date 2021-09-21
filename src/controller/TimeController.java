@@ -127,7 +127,7 @@ public class TimeController {
             addCostumer(c, 2);
             count++;
         }
-        lineR.setMinWidth(lineR.getWidth() + (150 * count));
+        lineR.setMinWidth(lineR.getWidth() + (170 * count));
     }
 
     @FXML

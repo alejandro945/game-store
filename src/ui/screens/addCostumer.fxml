@@ -51,7 +51,7 @@
                      </font></JFXTextField>
                </children>
             </Pane>
-            <Label layoutX="176.0" layoutY="30.0" text="Do you want to confirm your list wish?" textFill="#2a35eb">
+            <Label layoutX="176.0" layoutY="30.0" text="Do you want to confirm your list wish?" textFill="#a4a4a4">
                <font>
                   <Font name="Courier New Bold Italic" size="24.0" />
                </font>

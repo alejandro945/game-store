@@ -24,7 +24,7 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="306.0" prefWidth="501.0">
                <children>
-                  <Label fx:id="report" alignment="CENTER" prefHeight="156.0" prefWidth="505.0" text="Label" wrapText="true">
+                  <Label fx:id="report" alignment="CENTER" prefHeight="302.0" prefWidth="505.0" text="Label" wrapText="true">
                      <font>
                         <Font name="Courier New" size="18.0" />
                      </font>

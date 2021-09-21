@@ -36,12 +36,12 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Label layoutX="391.0" layoutY="14.0" text="E - COMERCE" textFill="#2a35eb">
+                <Label layoutX="367.0" layoutY="14.0" text="E - COMERCE" textFill="#909090">
                     <font>
                         <Font name="Courier New Bold" size="42.0" />
                     </font>
                 </Label>
-                <Label layoutX="385.0" layoutY="56.0" text="The best games at your disposal" textFill="#2a35eb">
+                <Label layoutX="357.0" layoutY="56.0" text="The best games at your disposal" textFill="#727272">
                     <font>
                         <Font name="Courier New Italic" size="16.0" />
                     </font>

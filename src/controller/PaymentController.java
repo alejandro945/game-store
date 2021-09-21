@@ -97,7 +97,7 @@ public class PaymentController {
             addCashier(g.getCashiers()[i]);
             count++;
         }
-        lineR1.setMinWidth(lineR1.getWidth() + (90 * count));
+        lineR1.setMinWidth(lineR1.getWidth() + (100 * count));
     }
 
     private void addCostumer(Costumer c) throws IOException {

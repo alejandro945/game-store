@@ -88,7 +88,7 @@ public class StartController {
         for (Costumer costumer : cLine) {
             try {
                 addNode(costumer);
-                lineR.setMinWidth(lineR.getWidth()+40);
+                lineR.setMinWidth(lineR.getWidth()+150);
             } catch (IOException e) {
                 GameStoreGUI.getInstance().createAlert("Opps Screen not found it", Route.ERROR);
             }
