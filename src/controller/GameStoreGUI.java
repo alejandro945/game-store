@@ -117,6 +117,8 @@ public class GameStoreGUI {
                 return tController;
             case SECTION4:
                 return pController;
+            case CONGRATULATIONS:
+                return pController;
             default:
                 return null;
         }
@@ -151,6 +153,7 @@ public class GameStoreGUI {
     public void showPayment() throws IOException {
         pController.initPayment();
     }
+
 
     public Stage loadModal(Route route, Object controller) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(route.getRoute()));

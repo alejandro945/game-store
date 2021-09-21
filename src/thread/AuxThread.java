@@ -18,7 +18,7 @@ public class AuxThread extends Thread {
     }
 
     private void report() {
-            pController.setReport(nController.getCashier().getToPay() + "-");
+            pController.setReport(c.getCode()+" "+nController.getCashier().getToPay() + "\n"+ nController.getCashier().getPack().getInfo()+"\n");
     }
 
     @Override

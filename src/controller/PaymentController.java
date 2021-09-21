@@ -5,6 +5,7 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.geometry.Insets;
@@ -31,29 +32,44 @@ public class PaymentController {
     private HBox cashiers;
 
     @FXML
-    private Label report;
+    private Button next;
 
     @FXML
-    private Label rpt;
+    private Label report;
+
     private String repor = "";
 
-    public synchronized String getReport(){
+    public synchronized String getReport() {
         return repor;
     }
 
-    public synchronized void setReport(String rp){
+    public synchronized void setReport(String rp) {
         repor += rp;
-        rpt.setText(repor);
+    }
+
+    public void initCongratulations() {
+        report.setText(repor);
+    }
+
+    public void initBtn(){
+        next.setDisable(false);
     }
 
     @FXML
-    void end(ActionEvent event) {
-
+    public void end(ActionEvent event) {
+        GameStoreGUI.getInstance().renderScreen(Route.WELCOME);
     }
 
     public void initPayment() throws IOException {
         initLine();
         initCashiers();
+
+    }
+
+    @FXML
+    public void goNext(ActionEvent event) {
+        GameStoreGUI.getInstance().renderScreen(Route.CONGRATULATIONS);
+        initCongratulations();
     }
 
     public void initLine() throws IOException {
@@ -67,6 +83,7 @@ public class PaymentController {
             count++;
         }
         lineR.setMinWidth(lineR.getWidth() + (80 * count));
+        initBtn();
     }
 
     private void initCashiers() throws IOException {
@@ -103,7 +120,6 @@ public class PaymentController {
         cashiers.toBack();
         PaymentThread p = new PaymentThread(GameStoreGUI.getInstance().getGameStore().getLine(), controller, this);
         p.start();
-
     }
 
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXScrollPane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -20,19 +19,15 @@
             <Image url="@../assets/images/winners.png" />
          </image>
       </ImageView>
-      <JFXScrollPane layoutX="193.0" layoutY="399.0" prefHeight="127.0" prefWidth="514.0">
-         <children>
-            <Label fx:id="report" alignment="CENTER" prefHeight="97.0" prefWidth="505.0" text="Label" wrapText="true">
-               <font>
-                  <Font name="Courier New" size="18.0" />
-               </font>
-            </Label>
-         </children>
-      </JFXScrollPane>
       <JFXButton layoutX="334.0" layoutY="571.0" onAction="#end" prefHeight="27.0" prefWidth="233.0" styleClass="btn-flash" stylesheets="@../assets/styles/vendor.css" text="Finish Simulation">
          <font>
             <Font name="Courier New Bold Italic" size="18.0" />
          </font>
       </JFXButton>
+      <Label fx:id="report" alignment="CENTER" layoutX="198.0" layoutY="394.0" prefHeight="156.0" prefWidth="505.0" text="Label" wrapText="true">
+         <font>
+            <Font name="Courier New" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

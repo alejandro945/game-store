@@ -47,9 +47,6 @@ public class PaymentThread extends Thread {
                         }
                         AuxThread aux = new AuxThread(c, nController, pController);
                         aux.start();
-                        if(line.isEmpty()){
-                            System.out.println("hp");
-                        }
                     }
 
                 }
@@ -60,7 +57,6 @@ public class PaymentThread extends Thread {
                 e.printStackTrace();
             }
         }
-
     }
 
 }
