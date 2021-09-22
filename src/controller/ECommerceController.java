@@ -36,6 +36,9 @@ public class ECommerceController {
     private TableColumn<Game, Integer> tblPriceGame;
 
     @FXML
+    private TableColumn<Game, String> tblShelveGame;
+
+    @FXML
     private TableView<Game> tblGameWishClient;
 
     @FXML
@@ -49,6 +52,7 @@ public class ECommerceController {
 
     @FXML
     private TableColumn<Game, Integer> tblPriceGameClient;
+
 
     @FXML
     private Pane paneInformatión;
@@ -101,13 +105,21 @@ public class ECommerceController {
     }
 
     public void onTableGames() {
+        List<Game> dispGame = new ArrayList<>();
+        for (int i = 0; i<GameStoreGUI.getInstance().getGameStore().getGames().size(); i++){
+            if(GameStoreGUI.getInstance().getGameStore().getGames().get(i).getAmount() != 0){
+                dispGame.add(GameStoreGUI.getInstance().getGameStore().getGames().get(i));
+            }
+        }
+
         ObservableList<Game> gameList = FXCollections
-                .observableList(GameStoreGUI.getInstance().getGameStore().getGames());
+                .observableList(dispGame);
         tblGameWish.setItems(gameList);
         tblCodeGame.setCellValueFactory(new PropertyValueFactory<>("code"));
         tblNameGame.setCellValueFactory(new PropertyValueFactory<>("gameName"));
         tblReviewGame.setCellValueFactory(new PropertyValueFactory<>("review"));
         tblPriceGame.setCellValueFactory(new PropertyValueFactory<>("price"));
+        tblShelveGame.setCellValueFactory(new PropertyValueFactory<>("shelveName"));
     }
 
     public void disableBtnAddorRemove(int code) {

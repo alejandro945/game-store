@@ -21,10 +21,11 @@
             <children>
                 <TableView fx:id="tblGameWish" layoutX="46.0" layoutY="93.0" onMouseClicked="#onSelectGame" prefHeight="572.0" prefWidth="460.0" stylesheets="@../assets/styles/table.css">
                     <columns>
-                        <TableColumn fx:id="tblCodeGame" prefWidth="81.0" text="Code" />
-                        <TableColumn fx:id="tblNameGame" prefWidth="128.0" text="Game" />
-                        <TableColumn fx:id="tblReviewGame" prefWidth="156.0" text="Review" />
-                        <TableColumn fx:id="tblPriceGame" prefWidth="94.0" text="Price" />
+                        <TableColumn fx:id="tblCodeGame" prefWidth="61.0" text="Code" />
+                        <TableColumn fx:id="tblNameGame" prefWidth="108.0" text="Game" />
+                        <TableColumn fx:id="tblReviewGame" prefWidth="109.0" text="Review" />
+                        <TableColumn fx:id="tblPriceGame" prefWidth="86.0" text="Price" />
+                  <TableColumn fx:id="tblShelveGame" prefWidth="95.0" text="Shelve" />
                     </columns>
                 </TableView>
                 <Button layoutX="78.0" layoutY="31.0" mnemonicParsing="false" onAction="#goBack" styleClass="btn-flash">

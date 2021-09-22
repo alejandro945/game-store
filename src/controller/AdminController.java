@@ -96,6 +96,7 @@ public class AdminController {
         tblReviewGames.setCellValueFactory(new PropertyValueFactory<>("review"));
         tblPriceGames.setCellValueFactory(new PropertyValueFactory<>("price"));
         tblAmountGames.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        tblShelveGames.setCellValueFactory(new PropertyValueFactory<>("shelveName"));
         tbGames.setItems(gameList);
         // Init Costumers Table
         ObservableList<Costumer> costumerList = FXCollections
@@ -151,6 +152,9 @@ public class AdminController {
 
     @FXML
     private TableColumn<?, ?> tblReviewGames;
+
+    @FXML
+    private TableColumn<?, ?> tblShelveGames;
 
     @FXML
     private JFXComboBox<String> comboAddGameToShelve;
