@@ -278,6 +278,17 @@ public class AdminController {
         return empty;
     }
 
+    public boolean shelveNameValidation(String name){
+        boolean out = false;
+        if(name.length() == 1){
+            int ascii = name.charAt(0);
+            if(ascii >= 33 && ascii <= 126){
+                out = true;
+            }
+        }
+        return out;
+    }
+
     public void trimShelve() {
         shelveName.setText("");
         rowsShelve.setText("");
@@ -296,12 +307,19 @@ public class AdminController {
             if (empty) {
                 GameStoreGUI.getInstance().createAlert("Please, complete all the fields", Route.WARNING);
             } else {
-                String msg = GameStoreGUI.getInstance().getGameStore().addShelve(shelveName.getText(),
-                        Integer.parseInt(rowsShelve.getText()));
-                GameStoreGUI.getInstance().createAlert(msg, Route.WARNING);
-                trimShelve();
-                getData();
-                cancelModalShelve(event);
+                if(shelveNameValidation(shelveName.getText())){
+                    String msg = GameStoreGUI.getInstance().getGameStore().addShelve(shelveName.getText(),
+                            Integer.parseInt(rowsShelve.getText()));
+                    GameStoreGUI.getInstance().createAlert(msg, Route.WARNING);
+                    trimShelve();
+                    getData();
+                    cancelModalShelve(event);
+                } else {
+                    GameStoreGUI.getInstance().createAlert("The shelve name must be only one character, " +
+                            "it must be between 33 and 126 according to ASCII.", Route.ERROR);
+                    trimShelve();
+                }
+
             }
         } catch (NumberFormatException e) {
             GameStoreGUI.getInstance().createAlert("Amount of rows in shelve must be a number", Route.ERROR);

@@ -146,7 +146,9 @@ public class OrderController {
     public boolean orderSelected(Costumer c) {
         boolean out = false;
         if (rbOrderInsertion.isSelected()) {
-            GameStoreGUI.getInstance().getGameStore().insertionSort(c);
+            for (int i = 0; i<2; i++){
+                GameStoreGUI.getInstance().getGameStore().selectionSort(c);
+            }
             out = true;
         } else if (rbOrderBubble.isSelected()) {
             GameStoreGUI.getInstance().getGameStore().bubbleSort(c);

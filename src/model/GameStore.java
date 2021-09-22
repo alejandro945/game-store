@@ -242,7 +242,7 @@ public class GameStore implements Serializable {
         c.setWishList(list);
     }
 
-    public void insertionSort(Costumer c) {
+    public void selectionSort(Costumer c) {
         ArrayList<Game> list = c.getWishList();
         for (int i = 0; i < list.size() - 1; i++) {
             Game minor = list.get(i);
@@ -257,8 +257,8 @@ public class GameStore implements Serializable {
                         cual = j;
                     }
                 } else if (s1.getNameShelve().compareTo(s2.getNameShelve()) > 0) {
-                    Game temp = list.get(i);
-                    list.set(i, list.get(j));
+                    Game temp = list.get(j-1);
+                    list.set(j-1, list.get(j));
                     list.set(j, temp);
                 }
             }
