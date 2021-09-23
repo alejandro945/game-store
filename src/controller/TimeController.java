@@ -97,7 +97,11 @@ public class TimeController {
     public void convertToStackGame(Costumer c) {
         IStack<Game> s = new Stack<>();
         for (Game g : c.getWishList()) {
-            s.push(g);
+            if(g.validateInventory()){
+                s.push(g);
+            }else{
+                GameStoreGUI.getInstance().createAlert("Sorry, " + g.getGameName() + " out of stock", Route.ERROR);
+            }
         }
         c.setShopBasket(s);
     }

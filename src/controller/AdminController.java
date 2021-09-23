@@ -211,7 +211,7 @@ public class AdminController {
     public void saveGame(ActionEvent event) {
         if (validateFields()) {
             try {
-                String msg = GameStoreGUI.getInstance().getGameStore().addGame(0,title.getText(), review.getText(),
+                String msg = GameStoreGUI.getInstance().getGameStore().addGame(0, title.getText(), review.getText(),
                         Integer.parseInt(price.getText()), comboAddGameToShelve.getValue(),
                         Integer.parseInt(amount.getText()));
                 if (msg.equals("Game added succesfully")) {
@@ -234,14 +234,11 @@ public class AdminController {
 
     @FXML
     public void editGame(ActionEvent event) {
-        GameStoreGUI.getInstance().getGameStore().removeGame(selectedG);
-        String msg = GameStoreGUI.getInstance().getGameStore().addGame(selectedG.getCode(), title.getText(), review.getText(),
-                Integer.parseInt(price.getText()), comboAddGameToShelve.getValue(), Integer.parseInt(amount.getText()));
-        if (msg.equals("Game added succesfully")) {
-            GameStoreGUI.getInstance().createAlert("Game edited succesfully", Route.SUCCESS);
-        } else {
-            GameStoreGUI.getInstance().createAlert(msg, Route.ERROR);
-        }
+        selectedG.setGameName(title.getText());
+        selectedG.setPrice(Integer.parseInt(price.getText()));
+        selectedG.setAmount(Integer.parseInt(amount.getText()));
+        selectedG.setReview(review.getText());
+        GameStoreGUI.getInstance().createAlert("Game edited succesfully", Route.SUCCESS);
         trimForm();
         getData();
         cancelModal(event);
@@ -278,11 +275,11 @@ public class AdminController {
         return empty;
     }
 
-    public boolean shelveNameValidation(String name){
+    public boolean shelveNameValidation(String name) {
         boolean out = false;
-        if(name.length() == 1){
+        if (name.length() == 1) {
             int ascii = name.charAt(0);
-            if(ascii >= 33 && ascii <= 126){
+            if (ascii >= 33 && ascii <= 126) {
                 out = true;
             }
         }
@@ -307,7 +304,7 @@ public class AdminController {
             if (empty) {
                 GameStoreGUI.getInstance().createAlert("Please, complete all the fields", Route.WARNING);
             } else {
-                if(shelveNameValidation(shelveName.getText())){
+                if (shelveNameValidation(shelveName.getText())) {
                     String msg = GameStoreGUI.getInstance().getGameStore().addShelve(shelveName.getText(),
                             Integer.parseInt(rowsShelve.getText()));
                     GameStoreGUI.getInstance().createAlert(msg, Route.WARNING);
@@ -315,8 +312,8 @@ public class AdminController {
                     getData();
                     cancelModalShelve(event);
                 } else {
-                    GameStoreGUI.getInstance().createAlert("The shelve name must be only one character, " +
-                            "it must be between 33 and 126 according to ASCII.", Route.ERROR);
+                    GameStoreGUI.getInstance().createAlert("The shelve name must be only one character, "
+                            + "it must be between 33 and 126 according to ASCII.", Route.ERROR);
                     trimShelve();
                 }
 
@@ -339,6 +336,12 @@ public class AdminController {
 
     @FXML
     private TableColumn<Costumer, String> tblGamesCostumers;
+
+    @FXML
+    public void cleanCostumers(ActionEvent event) {
+            GameStoreGUI.getInstance().getGameStore().getCostumers().clear();
+            getData();
+    }
 
     // ----------------------------------------CASHIERS----------------------------------------------
 
@@ -382,6 +385,7 @@ public class AdminController {
                         delete.setOnAction((ActionEvent event) -> {
                             selectedG = (Game) getTableRow().getItem();
                             GameStoreGUI.getInstance().getGameStore().removeGame(selectedG);
+                            cleanCostumers(event);
                             GameStoreGUI.getInstance().createAlert("The game was removed succesfully!", Route.SUCCESS);
                             getData();
                         });
@@ -420,7 +424,7 @@ public class AdminController {
         amount.setText(String.valueOf(selected.getAmount()));
         initComboShelves();
         comboAddGameToShelve.setValue(selected.getShelveName());
-        ;
+        comboAddGameToShelve.setDisable(true);
         edit.setVisible(true);
         save.setVisible(false);
     }

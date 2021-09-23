@@ -66,7 +66,7 @@ public class OrderController {
         if (orderSelected(getArray().get(clientOrder))) {
             clientOrder++;
             if (clientOrder < getArray().size()) {
-                addCostumer(getArray().get(clientOrder),1);
+                addCostumer(getArray().get(clientOrder), 1);
             } else {
                 btnNextClient.setDisable(true);
                 next.setDisable(false);
@@ -79,28 +79,28 @@ public class OrderController {
 
     public void initializaOrderClient() throws IOException {
         clientOrder = 0;
-        addCostumer(getArray().get(0),1);
+        addCostumer(getArray().get(0), 1);
         initShelves();
         initLine();
     }
 
-    private void initShelves() throws IOException{
+    private void initShelves() throws IOException {
         GameStore g = GameStoreGUI.getInstance().getGameStore();
         shevels.setSpacing(12);
         int count = 0;
         for (Shelve s : g.getShelves()) {
             for (int i = 0; i < s.getGameShelve().getMax(); i++) {
-                if(s.getGameShelve().getRack(i) != null){
+                if (s.getGameShelve().getRack(i) != null) {
                     String slot = s.getNameShelve() + " - " + i;
                     addRack(slot, s.getGameShelve().getRack(i));
                 }
                 count++;
             }
         }
-        shelveR.setMinHeight(shelveR.getHeight()+(50*count));
+        shelveR.setMinHeight(shelveR.getHeight() + (50 * count));
     }
 
-    private void initLine() throws IOException{
+    private void initLine() throws IOException {
         GameStore g = GameStoreGUI.getInstance().getGameStore();
         line.getChildren().clear();
         line.setPadding(new Insets(10));
@@ -110,7 +110,7 @@ public class OrderController {
             addCostumer(c, 2);
             count++;
         }
-        lineR.setMinWidth(lineR.getWidth()+(160*count));
+        lineR.setMinWidth(lineR.getWidth() + (160 * count));
     }
 
     public List<Costumer> getArray() throws IOException {
@@ -124,13 +124,13 @@ public class OrderController {
         fxmlLoader.setController(controller);
         Pane pane = fxmlLoader.load();
         controller.getCostumer(c);
-        if(type==1){
+        if (type == 1) {
             pInfoClient.getChildren().add(pane);
             pInfoClient.toBack();
-        }else{
+        } else {
             line.getChildren().add(pane);
             line.toBack();
-        }     
+        }
     }
 
     private void addRack(String slot, Game g) throws IOException {
@@ -138,7 +138,7 @@ public class OrderController {
         NodeController controller = new NodeController();
         fxmlLoader.setController(controller);
         Pane pane = fxmlLoader.load();
-        controller.getRack(slot,g);
+        controller.getRack(slot, g);
         shevels.getChildren().add(pane);
         shevels.toBack();
     }
@@ -146,9 +146,7 @@ public class OrderController {
     public boolean orderSelected(Costumer c) {
         boolean out = false;
         if (rbOrderInsertion.isSelected()) {
-            for (int i = 0; i<2; i++){
-                GameStoreGUI.getInstance().getGameStore().selectionSort(c);
-            }
+            GameStoreGUI.getInstance().getGameStore().selectionSort(c);
             out = true;
         } else if (rbOrderBubble.isSelected()) {
             GameStoreGUI.getInstance().getGameStore().bubbleSort(c);

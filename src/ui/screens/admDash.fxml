@@ -85,7 +85,7 @@
             <Font name="Courier New" size="17.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="630.0" layoutY="388.0" text="Costumers">
+      <Label layoutX="526.0" layoutY="388.0" text="Costumers">
          <font>
             <Font name="Courier New Bold" size="21.0" />
          </font>
@@ -108,5 +108,6 @@
       </Button>
       <Button layoutX="763.0" layoutY="84.0" mnemonicParsing="false" onAction="#createShelve" styleClass="btn-create" stylesheets="@../assets/styles/table.css" text="Create" textFill="WHITE" />
       <Button layoutX="313.0" layoutY="270.0" mnemonicParsing="false" onAction="#createGame" styleClass="btn-create" stylesheets="@../assets/styles/table.css" text="Create" textFill="WHITE" />
+      <Button fx:id="delete" layoutX="772.0" layoutY="386.0" mnemonicParsing="false" onAction="#cleanCostumers" stylesheets="@../assets/styles/table.css" text="Clean" textFill="WHITE" />
    </children>
 </AnchorPane>

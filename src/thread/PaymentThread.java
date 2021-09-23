@@ -48,7 +48,7 @@ public class PaymentThread extends Thread {
                 }
             });
             try {
-                Thread.sleep(4200 * render);
+                Thread.sleep(3600 * render);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

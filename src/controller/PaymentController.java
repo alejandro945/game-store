@@ -52,7 +52,16 @@ public class PaymentController {
     }
 
     public void initBtn(){
-        next.setDisable(false);
+        boolean render = true;
+        Cashier[] c = GameStoreGUI.getInstance().getGameStore().getCashiers();
+        for (int i = 0; i < c.length; i++) {
+            if(c[i].isBusy()){
+                render=false;
+            }
+        }
+        if(render){
+            next.setDisable(false);
+        }
     }
 
     @FXML
@@ -64,7 +73,6 @@ public class PaymentController {
     public void initPayment() throws IOException {
         initLine();
         initCashiers();
-
     }
 
     @FXML
@@ -84,7 +92,6 @@ public class PaymentController {
             count++;
         }
         lineR.setMinWidth(lineR.getWidth() + (80 * count));
-        initBtn();
     }
 
     private void initCashiers() throws IOException {
