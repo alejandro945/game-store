@@ -24,7 +24,7 @@ import java.util.List;
 public class OrderController {
 
     @FXML
-    private JFXRadioButton rbOrderInsertion;
+    private JFXRadioButton rbOrderSelection;
 
     @FXML
     private ToggleGroup Order;
@@ -73,7 +73,7 @@ public class OrderController {
                 initLine();
             }
             rbOrderBubble.setSelected(false);
-            rbOrderInsertion.setSelected(false);
+            rbOrderSelection.setSelected(false);
         }
     }
 
@@ -145,7 +145,7 @@ public class OrderController {
 
     public boolean orderSelected(Costumer c) {
         boolean out = false;
-        if (rbOrderInsertion.isSelected()) {
+        if (rbOrderSelection.isSelected()) {
             for (int i = 0; i<2; i++){
                 GameStoreGUI.getInstance().getGameStore().selectionSort(c);
             }
