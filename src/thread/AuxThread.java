@@ -28,7 +28,7 @@ public class AuxThread extends Thread {
     public void run() {
         while (!c.getShopBasket().isEmpty()) {
             try {
-                Thread.sleep(3800);
+                Thread.sleep(3200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -36,7 +36,7 @@ public class AuxThread extends Thread {
                 @Override
                 public void run() {
                     Game g = c.getShopBasket().pop();
-                    if (g != null /* && g.validateInventory() */) {
+                    if (g != null) {
                         nController.getCashier().getPack().push(g);
                         nController.setPack(nController.getCashier().getPack().getInfo());
                         nController.getCashier().setToPay(g.getPrice());
@@ -48,6 +48,7 @@ public class AuxThread extends Thread {
                             nController.getCashier().setBusy(false);
                             nController.setCashier(nController.getCashier());
                             nController.setCurrent(null);
+                            pController.initBtn();
                         }
                     }
                 }

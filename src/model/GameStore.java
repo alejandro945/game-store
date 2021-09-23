@@ -244,21 +244,21 @@ public class GameStore implements Serializable {
 
     public void selectionSort(Costumer c) {
         ArrayList<Game> list = c.getWishList();
-        for (int i = 0; i < list.size() - 1; i++) {
+        for (int i = 0; i < list.size(); i++) {
             Game minor = list.get(i);
             int cual = i;
             for (int j = i + 1; j < list.size(); j++) {
                 Shelve s1 = searchShelve(list.get(i).getShelveName());
                 Shelve s2 = searchShelve(list.get(j).getShelveName());
                 if (s1.getNameShelve().compareTo(s2.getNameShelve()) == 0) {
-                    if (s1.getGameShelve().getIndexInTable(list.get(j).getCode()) < s1.getGameShelve()
+                    if (s2.getGameShelve().getIndexInTable(list.get(j).getCode()) < s1.getGameShelve()
                             .getIndexInTable(list.get(i).getCode())) {
                         minor = list.get(j);
                         cual = j;
                     }
                 } else if (s1.getNameShelve().compareTo(s2.getNameShelve()) > 0) {
-                    Game temp = list.get(j-1);
-                    list.set(j-1, list.get(j));
+                    Game temp = list.get(i);
+                    list.set(i, list.get(j));
                     list.set(j, temp);
                 }
             }
