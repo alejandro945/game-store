@@ -20,36 +20,24 @@ public class StackTest {
     }
 
     @Test
-    public void pushItems() {
+    public void pushAndPopItems() {
         Stack<Game> stack1 = setUpScenary1();
         Game game1 = new Game(1, "Clash of clans", "Fun", 40000, "A", 10);
         Game game2 = new Game(2, "Clash Royale", "Fun", 20000, "A", 20);
         stack1.push(game1);
         stack1.push(game2);
 
-        boolean render = false;
-        if (!stack1.isEmpty()) {
-            render = true;
-        }
-        assertEquals(render, true);
-
         assertEquals(game2, stack1.pop());
         assertEquals(game1, stack1.pop());
     }
 
     @Test
-    public void pushItems2() {
+    public void pushAndPopItems2() {
         Stack<Game> stack2 = setUpScenary2();
         Game game1 = null;
         Game game2 = new Game(2, "Clash Royale", "Fun", 20000, "A", 20);
         stack2.push(game1);
         stack2.push(game2);
-
-        boolean render = false;
-        if (!stack2.isEmpty()) {
-            render = true;
-        }
-        assertTrue(render);
 
         assertEquals(game2, stack2.pop());
         assertEquals(game1, stack2.pop());
@@ -71,16 +59,92 @@ public class StackTest {
 
     @Test
     public void isEmpty2() {
+        Stack<Game> stackr = setUpScenary1();
+        Game game = null;
+        stackr.push(game);
+
+        boolean founded = stackr.isEmpty();
+
+        assertEquals(true, founded);
+    }
+
+    @Test
+    public void size() {
         Stack<Game> stack1 = setUpScenary1();
-        Game game1 = null;
+        Game game1 = new Game(1, "Clash of clans", "Fun", 40000, "A", 10);
         Game game2 = new Game(2, "Clash Royale", "Fun", 20000, "A", 20);
 
         stack1.push(game1);
         stack1.push(game2);
 
-        boolean founded = stack1.isEmpty();
+        int size = stack1.size();
 
-        assertEquals(founded, false);
+        assertEquals(size, 2);
+    }
+
+    @Test
+    public void size2() {
+        Stack<Game> stackr = setUpScenary1();
+        Game game = null;
+        stackr.push(game);
+
+        int size = stackr.size();
+
+        assertEquals(size, 0);
+    }
+
+    @Test
+    public void top() {
+        Stack<Game> stack1 = setUpScenary1();
+        Game game1 = new Game(1, "Clash of clans", "Fun", 40000, "A", 10);
+        Game game2 = new Game(2, "Clash Royale", "Fun", 20000, "A", 20);
+
+        stack1.push(game1);
+        stack1.push(game2);
+
+        Game gameToCompare = stack1.top();
+
+        assertEquals(gameToCompare, game2);
+
+    }
+
+    @Test
+    public void top2() {
+        Stack<Game> stackr = setUpScenary1();
+        Game game = null;
+        stackr.push(game);
+
+        Game gameToCompare = stackr.top();
+
+        assertEquals(gameToCompare, game);
+
+    }
+
+    @Test
+    public void getInfo() {
+        Stack<Game> stack1 = setUpScenary1();
+        Game game1 = new Game(1, "Clash of clans", "Fun", 40000, "A", 10);
+        Game game2 = new Game(2, "Clash Royale", "Fun", 20000, "A", 20);
+
+        stack1.push(game1);
+        stack1.push(game2);
+
+        String gameToCompare = stack1.getInfo();
+
+        assertEquals(gameToCompare, 2 - 1);
+
+    }
+
+    @Test
+    public void getInfo2() {
+        Stack<Game> stackr = setUpScenary1();
+        Game game = null;
+        stackr.push(game);
+
+        String gameToCompare = stackr.getInfo();
+
+        assertEquals(gameToCompare, "");
+
     }
 
 }

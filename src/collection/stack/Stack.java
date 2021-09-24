@@ -24,7 +24,7 @@ public class Stack<T> implements IStack<T>, Serializable {
 
     @Override
     public boolean isEmpty() {
-        return (top == null);
+        return (top == null || top.getData() == null);
     }
 
     @Override
@@ -71,7 +71,7 @@ public class Stack<T> implements IStack<T>, Serializable {
         String msg = "";
         Node<T> aux = top;
         while (aux != null) {
-            msg += aux.getData()+"-";
+            msg += aux.getData() + "-";
             aux = aux.getNext();
         }
         return msg;

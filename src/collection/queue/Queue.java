@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Queue<T> implements IQueue<T>,Serializable {
+public class Queue<T> implements IQueue<T>, Serializable {
 
     private Node<T> front;
 
@@ -30,7 +30,7 @@ public class Queue<T> implements IQueue<T>,Serializable {
 
     @Override
     public synchronized boolean isEmpty() {
-        return (front == null);
+        return (front == null || front.getData() == null);
     }
 
     @Override
@@ -68,7 +68,7 @@ public class Queue<T> implements IQueue<T>,Serializable {
     public List<T> convertQueueToArr() {
         Node<T> aux = front;
         List<T> temp = new ArrayList<>();
-        while(aux != null){
+        while (aux != null) {
             temp.add(aux.getData());
             aux = aux.getBack();
         }
@@ -80,7 +80,6 @@ public class Queue<T> implements IQueue<T>,Serializable {
         front = null;
     }
 
-
     @Override
     public T getLast() {
         return getLast(front).getData();
@@ -91,14 +90,12 @@ public class Queue<T> implements IQueue<T>,Serializable {
         boolean found = false;
         Node<T> aux = front;
         while (aux != null && !found) {
-            if(aux.getData().equals(elem)){
+            if (aux.getData().equals(elem)) {
                 found = true;
             }
             aux = aux.getBack();
         }
         return found;
     }
-
-    
 
 }
