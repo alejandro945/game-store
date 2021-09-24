@@ -59,13 +59,13 @@ public class StackTest {
 
     @Test
     public void isEmpty2() {
-        Stack<Game> stackr = setUpScenary1();
+        Stack<Game> stackr = setUpScenary2();
         Game game = null;
         stackr.push(game);
 
         boolean founded = stackr.isEmpty();
 
-        assertEquals(true, founded);
+        assertEquals(founded, true);
     }
 
     @Test
@@ -110,7 +110,7 @@ public class StackTest {
 
     @Test
     public void top2() {
-        Stack<Game> stackr = setUpScenary1();
+        Stack<Game> stackr = setUpScenary2();
         Game game = null;
         stackr.push(game);
 
@@ -137,7 +137,7 @@ public class StackTest {
 
     @Test
     public void getInfo2() {
-        Stack<Game> stackr = setUpScenary1();
+        Stack<Game> stackr = setUpScenary2();
         Game game = null;
         stackr.push(game);
 
