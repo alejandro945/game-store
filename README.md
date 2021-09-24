@@ -27,7 +27,7 @@ Taking your Games into basket
 Payment 
 ```
 ```
-Costumer
+Report
 ```
 
 ## Changelog 🎯
