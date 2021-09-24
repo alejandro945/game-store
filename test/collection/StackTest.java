@@ -3,11 +3,11 @@ package collection;
 import model.Game;
 import collection.stack.*;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Test;
 
-class StackTest {
+public class StackTest {
 
     public Stack<Game> setUpScenary1() {
         Stack<Game> stack1 = new Stack<>();
@@ -31,7 +31,7 @@ class StackTest {
         if (!stack1.isEmpty()) {
             render = true;
         }
-        assertTrue(render);
+        assertEquals(render, true);
 
         assertEquals(game2, stack1.pop());
         assertEquals(game1, stack1.pop());
@@ -56,7 +56,7 @@ class StackTest {
     }
 
     @Test
-    public void searchItems() {
+    public void isEmpty() {
         Stack<Game> stack1 = setUpScenary1();
         Game game1 = new Game(1, "Clash of clans", "Fun", 40000, "A", 10);
         Game game2 = new Game(2, "Clash Royale", "Fun", 20000, "A", 20);
@@ -70,7 +70,7 @@ class StackTest {
     }
 
     @Test
-    public void searchItems2() {
+    public void isEmpty2() {
         Stack<Game> stack1 = setUpScenary1();
         Game game1 = null;
         Game game2 = new Game(2, "Clash Royale", "Fun", 20000, "A", 20);
