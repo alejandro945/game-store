@@ -90,7 +90,7 @@ public class QueueTest {
 
         boolean founded = queue2.isEmpty();
 
-        assertEquals(founded, true);
+        assertEquals(true, founded);
     }
 
     @Test
@@ -162,7 +162,7 @@ public class QueueTest {
 
         int size = queue1.size();
 
-        assertEquals(size, 2);
+        assertEquals(2, size);
     }
 
     @Test
@@ -175,7 +175,7 @@ public class QueueTest {
 
         int size = queue2.size();
 
-        assertEquals(size, 0);
+        assertEquals(0, size);
     }
 
     @Test
@@ -197,8 +197,8 @@ public class QueueTest {
         boolean founded = queue1.search(costumer1);
         boolean founded2 = queue1.search(costumer2);
 
-        assertEquals(founded, true);
-        assertEquals(founded2, true);
+        assertEquals(true, founded);
+        assertEquals(true, founded2);
     }
 
     @Test
@@ -219,8 +219,8 @@ public class QueueTest {
         boolean founded = queue2.search(costumer1);
         boolean founded2 = queue2.search(costumer2);
 
-        assertEquals(founded, false);
-        assertEquals(founded2, true);
+        assertEquals(false, founded);
+        assertEquals(true, founded2);
 
     }
 
@@ -244,7 +244,7 @@ public class QueueTest {
 
         boolean render = queue1.isEmpty();
 
-        assertEquals(render, true);
+        assertEquals(true, render);
     }
 
     @Test
@@ -264,7 +264,7 @@ public class QueueTest {
 
         boolean render = queue2.isEmpty();
 
-        assertEquals(render, true);
+        assertEquals(true, render);
 
     }
 }

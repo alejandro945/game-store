@@ -3,6 +3,7 @@ package collection.hashTable;
 import java.io.Serializable;
 
 public class Hash<K, V> implements IHash<K, V>, Serializable {
+
     private Node<K, V>[] racks;
     private int currentSize, maxSize;
 

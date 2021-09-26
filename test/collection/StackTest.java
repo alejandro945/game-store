@@ -79,7 +79,7 @@ public class StackTest {
 
         int size = stack1.size();
 
-        assertEquals(size, 2);
+        assertEquals(2, size);
     }
 
     @Test
@@ -90,7 +90,7 @@ public class StackTest {
 
         int size = stackr.size();
 
-        assertEquals(size, 0);
+        assertEquals(0, size);
     }
 
     @Test
