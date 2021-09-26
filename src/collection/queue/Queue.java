@@ -89,7 +89,7 @@ public class Queue<T> implements IQueue<T>, Serializable {
     public boolean search(T elem) {
         boolean found = false;
         Node<T> aux = front;
-        while (aux != null && !found) {
+        while (aux != null && !found && elem != null) {
             if (aux.getData().equals(elem)) {
                 found = true;
             }

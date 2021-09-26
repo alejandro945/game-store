@@ -88,9 +88,9 @@ public class StackTest {
         Game game = null;
         stackr.push(game);
 
-        int size = stackr.size();
+        boolean render = stackr.isEmpty();
 
-        assertEquals(0, size);
+        assertEquals(true, render);
     }
 
     @Test
@@ -131,19 +131,7 @@ public class StackTest {
 
         String gameToCompare = stack1.getInfo();
 
-        assertEquals(gameToCompare, 2 - 1);
-
-    }
-
-    @Test
-    public void getInfo2() {
-        Stack<Game> stackr = setUpScenary2();
-        Game game = null;
-        stackr.push(game);
-
-        String gameToCompare = stackr.getInfo();
-
-        assertEquals(gameToCompare, "");
+        assertEquals("2-1-", gameToCompare);
 
     }
 

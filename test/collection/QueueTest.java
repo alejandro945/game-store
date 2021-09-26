@@ -119,9 +119,11 @@ public class QueueTest {
 
         Costumer costumer1 = null;
 
+        queue1.enqueue(costumer1);
+
         Costumer costumerToCompare = queue1.front();
 
-        assertEquals(costumerToCompare, costumer1);
+        assertEquals(null, costumerToCompare);
 
     }
 
@@ -173,9 +175,9 @@ public class QueueTest {
         Costumer costumer1 = null;
         queue2.enqueue(costumer1);
 
-        int size = queue2.size();
+        boolean render = queue2.isEmpty();
 
-        assertEquals(0, size);
+        assertEquals(true, render);
     }
 
     @Test
@@ -212,15 +214,12 @@ public class QueueTest {
         Queue<Costumer> queue2 = setUpScenary1();
 
         Costumer costumer1 = null;
-        Costumer costumer2 = new Costumer(2, "123", "Pedro", games);
+
         queue2.enqueue(costumer1);
-        queue2.enqueue(costumer2);
 
         boolean founded = queue2.search(costumer1);
-        boolean founded2 = queue2.search(costumer2);
 
         assertEquals(false, founded);
-        assertEquals(true, founded2);
 
     }
 
