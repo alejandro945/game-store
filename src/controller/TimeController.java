@@ -99,6 +99,7 @@ public class TimeController {
         for (Game g : c.getWishList()) {
             if(g.validateInventory()){
                 s.push(g);
+                g.purchase();
             }else{
                 GameStoreGUI.getInstance().createAlert("Sorry, " + g.getGameName() + " out of stock", Route.ERROR);
             }
@@ -128,8 +129,10 @@ public class TimeController {
         line.setSpacing(12);
         int count = 0;
         for (Costumer c : g.getLine().convertQueueToArr()) {
-            addCostumer(c, 2);
-            count++;
+            if(c.getShopBasket().top() != null){
+                addCostumer(c, 2);
+                count++;
+            }     
         }
         lineR.setMinWidth(lineR.getWidth() + (170 * count));
     }

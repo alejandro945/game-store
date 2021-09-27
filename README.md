@@ -45,7 +45,7 @@ Report
 * Screens modals
 * Screens and navigation done
 * Project description
-* Readme
+* Read me
 
 ## Pre-requirements 💥
 ```
@@ -79,7 +79,7 @@ Check the general file in data -IndentyGames.data.Note that is a binary file.
 * <b>Get into the game store</b> <br><br>
 ![ScreenShot](https://github.com/alejandro945/game-store/blob/master/src/ui/assets/images/screens/costumer.png)<br><br>
 
-## Store Administrator 👤
+## Store Administrator 👤 (User: Root, Password: Root)
 
 * <b>Login</b> <br><br>
 ![ScreenShot](https://github.com/alejandro945/game-store/blob/master/src/ui/assets/images/screens/login.png)<br><br>

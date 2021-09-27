@@ -42,7 +42,6 @@ public class AuxThread extends Thread {
                         nController.getCashier().setToPay(g.getPrice());
                         nController.setToPay(nController.getCashier().getToPay());
                         nController.setCurrent(c);
-                        g.purchase();
                         if (c.getShopBasket().isEmpty()) {
                             report();
                             nController.getCashier().setBusy(false);
