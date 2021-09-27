@@ -5,7 +5,7 @@
 <h2> Welcome to our proyect! <img src="https://github.com/ABSphreak/ABSphreak/blob/master/gifs/Hi.gif" width="30px"></h2>
 </div>
 
-# Identity Games Software 🎮 ![Status badge](https://img.shields.io/badge/status-in%20progress-yellow)
+# Identity Games Software 🎮 ![Status badge](https://img.shields.io/badge/finished-red)
 
 Identity Games aims to show a new functionality for organizing shelves with video games and some automated baskets created to help consumers find their video games.
 
